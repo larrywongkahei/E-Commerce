@@ -21,7 +21,7 @@ namespace E_commerce.Service
         {
             get
             {
-                return Path.Combine(WebHostEnvironment.WebRootPath, "Data", "MockData.json");
+                return Path.Combine(WebHostEnvironment.WebRootPath, "data", "MockData.json");
             }
         }
 
@@ -32,7 +32,7 @@ namespace E_commerce.Service
                 return JsonSerializer.Deserialize<Products[]>(fileReader.ReadToEnd(),
                     new JsonSerializerOptions
                     {
-                        PropertyNameCaseInsensitive = false
+                        PropertyNameCaseInsensitive = true
                     }
                 );
             }

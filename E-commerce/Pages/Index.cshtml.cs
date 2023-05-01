@@ -18,19 +18,18 @@ namespace E_commerce.Pages
 
         public IEnumerable<Products> Products { get; private set; }
 
-        public IndexModel(ILogger<IndexModel> logger, JsonFileService ProductService)
+        public IndexModel(ILogger<IndexModel> logger, JsonFileService productService)
 
 
 
         {
             _logger = logger;
-            this.ProductService = ProductService;
+            ProductService = productService;
         }
 
         public void OnGet()
         {
             Products = ProductService.GetAll();
-
         }
     }
 }
