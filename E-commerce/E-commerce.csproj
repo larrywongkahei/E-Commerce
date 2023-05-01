@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Model\" />
+    <None Remove="Service\" />
+  </ItemGroup>
+  <ItemGroup>
     <None Update="app.db" CopyToOutputDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
   </ItemGroup>
 
@@ -20,4 +24,8 @@
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.26" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Model\" />
+    <Folder Include="Service\" />
+  </ItemGroup>
 </Project>
