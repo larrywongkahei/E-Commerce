@@ -12,6 +12,7 @@ using E_commerce.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using E_commerce.Service;
 
 namespace E_commerce
 {
@@ -33,6 +34,7 @@ namespace E_commerce
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddRazorPages();
+            services.AddTransient<JsonFileService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

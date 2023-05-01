@@ -27,5 +27,9 @@
   <ItemGroup>
     <Folder Include="Model\" />
     <Folder Include="Service\" />
+    <Folder Include="wwwroot\data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\data\" />
   </ItemGroup>
 </Project>
