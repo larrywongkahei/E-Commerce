@@ -43,6 +43,11 @@ a {
     overflow: hidden;
 }
 
+.card-title {
+    position: absolute;
+    bottom: 0;
+}
+
 
 /* Sticky footer styles
 -------------------------------------------------- */

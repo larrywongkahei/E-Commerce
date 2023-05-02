@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json;
 using System.Text.Json.Serialization;
@@ -21,9 +22,16 @@ namespace E_commerce.Model
         [JsonPropertyName("image")]
         public string Img { get; set; }
 
-        public object Rating { get; set; }
+        [JsonPropertyName("rating")]
+        public rating Rating { get; set; }
 
         public override string ToString() => JsonSerializer.Serialize<Products>(this);
 
     }
+    public class rating
+    {
+        public decimal rate { get; set; }
+        public int count { get; set; }
+
+}
 }

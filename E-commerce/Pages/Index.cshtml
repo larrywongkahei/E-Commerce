@@ -2,7 +2,6 @@
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
-
 }
 <div class="d-flex flex-row flex-wrap justify-content-between">
     @foreach (var product in Model.Products)
@@ -10,8 +9,23 @@
         <div class="card mb-3">
             <img class="card-img-top" src="@product.Img" />
             <div class="card-body">
-                <h3 class="card-title text-truncate"> £@product.Price</h3>
                 <p class="card-text"> @product.Title</p>
+                @*<p class="card-text">@product.Rating.rate<span>@product.Rating.count</span></p>*@
+                <p class="card-text">@product.Rating.rate</p>
+                <div>
+                    @for (var i = 0; i <= 5; i++)
+                    {
+                        if (i <= product.Rating.rate)
+                        {
+                            <span class="far fa-star"></span>
+                        }
+                        else
+                        {
+                            <span class="far fa-star"></span>
+                        }
+                    }
+                </div>
+                <h5 class="card-title text-truncate"> £@product.Price</h5>
             </div>
         </div>
     }
