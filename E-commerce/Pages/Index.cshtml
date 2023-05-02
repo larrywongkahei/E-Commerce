@@ -4,14 +4,16 @@
     ViewData["Title"] = "Home page";
 
 }
+<div class="d-flex flex-row flex-wrap justify-content-between">
+    @foreach (var product in Model.Products)
+    {
+        <div class="card mb-3">
+            <img class="card-img-top" src="@product.Img" />
+            <div class="card-body">
+                <h3 class="card-title text-truncate"> £@product.Price</h3>
+                <p class="card-text"> @product.Title</p>
+            </div>
+        </div>
+    }
 
-
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
-
-@foreach ( var product in Model.Products)
-            {
-                <h1> @product.Title</h1>
-            }
