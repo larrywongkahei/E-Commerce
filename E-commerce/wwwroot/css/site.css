@@ -59,11 +59,14 @@ a {
 
 .category {
     background-color:#071111;
-    color: white;
 }
 
 .category2 {
     background-color: #232f3e;
+}
+
+nav a {
+    color: white !important;
 }
 
 

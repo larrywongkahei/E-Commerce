@@ -11,6 +11,7 @@
     <None Remove="Model\" />
     <None Remove="Service\" />
     <None Remove="FontAwesome" />
+    <None Remove="DataAPI\" />
   </ItemGroup>
   <ItemGroup>
     <None Update="app.db" CopyToOutputDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
@@ -30,6 +31,7 @@
     <Folder Include="Model\" />
     <Folder Include="Service\" />
     <Folder Include="wwwroot\data\" />
+    <Folder Include="DataAPI\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\data\" />
