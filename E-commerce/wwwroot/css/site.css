@@ -26,7 +26,11 @@ a {
 
 .card {
     width : 18rem;
-    height: 18rem;
+    height: auto;
+}
+
+.checked {
+    color: orange;
 }
 
 .card-img-top {
@@ -41,11 +45,15 @@ a {
     display: -webkit-box;
     -webkit-box-orient: vertical;
     overflow: hidden;
+    font-size: 13px;
 }
 
-.card-title {
-    position: absolute;
-    bottom: 0;
+.count {
+    color: rgb(85, 85, 85);
+}
+
+.rating {
+    margin-bottom:10px;
 }
 
 
