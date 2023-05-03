@@ -45,6 +45,7 @@ a {
     display: -webkit-box;
     -webkit-box-orient: vertical;
     overflow: hidden;
+    height: 2.5rem;
     font-size: 13px;
 }
 
