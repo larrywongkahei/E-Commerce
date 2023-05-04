@@ -14,19 +14,17 @@ namespace E_commerce.Pages
     {
         public IEnumerable<Product> products { get; private set; }
 
-        public Product SmartPhones { get; set; }
+        public IEnumerable<Product> SmartPhones { get; set; }
 
-        public Product LapTops { get; set; }
+        public IEnumerable<Product> LapTops { get; set; }
 
-        public Product Fragrances { get; set; }
+        public IEnumerable<Product> Fragrances { get; set; }
 
-        public Product Skincare { get; set; }
+        public IEnumerable<Product> Skincare { get; set; }
 
-        public Product Groceries { get; set; }
+        public IEnumerable<Product> Groceries { get; set; }
 
-        public Product HomeDecoration { get; set; }
-
-        public IList<Product> DataToShow { get; set; }
+        public IEnumerable<Product> HomeDecoration { get; set; }
 
         private readonly ILogger<BestSellerModel> _logger;
         public ProductsAPIService apiService;
@@ -47,9 +45,6 @@ namespace E_commerce.Pages
             Skincare = from each in products where each.Category == "skincare" select each;
             Groceries = from each in products where each.Category == "groceries" select each;
             HomeDecoration = from each in products where each.Category == "home-decoration" select each;
-            DataToShow.Add();
-            Dta
-
         }
     }
 }
