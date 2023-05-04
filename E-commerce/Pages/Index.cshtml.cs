@@ -14,22 +14,13 @@ namespace E_commerce.Pages
     {
         private readonly ILogger<IndexModel> _logger;
 
-        public JsonFileService ProductService;
-
-        public IEnumerable<Products> Products { get; private set; }
-
-        public IndexModel(ILogger<IndexModel> logger, JsonFileService productService)
-
-
-
+        public IndexModel(ILogger<IndexModel> logger)
         {
             _logger = logger;
-            ProductService = productService;
         }
 
         public void OnGet()
         {
-            Products = ProductService.GetAll();
         }
     }
 }

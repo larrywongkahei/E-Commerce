@@ -4,29 +4,5 @@
     ViewData["Title"] = "Home page";
 }
 <div class="d-flex flex-row flex-wrap justify-content-between">
-    @foreach (var product in Model.Products)
-    {
-        <div class="card mb-3">
-            <img class="card-img-top" src="@product.Img" />
-            <div class="card-body">
-                <p class="card-text"> @product.Title</p>
-                <div>
-                    @for (var i = 0; i < 5; i++)
-                    {
-                        if (i <= product.Rating.rate)
-                        {
-                            <span class="fa fa-star checked rating bottom-0"></span>
-                        }
-                        else
-                        {
-                            <span class="far fa-star rating"></span>
-                        }
-                    }
-                    <span class="count">@product.Rating.count</span>
-                </div>
-                <h5 class="card-title text-truncate"> £@product.Price</h5>
-            </div>
-        </div>
-    }
-
+    <h1>This is home page</h1>
 </div>
