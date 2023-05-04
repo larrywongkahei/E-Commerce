@@ -197,7 +197,7 @@
                                 <div>
                                     <img clsas="d-block" style="height: 160px; width: 230px" src="@Model.Skincare.FirstOrDefault(product => product.Id == i + 2)?.Images.Last()" />
                                     <p>@Model.Skincare.FirstOrDefault(product => product.Id == i + 2)?.Title</p>
-                                    <p class="card-text" style=" width: 230px">@Model.Skincare.FirstOrDefault(product => product.Id == i + 1)?.Description</p>
+                                    <p class="card-text" style=" width: 230px">@Model.Skincare.FirstOrDefault(product => product.Id == i + 2)?.Description</p>
                                     @for (var x = 0; x < 5; x++)
                                     {
                                         <span class="@(x <= Model.Skincare.FirstOrDefault(product => product.Id == i + 2)?.Rating ? "fa fa-star checked rating bottom-0" : "far fa-star rating")"></span>
@@ -207,7 +207,7 @@
                                 <div>
                                     <img clsas="d-block " style="height: 160px; width: 230px" src="@Model.Skincare.FirstOrDefault(product => product.Id == i + 3)?.Images.Last()" />
                                     <p>@Model.Skincare.FirstOrDefault(product => product.Id == i + 3)?.Title</p>
-                                    <p class="card-text" style=" width: 230px">@Model.Skincare.FirstOrDefault(product => product.Id == i + 1)?.Description</p>
+                                    <p class="card-text" style=" width: 230px">@Model.Skincare.FirstOrDefault(product => product.Id == i + 3)?.Description</p>
                                     @for (var x = 0; x < 5; x++)
                                     {
                                         <span class="@(x <= Model.Skincare.FirstOrDefault(product => product.Id == i + 3)?.Rating ? "fa fa-star checked rating bottom-0" : "far fa-star rating")"></span>
