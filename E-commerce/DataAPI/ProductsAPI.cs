@@ -32,6 +32,12 @@ namespace E_commerce.DataAPI
         [JsonPropertyName("price")]
         public int Price { get; set; }
 
+        [JsonPropertyName("rating")]
+        public double Rating { get; set; }
+
+        [JsonPropertyName("brand")]
+        public string Brand { get; set; }
+
         [JsonPropertyName("category")]
         public string Category { get; set; }
 

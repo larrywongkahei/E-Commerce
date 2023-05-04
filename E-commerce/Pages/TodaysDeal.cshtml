@@ -4,38 +4,36 @@
     ViewData["Title"] = "Today's Deal";
     var randomNum = new Random();
 }
-<div class="d-flex flex-row flex-wrap justify-content-between">
-    @foreach (var product in Model.Products)
-    {
-        <div class="card mb-3">
-            <img class="card-img-top" src="@product.Img" />
-            <div class="card-body">
-                <p class="card-text"> @product.Title</p>
-                <div>
-                    @for (var i = 0; i < 5; i++)
-                    {
-                        if (i <= product.Rating.rate)
+<div class="d-flex flex-row">
+    <div style="width: 20%">
+        Here for the selector
+    </div>
+    <div class="d-flex flex-row flex-wrap justify-content-evenly" style="width: 80%;">
+        @foreach (var product in Model.Products)
+        {
+            <div class="card">
+                <img class="card-img-top" src="@product.Img" />
+                <div class="card-body">
+                    <p class="card-text"> @product.Title</p>
+                    <div>
+                        @for (var i = 0; i < 5; i++)
                         {
-                            <span class="fa fa-star checked rating bottom-0"></span>
+                            <span class="@(i <= product.Rating.rate ? "fa fa-star checked rating bottom-0" : "far fa-star rating")"></span>
                         }
-                        else
-                        {
-                            <span class="far fa-star rating"></span>
+                        <span class="count">@product.Rating.count</span>
+                    </div>
+                    <div class="d-flex flex-row">
+                        <h5 class="card-title text-truncate my-auto"> £@product.Price</h5>
+                        @{
+                            var theNum = randomNum.Next(20, 95);
+                            <p class="text-white bg-danger px-1 ml-4 mr-2 my-auto" style="font-size: 12px; height:20px;">@theNum % off</p>
+                            double wasPrice = (double)product.Price / (1 - ((double)theNum / 100));
+                            <p style="text-decoration-line: line-through; color:gray; font-size: 11px;" class="my-auto">Was £@wasPrice.ToString("F")</p>
                         }
-                    }
-                    <span class="count">@product.Rating.count</span>
-                </div>
-                <div class="d-flex flex-row">
-                    <h5 class="card-title text-truncate my-auto"> £@product.Price</h5>
-                    @{
-                        var theNum = randomNum.Next(20, 95);
-                        <p class="text-white bg-danger px-1 ml-4 mr-2 my-auto" style="font-size: 12px; height:20px;">@theNum % off</p>
-                        double wasPrice = (double)product.Price / (1 - ((double)theNum / 100));
-                        <p style="text-decoration-line: line-through; color:gray; font-size: 11px;"class="my-auto">Was £@wasPrice.ToString("F")</p>
-                    }
+                    </div>
                 </div>
             </div>
-        </div>
-    }
+        }
 
+    </div>
 </div>
