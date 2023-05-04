@@ -35,6 +35,8 @@ namespace E_commerce
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddRazorPages();
             services.AddTransient<JsonFileService>();
+            services.AddTransient<ProductsAPIService>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

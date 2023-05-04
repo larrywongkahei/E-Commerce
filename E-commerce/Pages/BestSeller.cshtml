@@ -1,4 +1,11 @@
 ﻿@page
-@model E_commerce.Pages.BestSellerModel
+@model BestSellerModel
 @{
 }
+
+<h1>This is best seller</h1>
+<h1>@Model.greeting</h1>
+@foreach (var product in Model.products)
+            {
+                <h1>@product.Title</h1>
+            }
