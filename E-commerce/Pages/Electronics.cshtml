@@ -5,7 +5,7 @@
 @*Model.EletronicsFromJson*@
 @*Model.SmartPhones*@
 @*Model.Laptops*@
-@foreach (var product in Model.EletronicsFromJson)
+@*@foreach (var product in Model.EletronicsFromJson)
 {
     <h1>@product.Title</h1>
 }
@@ -18,32 +18,42 @@
 @foreach (var product in Model.LapTops)
 {
     <h1>@product.Title </h1>
-}
+}*@
 <p style="font-size: 28px; line-height:36px; font-weight:700; text-align:center; margin-top: 60px">
     Categories
 </p>
 <div class="d-flex justify-content-center" style="gap:120px; margin-top:5%">
     <div style="width: 199px; height: 278px; text-align:center; display:flex; flex-direction:column; align-items:center">
         <div style="height: 180px; width: 180px; border-radius: 100%; display: flex; justify-content: center; align-items: center; flex-direction:column;">
-            <a asp-page="/MenClothing" style="">
-                <img style="height:130px; width:130px;" src="https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg" />
+            <a asp-page="/Laptops" style="">
+                <img style="height:130px; width:130px;" src="https://www.kindpng.com/picc/m/45-450707_laptop-png-image-transparent-laptops-png-png-download.png" />
             </a>
         </div>
         <p>
-            Mens
+            Laptop
         </p>
-
     </div>
+
     <div style="width: 199px; height: 278px; text-align:center; display:flex; flex-direction:column; align-items:center">
         <div style="height: 180px; width: 180px; border-radius: 100%; display: flex; justify-content: center; align-items: center; flex-direction:column;">
-            <a asp-page="/WomenClothing" style="">
-                <img style="height:130px; width:130px;" src="https://fakestoreapi.com/img/81XH0e8fefL._AC_UY879_.jpg" />
+            <a asp-page="/SmartPhone" style="">
+                <img style="height:130px; width:130px;" src="https://www.kindpng.com/picc/m/28-287182_s10-5g-case-hd-png-download.png"/>
             </a>
         </div>
         <p>
-            Womens
+            SmartPhone
         </p>
+    </div>
 
+    <div style="width: 199px; height: 278px; text-align:center; display:flex; flex-direction:column; align-items:center;">
+        <div style="height: 180px; width: 180px; border-radius: 100%; display: flex; justify-content: center; align-items: center; flex-direction: column; background: #FFEFF1">
+            <a asp-page="/Accessories" style="">
+                <img style="height:130px; width:130px;" src="https://www.kindpng.com/picc/m/8-85107_transparent-mobile-accessories-png-png-download.png" alt="Transparent Mobile Accessories Png, Png Download@kindpng.com" />
+            </a>
+        </div>
+        <p>
+            Accessories
+        </p>
     </div>
 
 </div>
