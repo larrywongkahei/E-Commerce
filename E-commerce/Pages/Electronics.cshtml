@@ -2,3 +2,18 @@
 @model E_commerce.Pages.ElectronicsModel
 @{
 }
+
+@foreach (var product in Model.EletronicsFromJson)
+            {
+                <h1>@product.Title</h1>
+            }
+
+@foreach (var product in Model.SmartPhones)
+            {
+                <h1>@product.Title</h1>
+            }
+
+@foreach (var product in Model.LapTops)
+            {
+                <h1>@product.Title </h1>
+            }

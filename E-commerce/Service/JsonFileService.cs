@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text.Json;
 using E_commerce.Model;
 using Microsoft.AspNetCore.Hosting;
@@ -37,6 +38,12 @@ namespace E_commerce.Service
                 );
             }
 
+        }
+
+        public IEnumerable<Products> GetEletronics()
+        {
+            var allData = this.GetAll();
+            return from data in allData where data.Category == "electronics" select data;
         }
     }
 }
