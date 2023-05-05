@@ -3,7 +3,28 @@
 @{
 }
 
-@foreach (var product in Model.JeweleryFromJson)
-            {
-                <h1>@product.Title</h1>
-            }
+
+<div class="d-flex">
+    <div style="width: 20%;">
+        Here is for selector
+    </div>
+    <div class="d-flex flex-wrap" style="width: 80%">
+        @foreach (var product in Model.JeweleryFromJson)
+        {
+            <div class="card">
+                <img class="card-img-top" src="@product.Img" />
+                <div class="card-body">
+                    <p class="card-text" style="font-size: 16px; height: 3rem;">@product.Title</p>
+                    <div>
+                        @for (var i = 0; i < 5; i++)
+                        {
+                            <span class="@(i <= product.Rating.rate ? "fa fa-star checked rating " : "far fa-star rating")"></span>
+                        }
+                        <span class="count">@product.Rating.count</span>
+                    </div>
+                    <p class="">£@product.Price</p>
+                </div>
+            </div>
+        }
+    </div>
+</div>
