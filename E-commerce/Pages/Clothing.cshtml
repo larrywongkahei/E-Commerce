@@ -3,4 +3,31 @@
 @{
 }
 
-<a type="button" asp-page="/MenClothing">Press me to go to men's</a>
+<p style="font-size: 28px; line-height:36px; font-weight:700; text-align:center; margin-top: 60px">
+    Categories
+</p>
+<div class="d-flex justify-content-center" style="gap:120px; margin-top:5%">
+    <div style="width: 199px; height: 278px; text-align:center; display:flex; flex-direction:column; align-items:center">
+        <div style="height: 180px; width: 180px; border-radius: 100%; display: flex; justify-content: center; align-items: center; flex-direction:column;">
+            <a asp-page="/MenClothing" style="">
+                <img style="height:130px; width:130px;" src="https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg" />
+            </a>
+        </div>
+        <p>
+            Mens
+        </p>
+
+    </div>
+    <div style="width: 199px; height: 278px; text-align:center; display:flex; flex-direction:column; align-items:center">
+        <div style="height: 180px; width: 180px; border-radius: 100%; display: flex; justify-content: center; align-items: center; flex-direction:column;">
+            <a asp-page="/WomenClothing" style="">
+                <img style="height:130px; width:130px;" src="https://fakestoreapi.com/img/81XH0e8fefL._AC_UY879_.jpg" />
+            </a>
+        </div>
+        <p>
+            Womens
+        </p>
+
+    </div>
+
+</div>
