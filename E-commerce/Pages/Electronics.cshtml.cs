@@ -33,12 +33,10 @@ namespace E_commerce.Pages
         }
         public async Task OnGet()
         {
-            EletronicsFromJson = productService.GetEletronics();
+            EletronicsFromJson = productService.GetElectronics();
             var allData = await productAPIService.GetProductsFromAPI();
             SmartPhones = from each in allData.Product where each.Category == "smartphones" select each;
             LapTops = from each in allData.Product where each.Category == "laptops" select each;
-
-
         }
     }
 }

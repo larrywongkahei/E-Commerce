@@ -11,6 +11,7 @@ namespace E_commerce.Service
 {
     public class JsonFileService
     {
+
         public JsonFileService(IWebHostEnvironment webHostEnvironment)
         {
             WebHostEnvironment = webHostEnvironment;
@@ -40,10 +41,29 @@ namespace E_commerce.Service
 
         }
 
-        public IEnumerable<Products> GetEletronics()
+        public IEnumerable<Products> GetElectronics()
         {
             var allData = this.GetAll();
             return from data in allData where data.Category == "electronics" select data;
+        }
+
+        public IEnumerable<Products> GetMenClothes()
+        {
+            var allData = this.GetAll();
+            return from data in allData where data.Category == "men's clothing" select data;
+        }
+
+        public IEnumerable<Products> GetWomenClothes()
+        {
+            var allData = this.GetAll();
+            return from data in allData where data.Category == "women's clothing" select data;
+            
+        }
+
+        public IEnumerable<Products> GetJewelery()
+        {
+            var allData = this.GetAll();
+            return from data in allData where data.Category == "jewelery" select data;
         }
     }
 }
