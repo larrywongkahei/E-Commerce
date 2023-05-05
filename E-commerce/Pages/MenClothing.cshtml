@@ -2,3 +2,8 @@
 @model E_commerce.Pages.MenClothingModel
 @{
 }
+
+@foreach (var product in Model.MenClothesFromJson)
+            {
+                <h1>@product.Title</h1>
+            }
