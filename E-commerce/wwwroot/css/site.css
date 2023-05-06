@@ -49,6 +49,13 @@ a {
     font-size: 13px;
 }
 
+.card-text-2 {
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
 .count {
     color: rgb(85, 85, 85);
 }

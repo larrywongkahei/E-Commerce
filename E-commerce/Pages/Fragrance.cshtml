@@ -9,19 +9,19 @@
     <div class="d-flex flex-wrap" style="width: 80%">
         @foreach (var product in Model.FragranceFromAPI)
         {
-            <div class="card">
-                <img class="card-img-top" src="@product.Images.Last()" />
-                <div class="card-body">
-                    <p class="card-text" style="font-size: 16px; height: 3rem;">@product.Title</p>
-                    <div>
-                        @for (var i = 0; i < 5; i++)
-                        {
-                            <span class="@(i <= product.Rating ? "fa fa-star checked rating " : "far fa-star rating")"></span>
-                        }
-                    </div>
-                    <p class="">£@product.Price</p>
+        <div class="card" style="height:374px; margin-bottom:8px;margin-right:8px;width:24%">
+            <img style="height:50%" src="@product.Thumbnail" />
+            <div class="card-body" style="height:50%">
+                <p class="card-text-2" style="font-size:large;">@product.Title</p>
+                <div>
+                    @for (var i = 0; i < 5; i++)
+                    {
+                        <span class="@(i <= product.Rating ? "fa fa-star checked rating " : "far fa-star rating")"></span>
+                    }
                 </div>
+                <p class="">£@product.Price</p>
             </div>
+        </div>
         }
     </div>
 </div>
