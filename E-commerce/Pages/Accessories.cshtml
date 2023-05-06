@@ -3,4 +3,27 @@
 @{
 }
 
-<h1>This is accessories page</h1>
+<div class="d-flex">
+    <div style="width: 20%;">
+        Here is for selector
+    </div>
+    <div class="d-flex flex-wrap" style="width: 80%">
+        @foreach (var product in Model.Accessories)
+        {
+            <div class="card" style="height:374px;">
+                <img style="height:60%" src="@product.Img" />
+                <div class="card-body" style="height:40%">
+                    <p class="card-text" style="font-size: 16px; height: 3rem;">@product.Title</p>
+                    <div>
+                        @for (var i = 0; i < 5; i++)
+                        {
+                            <span class="@(i <= product.Rating.rate ? "fa fa-star checked rating " : "far fa-star rating")"></span>
+                        }
+                        <span class="count">@product.Rating.count</span>
+                    </div>
+                    <p class="">£@product.Price</p>
+                </div>
+            </div>
+        }
+    </div>
+</div>

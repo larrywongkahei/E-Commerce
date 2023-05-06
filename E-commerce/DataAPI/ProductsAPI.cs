@@ -41,6 +41,9 @@ namespace E_commerce.DataAPI
         [JsonPropertyName("category")]
         public string Category { get; set; }
 
+        [JsonPropertyName("thumbnail")]
+        public string Thumbnail { get; set; }
+
         [JsonPropertyName("images")]
         public IList<string> Images { get; set; }
 

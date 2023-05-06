@@ -10,19 +10,19 @@
     <div class="d-flex flex-wrap" style="width: 80%">
         @foreach (var product in Model.Laptops)
         {
-            <div class="card">
-                <img class="card-img-top" src="@product.Images" />
-                <div class="card-body">
-                    <p class="card-text" style="font-size: 16px; height: 3rem;">@product.Title</p>
-                    <div>
-                        @for (var i = 0; i < 5; i++)
-                        {
-                            <span class="@(i <= product.Rating ? "fa fa-star checked rating " : "far fa-star rating")"></span>
-                        }
-                    </div>
-                    <p class="">£@product.Price</p>
+        <div class="card" style="height:374px;">
+            <img style="height:60%" src="@product.Thumbnail" />
+            <div class="card-body" style="height:40%">
+                <p class="card-text" style="font-size: large">@product.Title</p>
+                <div>
+                    @for (var i = 0; i < 5; i++)
+                    {
+                        <span class="@(i <= product.Rating ? "fa fa-star checked rating " : "far fa-star rating")"></span>
+                    }
                 </div>
+                <p class="">£@product.Price</p>
             </div>
+        </div>
         }
     </div>
 </div>
