@@ -10,20 +10,24 @@
     <div class="d-flex flex-wrap" style="width: 80%">
         @foreach (var product in Model.Accessories)
         {
-        <div class="card" style="height:374px; margin-bottom:8px;margin-right:8px;width:24%">
-            <img style="height:50%" src="@product.Img" />
-            <div class="card-body" style="height:50%">
-                <p class="card-text-2" style="font-size:large;">@product.Title</p>
-                <div>
-                    @for (var i = 0; i < 5; i++)
-                    {
-                        <span class="@(i <= product.Rating.rate ? "fa fa-star checked rating " : "far fa-star rating")"></span>
-                    }
-                    <span class="count">@product.Rating.count</span>
+            var param = new Dictionary<string, string>
+        {
+                    {"Title", product.Title}
+                };
+            <a class="card" style="height:374px; margin-bottom:8px;margin-right:8px;width:24%;text-decoration:none; color:black" asp-page="../ShowProduct" asp-all-route-data="param">
+                <img style="height:50%" src="@product.Img" />
+                <div class="card-body" style="height:50%">
+                    <p class="card-text-2" style="font-size:large;">@product.Title</p>
+                    <div>
+                        @for (var i = 0; i < 5; i++)
+                        {
+                            <span class="@(i <= product.Rating.rate ? "fa fa-star checked rating " : "far fa-star rating")"></span>
+                        }
+                        <span class="count">@product.Rating.count</span>
+                    </div>
+                    <p class="">£@product.Price</p>
                 </div>
-                <p class="">£@product.Price</p>
-            </div>
-        </div>
+        </a>
         }
     </div>
 </div>
