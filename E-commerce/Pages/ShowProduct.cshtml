@@ -1,0 +1,47 @@
+﻿@page
+@model E_commerce.Pages.ShowProductModel
+@{
+}
+
+@if (Model.ProductsFromJson.Count() == 0)
+{
+    foreach (var each in Model.ProductsFromAPI)
+    {
+        <div>
+            <h1>@each.Title</h1>
+        </div>
+        <div>
+            <img style="height: 314px; width: 314px" src="@each.Images" />
+        </div>
+
+    }
+}
+else
+{
+    foreach (var each in Model.ProductsFromJson)
+    {
+
+        <div style="display:flex; flex-direction:row; margin-left:20px; margin-right: 20px !important;">
+            <div style="width:6%; background:black">
+                s
+            </div>
+            <div style="width:30%; display:flex; justify-content:center; margin-top:6rem">
+                <img style="height: 314px; width: 314px " src="@each.Img" />
+            </div>
+            <div style=" margin-top: 0.5rem">
+                <h1>@each.Title</h1>
+            </div>
+            <div style="width: 24%; border-width: 1px; border-style: solid; border-color: #dbcece; height: auto;">
+                <div style="margin: 14px; display: flex; flex-direction: column; ">
+                    <p style="color:#B12704;">
+                        £@each.Price
+                    </p>
+                    <p style="font-size:14px;">
+                        <span style="color: #007185">Delivery</span><span style="font-weight: 700 !important;"> Wednesday, May 10. </span>Order within <span style="color: #007185">3 hrs 41 mins. Details</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    }
+}
