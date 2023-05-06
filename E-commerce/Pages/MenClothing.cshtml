@@ -12,7 +12,9 @@
         @foreach (var product in Model.MenClothesFromJson)
         {
         <div class="card" style="height:374px; margin-bottom:8px;margin-right:8px;width:24%">
-            <img style="height:50%" src="@product.Img" />
+            <div style="height:50%; display:flex; justify-content:center">
+                <img style="height:100%;margin-top:10px" src="@product.Img" />
+            </div>
             <div class="card-body" style="height:50%">
                 <p class="card-text-2" style="font-size:large;">@product.Title</p>
                 <div>
