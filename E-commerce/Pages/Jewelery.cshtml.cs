@@ -24,7 +24,6 @@ namespace E_commerce.Pages
         public void OnGet()
         {
             JeweleryFromJson = JsonService.GetJewelery();
-            Console.WriteLine(JeweleryFromJson);
         }
     }
 }
