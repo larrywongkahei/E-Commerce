@@ -19,7 +19,7 @@
                         <div class="@(countSmartphone == 0 ? "carousel-item active" : "carousel-item") " style="">
                            <div class="d-flex" style="justify-content: space-evenly">
                                <div class="">
-                                   <img clsas="d-block" style="height: 160px; width: 230px" src="@Model.SmartPhones.FirstOrDefault(product => product.Id == i + 1)?.Images.Last()" />
+                                   <img clsas="d-block" style="height: 160px; width: 230px" src="@Model.SmartPhones.FirstOrDefault(product => product.Id == i + 1)?.Thumbnail" />
                                    <p>@Model.SmartPhones.FirstOrDefault(product => product.Id == i + 1)?.Title</p>
         <p class="card-text" style=" width: 230px">@Model.SmartPhones.FirstOrDefault(product => product.Id == i + 1)?.Description</p>
                                    @for (var x = 0; x < 5; x++)
@@ -29,7 +29,7 @@
                                    <p>£@Model.SmartPhones.FirstOrDefault(product => product.Id == i + 1)?.Price</p>
                                </div>
                                <div>
-                                   <img clsas="d-block" style="height: 160px; width: 230px" src="@Model.SmartPhones.FirstOrDefault(product => product.Id == i + 2)?.Images.Last()" />
+                                   <img clsas="d-block" style="height: 160px; width: 230px" src="@Model.SmartPhones.FirstOrDefault(product => product.Id == i + 2)?.Thumbnail" />
                                    <p>@Model.SmartPhones.FirstOrDefault(product => product.Id == i + 2)?.Title</p>
 
                                    <p class="card-text" style=" width: 230px">@Model.SmartPhones.FirstOrDefault(product => product.Id == i + 2)?.Description</p>
@@ -40,7 +40,7 @@
                                    <p>£@Model.SmartPhones.FirstOrDefault(product => product.Id == i + 2)?.Price</p>
                                </div>
                                <div>
-                                   <img clsas="d-block " style="height: 160px; width: 230px" src="@Model.SmartPhones.FirstOrDefault(product => product.Id == i + 3)?.Images.Last()" />
+                                   <img clsas="d-block " style="height: 160px; width: 230px" src="@Model.SmartPhones.FirstOrDefault(product => product.Id == i + 3)?.Thumbnail" />
                                    <p>@Model.SmartPhones.FirstOrDefault(product => product.Id == i + 3)?.Title</p>
 
                                    <p class="card-text" style=" width: 230px">@Model.SmartPhones.FirstOrDefault(product => product.Id == i + 3)?.Description</p>
@@ -76,7 +76,7 @@
 
                                 <div class="d-flex" style="justify-content: space-evenly">
                                     <div class="">
-                                        <img clsas="d-block" style="height: 160px; width: 230px" src="@Model.LapTops.FirstOrDefault(product => product.Id == i + 1)?.Images.Last()" />
+                                        <img clsas="d-block" style="height: 160px; width: 230px" src="@Model.LapTops.FirstOrDefault(product => product.Id == i + 1)?.Thumbnail" />
                                         <p>@Model.LapTops.FirstOrDefault(product => product.Id == i + 1)?.Title</p>
                                         <p class="card-text" style=" width: 230px">@Model.LapTops.FirstOrDefault(product => product.Id == i + 1)?.Description</p>
                                         @for (var x = 0; x < 5; x++)
@@ -86,7 +86,7 @@
                                         <p>£@Model.LapTops.FirstOrDefault(product => product.Id == i + 1)?.Price</p>
                                     </div>
                                     <div>
-                                        <img clsas="d-block" style="height: 160px; width: 230px" src="@Model.LapTops.FirstOrDefault(product => product.Id == i + 2)?.Images.Last()" />
+                                        <img clsas="d-block" style="height: 160px; width: 230px" src="@Model.LapTops.FirstOrDefault(product => product.Id == i + 2)?.Thumbnail" />
                                         <p>@Model.LapTops.FirstOrDefault(product => product.Id == i + 2)?.Title</p>
                                         <p class="card-text" style=" width: 230px">@Model.LapTops.FirstOrDefault(product => product.Id == i + 2)?.Description</p>
                                         @for (var x = 0; x < 5; x++)
@@ -96,7 +96,7 @@
                                         <p>£@Model.LapTops.FirstOrDefault(product => product.Id == i + 2)?.Price</p>
                                     </div>
                                     <div>
-                                        <img clsas="d-block " style="height: 160px; width: 230px" src="@Model.LapTops.FirstOrDefault(product => product.Id == i + 3)?.Images.Last()" />
+                                        <img clsas="d-block " style="height: 160px; width: 230px" src="@Model.LapTops.FirstOrDefault(product => product.Id == i + 3)?.Thumbnail" />
                                         <p>@Model.LapTops.FirstOrDefault(product => product.Id == i + 3)?.Title</p>
                                         <p class="card-text" style=" width: 230px">@Model.LapTops.FirstOrDefault(product => product.Id == i + 3)?.Description</p>
                                         @for (var x = 0; x < 5; x++)
@@ -130,7 +130,7 @@
 
                             <div class="d-flex" style="justify-content: space-evenly">
                                 <div class="">
-                                    <img clsas="d-block" style="height: 160px; width: 230px" src="@Model.Fragrances.FirstOrDefault(product => product.Id == i + 1)?.Images.Last()" />
+                                    <img clsas="d-block" style="height: 160px; width: 230px" src="@Model.Fragrances.FirstOrDefault(product => product.Id == i + 1)?.Thumbnail" />
                                     <p>@Model.Fragrances.FirstOrDefault(product => product.Id == i + 1)?.Title</p>
                                     <p class="card-text" style=" width: 230px">@Model.Fragrances.FirstOrDefault(product => product.Id == i + 1)?.Description</p>
                                     @for (var x = 0; x < 5; x++)
@@ -140,7 +140,7 @@
                                     <p>£@Model.Fragrances.FirstOrDefault(product => product.Id == i + 1)?.Price</p>
                                 </div>
                                 <div>
-                                    <img clsas="d-block" style="height: 160px; width: 230px" src="@Model.Fragrances.FirstOrDefault(product => product.Id == i + 2)?.Images.Last()" />
+                                    <img clsas="d-block" style="height: 160px; width: 230px" src="@Model.Fragrances.FirstOrDefault(product => product.Id == i + 2)?.Thumbnail" />
                                     <p>@Model.Fragrances.FirstOrDefault(product => product.Id == i + 2)?.Title</p>
                                     <p class="card-text" style=" width: 230px">@Model.Fragrances.FirstOrDefault(product => product.Id == i + 2)?.Description</p>
                                     @for (var x = 0; x < 5; x++)
@@ -150,7 +150,7 @@
                                     <p>£@Model.Fragrances.FirstOrDefault(product => product.Id == i + 2)?.Price</p>
                                 </div>
                                 <div>
-                                    <img clsas="d-block " style="height: 160px; width: 230px" src="@Model.Fragrances.FirstOrDefault(product => product.Id == i + 3)?.Images.Last()" />
+                                    <img clsas="d-block " style="height: 160px; width: 230px" src="@Model.Fragrances.FirstOrDefault(product => product.Id == i + 3)?.Thumbnail" />
                                     <p>@Model.Fragrances.FirstOrDefault(product => product.Id == i + 3)?.Title</p>
                                     <p class="card-text" style=" width: 230px">@Model.Fragrances.FirstOrDefault(product => product.Id == i + 3)?.Description</p>
                                     @for (var x = 0; x < 5; x++)
@@ -185,7 +185,7 @@
 
                             <div class="d-flex" style="justify-content: space-evenly">
                                 <div class="">
-                                    <img clsas="d-block" style="height: 160px; width: 230px" src="@Model.Skincare.FirstOrDefault(product => product.Id == i + 1)?.Images.Last()" />
+                                    <img clsas="d-block" style="height: 160px; width: 230px" src="@Model.Skincare.FirstOrDefault(product => product.Id == i + 1)?.Thumbnail" />
                                     <p>@Model.Skincare.FirstOrDefault(product => product.Id == i + 1)?.Title</p>
                                     <p class="card-text" style=" width: 230px">@Model.Skincare.FirstOrDefault(product => product.Id == i + 1)?.Description</p>
                                     @for (var x = 0; x < 5; x++)
@@ -195,7 +195,7 @@
                                     <p>£@Model.Skincare.FirstOrDefault(product => product.Id == i + 1)?.Price</p>
                                 </div>
                                 <div>
-                                    <img clsas="d-block" style="height: 160px; width: 230px" src="@Model.Skincare.FirstOrDefault(product => product.Id == i + 2)?.Images.Last()" />
+                                    <img clsas="d-block" style="height: 160px; width: 230px" src="@Model.Skincare.FirstOrDefault(product => product.Id == i + 2)?.Thumbnail" />
                                     <p>@Model.Skincare.FirstOrDefault(product => product.Id == i + 2)?.Title</p>
                                     <p class="card-text" style=" width: 230px">@Model.Skincare.FirstOrDefault(product => product.Id == i + 2)?.Description</p>
                                     @for (var x = 0; x < 5; x++)
@@ -205,7 +205,7 @@
                                     <p>£@Model.Skincare.FirstOrDefault(product => product.Id == i + 2)?.Price</p>
                                 </div>
                                 <div>
-                                    <img clsas="d-block " style="height: 160px; width: 230px" src="@Model.Skincare.FirstOrDefault(product => product.Id == i + 3)?.Images.Last()" />
+                                    <img clsas="d-block " style="height: 160px; width: 230px" src="@Model.Skincare.FirstOrDefault(product => product.Id == i + 3)?.Thumbnail" />
                                     <p>@Model.Skincare.FirstOrDefault(product => product.Id == i + 3)?.Title</p>
                                     <p class="card-text" style=" width: 230px">@Model.Skincare.FirstOrDefault(product => product.Id == i + 3)?.Description</p>
                                     @for (var x = 0; x < 5; x++)
@@ -239,7 +239,7 @@
 
                             <div class="d-flex" style="justify-content: space-evenly">
                                 <div class="">
-                                    <img clsas="d-block" style="height: 160px; width: 230px" src="@Model.Groceries.FirstOrDefault(product => product.Id == i + 1)?.Images.Last()" />
+                                    <img clsas="d-block" style="height: 160px; width: 230px" src="@Model.Groceries.FirstOrDefault(product => product.Id == i + 1)?.Thumbnail" />
                                     <p>@Model.Groceries.FirstOrDefault(product => product.Id == i + 1)?.Title</p>
                                     <p class="card-text" style=" width: 230px">@Model.Groceries.FirstOrDefault(product => product.Id == i + 1)?.Description</p>
                                     @for (var x = 0; x < 5; x++)
@@ -249,7 +249,7 @@
                                     <p>£@Model.Groceries.FirstOrDefault(product => product.Id == i + 1)?.Price</p>
                                 </div>
                                 <div>
-                                    <img clsas="d-block" style="height: 160px; width: 230px" src="@Model.Groceries.FirstOrDefault(product => product.Id == i + 2)?.Images.Last()" />
+                                    <img clsas="d-block" style="height: 160px; width: 230px" src="@Model.Groceries.FirstOrDefault(product => product.Id == i + 2)?.Thumbnail" />
                                     <p>@Model.Groceries.FirstOrDefault(product => product.Id == i + 2)?.Title</p>
                                     <p class="card-text" style=" width: 230px">@Model.Groceries.FirstOrDefault(product => product.Id == i + 2)?.Description</p>
                                     @for (var x = 0; x < 5; x++)
@@ -259,7 +259,7 @@
                                     <p>£@Model.Groceries.FirstOrDefault(product => product.Id == i + 2)?.Price</p>
                                 </div>
                                 <div>
-                                    <img clsas="d-block " style="height: 160px; width: 230px" src="@Model.Groceries.FirstOrDefault(product => product.Id == i + 3)?.Images.Last()" />
+                                    <img clsas="d-block " style="height: 160px; width: 230px" src="@Model.Groceries.FirstOrDefault(product => product.Id == i + 3)?.Thumbnail" />
                                     <p>@Model.Groceries.FirstOrDefault(product => product.Id == i + 3)?.Title</p>
                                     <p class="card-text" style=" width: 230px">@Model.Groceries.FirstOrDefault(product => product.Id == i + 3)?.Description</p>
                                     @for (var x = 0; x < 5; x++)
@@ -292,7 +292,7 @@
                         <div class="@(countHomeDecoration == 0 ? "carousel-item active" : "carousel-item") " style="">
                             <div class="d-flex" style="justify-content: space-evenly">
                                 <div class="">
-                                    <img clsas="d-block" style="height: 160px; width: 230px" src="@Model.HomeDecoration.FirstOrDefault(product => product.Id == i + 1)?.Images.Last()" />
+                                    <img clsas="d-block" style="height: 160px; width: 230px" src="@Model.HomeDecoration.FirstOrDefault(product => product.Id == i + 1)?.Thumbnail" />
                                     <p>@Model.HomeDecoration.FirstOrDefault(product => product.Id == i + 1)?.Title</p>
                                     <p class="card-text" style=" width: 230px">@Model.HomeDecoration.FirstOrDefault(product => product.Id == i + 1)?.Description</p>
                                     @for (var x = 0; x < 5; x++)
@@ -302,7 +302,7 @@
                                     <p>£@Model.HomeDecoration.FirstOrDefault(product => product.Id == i + 1)?.Price</p>
                                 </div>
                                 <div>
-                                    <img clsas="d-block" style="height: 160px; width: 230px" src="@Model.HomeDecoration.FirstOrDefault(product => product.Id == i + 2)?.Images.Last()" />
+                                    <img clsas="d-block" style="height: 160px; width: 230px" src="@Model.HomeDecoration.FirstOrDefault(product => product.Id == i + 2)?.Thumbnail" />
                                     <p>@Model.HomeDecoration.FirstOrDefault(product => product.Id == i + 2)?.Title</p>
                                     <p class="card-text" style=" width: 230px">@Model.HomeDecoration.FirstOrDefault(product => product.Id == i + 2)?.Description</p>
                                     @for (var x = 0; x < 5; x++)
@@ -312,7 +312,7 @@
                                     <p>£@Model.HomeDecoration.FirstOrDefault(product => product.Id == i + 2)?.Price</p>
                                 </div>
                                 <div>
-                                    <img clsas="d-block " style="height: 160px; width: 230px" src="@Model.HomeDecoration.FirstOrDefault(product => product.Id == i + 3)?.Images.Last()" />
+                                    <img clsas="d-block " style="height: 160px; width: 230px" src="@Model.HomeDecoration.FirstOrDefault(product => product.Id == i + 3)?.Thumbnail" />
                                     <p>@Model.HomeDecoration.FirstOrDefault(product => product.Id == i + 3)?.Title</p>
                                     <p class="card-text" style=" width: 230px">@Model.HomeDecoration.FirstOrDefault(product => product.Id == i + 3)?.Description</p>
                                     @for (var x = 0; x < 5; x++)
