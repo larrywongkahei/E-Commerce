@@ -37,12 +37,6 @@ namespace E_commerce.Pages
             data = param;
             TitleValue = data.First().Value;
             var allDataFromAPI = await productapiservice.GetProductsFromAPI();
-            //Console.WriteLine(allDataFromAPI.GetType());
-            //Console.WriteLine(allDataFromAPI.ToString());
-
-            //Console.WriteLine(allDataFromAPI.Product.ToString());
-            //Console.WriteLine(allDataFromAPI.Product.GetType());
-
             ProductsFromAPI = from each in allDataFromAPI.Product where each.Title == TitleValue select each;
             var allDataFromJson = jsonfileservice.GetAll();
             ProductsFromJson = from each in allDataFromJson where each.Title == TitleValue select each;
