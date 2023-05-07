@@ -29,7 +29,7 @@
                 <div style="margin-bottom:0 !important">
                     @for (var i = 0; i < 5; i++)
                     {
-                        <span class="@(i <= each.Rating ? "fa fa-star checked rating " : "far fa-star rating")"></span>
+                        <span style="height:10px;" class="@(i <= each.Rating ? "fa fa-star checked rating " : "far fa-star rating")"></span>
                     }
                 </div>
                 <hr style="margin-top:0 !important" />
@@ -69,9 +69,10 @@
 
                         </tbody>
                     </table>
+                    <hr style=""/>
                 </div>
                 <div>
-                    <p>
+                    <p style="font-size:14px">
                         @each.Description
                     </p>
                 </div>
@@ -88,11 +89,25 @@
                         </p>
                     }
                     <p style="font-size:14px;">
-                        <span style="color: #007185">Delivery</span><span style="font-weight: 700 !important;"> Wednesday, May 10. </span>Order within <span style="color: #007185">3 hrs 41 mins. Details</span>
+                        <span style="color: #007185">Delivery<span style="font-weight: 700 !important; color:black"> Wednesday, May 10. </span><span style=" color: black">Order within</span> <span style="color: #007600 !important;">3 hrs 41 mins.</span> Details</span>
                     </p>
                     <div style="display: flex; flex-direction: row; align-items: center;gap:8px">
                         <span class="fa fa-light fa-location-dot"></span>
                         <span style=" font-size: 12px !important; line-height: 1.5; color: #007185">Select delivery location</span>
+                    </div>
+                    <p style="color: #007600 !important; font-size: 18px !important; line-height: 24px !important; margin-top:1rem; margin-bottom:1rem;">
+                        In stock.
+                    </p>
+                    <p style="font-size:14px">
+                        Quantity
+                    </p>
+                    <div>
+                        <button style="background-color: #ffd242; width: 100%; border-style: none; border-radius: 15px; height: 2rem; margin-bottom: 10px" class="box-shadow">
+                            Add to Basket
+                        </button>
+                        <button style="background-color: orange; width: 100%; border-style:none; border-radius:15px; height:2rem; margin-bottom: 10px" class="box-shadow">
+                            Buy Now
+                        </button>
                     </div>
                 </div>
             </div>
@@ -118,7 +133,7 @@ else
                 <div style="margin-bottom:0 !important">
                     @for (var i = 0; i < 5; i++)
                     {
-                        <span class="@(i <= each.Rating.rate ? "fa fa-star checked rating " : "far fa-star rating")"></span>
+                        <span style="height:10px;" class="@(i <= each.Rating.rate ? "fa fa-star checked rating " : "far fa-star rating")"></span>
                     }
                     <span class="ml-4 count" style="font-size:14px; line-height:20px;">@each.Rating.count ratings</span>
                 </div>
@@ -160,6 +175,8 @@ else
 
                         </tbody>
                     </table>
+                    <hr style="" />
+
                 </div>
                 <div>
                     <p>
@@ -178,13 +195,26 @@ else
                             £@newPrice2.ToString("F2")
                         </p>
                     }
-
                     <p style="font-size:14px;">
-                        <span style="color: #007185">Delivery</span><span style="font-weight: 700 !important;"> Wednesday, May 10. </span>Order within <span style="color: #007185">3 hrs 41 mins. Details</span>
+                        <span style="color: #007185">Delivery<span style="font-weight: 700 !important; color:black"> Wednesday, May 10. </span><span style=" color: black">Order within</span> <span style="color: #007600 !important;">3 hrs 41 mins.</span> Details</span>
                     </p>
                     <div style="display: flex; flex-direction: row; align-items: center;gap:8px">
                         <span class="fa fa-light fa-location-dot"></span>
                         <span style=" font-size: 12px !important; line-height: 1.5; color: #007185">Select delivery location</span>
+                    </div>
+                    <p style="color: #007600 !important; font-size: 18px !important; line-height: 24px !important; margin-top:1rem; margin-bottom:1rem;">
+                        In stock.
+                    </p>
+                    <p style="font-size:14px">
+                        Quantity
+                    </p>
+                    <div>
+                        <button style="background-color: #ffd242; width: 100%; border-style: none; border-radius: 15px; height: 2rem; margin-bottom: 10px" class="box-shadow">
+                            Add to Basket
+                        </button>
+                        <button style="background-color: orange; width: 100%; border-style:none; border-radius:15px; height:2rem; margin-bottom: 10px" class="box-shadow">
+                            Buy Now
+                        </button>
                     </div>
                 </div>
             </div>
