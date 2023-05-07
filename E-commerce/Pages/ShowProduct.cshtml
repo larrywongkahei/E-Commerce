@@ -7,30 +7,30 @@
 {
     foreach (var each in Model.ProductsFromAPI)
     {
-        <div style="display:flex; flex-direction:row; margin-left:20px; margin-right: 24px !important;">
-            <div style="width:6%; background:black">
-                s
-            </div>
-            <div style="width:30%; display:flex; justify-content:center; margin-top:6rem">
-                <img style="height: 314px; width: 314px " src="@each.Thumbnail" />
-            </div>
-            <div style="margin-top: 0.5rem; word-break: break-word; width:44%">
-                <h1 style=" font-size: 24px !important; line-height: 32px !important; font-weight: 400;">@each.Title</h1>
-            </div>
-            <div style="width: 20%; border-width: 1px; border-style: solid; border-color: #dbcece; height: auto;">
-                <div style="margin: 14px; display: flex; flex-direction: column; ">
-                    <p style="color: #B12704; font-size: 18px; line-height: 24px; font-family: Arial,sans-serif">
-                        £@each.Price
-                    <p style="font-size:14px;">
-                        <span style="color: #007185">Delivery</span><span style="font-weight: 700 !important;"> Wednesday, May 10. </span>Order within <span style="color: #007185">3 hrs 41 mins. Details</span>
-                    </p>
-                    <div style="display: flex; flex-direction: row; align-items: center;gap:8px">
-                        <span class="fa fa-light fa-location-dot"></span>
-                        <span style=" font-size: 12px !important; line-height: 1.5; color: #007185">Select delivery location</span>
-                    </div>
-                </div>
+<div style="display:flex; flex-direction:row; margin-left:20px; margin-right: 24px !important;">
+    <div style="width:6%; background:black">
+        s
+    </div>
+    <div style="width:30%; display:flex; justify-content:center; margin-top:6rem">
+        <img style="height: 314px; width: 314px " src="@each.Thumbnail" />
+    </div>
+    <div style="margin-top: 0.5rem; word-break: break-word; width:44%">
+        <h1 style=" font-size: 24px !important; line-height: 32px !important; font-weight: 400;">@each.Title</h1>
+    </div>
+    <div style="width: 20%; border-width: 1px; border-style: solid; border-color: #dbcece; height: auto; margin-left: 16px">
+        <div style="margin: 14px; display: flex; flex-direction: column; ">
+            <p style="color: #B12704; font-size: 18px; line-height: 24px; font-family: Arial,sans-serif">
+                £@each.Price
+            <p style="font-size:14px;">
+                <span style="color: #007185">Delivery</span><span style="font-weight: 700 !important;"> Wednesday, May 10. </span>Order within <span style="color: #007185">3 hrs 41 mins. Details</span>
+            </p>
+            <div style="display: flex; flex-direction: row; align-items: center;gap:8px">
+                <span class="fa fa-light fa-location-dot"></span>
+                <span style=" font-size: 12px !important; line-height: 1.5; color: #007185">Select delivery location</span>
             </div>
         </div>
+    </div>
+</div>
     }
 }
 else
@@ -42,13 +42,57 @@ else
             <div style="width:6%; background:black">
                 s
             </div>
-            <div style="width:30%; display:flex; justify-content:center; margin-top:6rem">
+            <div style="width:30%; display:flex; justify-content:center; margin-top:6rem;">
                 <img style="height: 314px; width: 314px " src="@each.Img" />
             </div>
-            <div style="margin-top: 0.5rem; word-break: break-word; width:44%">
+
+
+            <div style="margin-top: 0.5rem; word-break: break-word; width:44%;">
                 <h1 style=" font-size: 24px !important; line-height: 32px !important; font-weight: 400;">@each.Title</h1>
+                <div style="margin-bottom:0 !important">
+                    @for (var i = 0; i < 5; i++)
+                    {
+                        <span class="@(i <= each.Rating.rate ? "fa fa-star checked rating " : "far fa-star rating")"></span>
+                    }
+                    <span class="ml-4 count" style="font-size:14px; line-height:20px;">@each.Rating.count ratings</span>
+                </div>
+                <hr style="margin-top:0 !important"/>
+                <div>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td style="">
+                                    Bundle List Price:
+                                </td>
+                                <td style="padding-left: 5px; text-decoration-line: line-through; color: #565959 !important; font-size:14px">
+                                    £234
+                                </td>
+                            </tr>
+                            <tr>
+
+                                <td style="text-align:end">
+                                    Price:
+                                </td>
+                                <td style="padding-left: 5px; color: #B12704 !important; font-size: 18px">
+                                    £234
+                                </td>
+                            </tr>
+                            <tr>
+
+                                <td style="padding-left: 5px; color: #B12704 !important; font-size: 14px">
+                                    Deal Price:
+                                </td>
+                                <td style="">
+                                    £234
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-            <div style="width: 20%; border-width: 1px; border-style: solid; border-color: #dbcece; height: auto;">
+
+
+            <div style="width: 20%; border-width: 1px; border-style: solid; border-color: #dbcece; height: auto; margin-left: 16px">
                 <div style="margin: 14px; display: flex; flex-direction: column; ">
                     <p style="color: #B12704; font-size: 18px; line-height: 24px; font-family: Arial,sans-serif">
                         £@each.Price
