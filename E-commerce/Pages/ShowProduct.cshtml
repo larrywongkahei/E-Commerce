@@ -1,6 +1,7 @@
 ﻿@page
 @model E_commerce.Pages.ShowProductModel
 @{
+    var newNum = new Random();
 }
 
 @if (Model.ProductsFromJson.Count() == 0)
@@ -61,31 +62,39 @@ else
                     <table>
                         <tbody>
                             <tr>
-                                <td style="">
+                                <td style="color: #565959 !important; font-size: 14px !important; line-height: 20px !important;">
                                     Bundle List Price:
                                 </td>
                                 <td style="padding-left: 5px; text-decoration-line: line-through; color: #565959 !important; font-size:14px">
-                                    £234
+                                    £@each.Price.GetType()
                                 </td>
                             </tr>
-                            <tr>
+                            @{ var discount = newNum.Next(30, 80);
+                                double Saved = (double)each.Price * ((double)discount / 100);
+                                double newPrice = (double)each.Price - (double)Saved;
+                             <tr>
+                                 <td style = "text-align:end; color: #565959 !important; font-size: 14px !important; line-height: 20px !important;" >
+                                      Deal Price:
+                                            </td>
+                                            <td style = "padding-left: 5px; color: #B12704 !important; font-size: 18px" >
+                                                            £@newPrice.ToString("F2")
+                                                        </td>
 
-                                <td style="text-align:end">
-                                    Price:
-                                </td>
-                                <td style="padding-left: 5px; color: #B12704 !important; font-size: 18px">
-                                    £234
-                                </td>
-                            </tr>
-                            <tr>
+                                                    </tr>
 
-                                <td style="padding-left: 5px; color: #B12704 !important; font-size: 14px">
-                                    Deal Price:
-                                </td>
-                                <td style="">
-                                    £234
-                                </td>
-                            </tr>
+                                                    <tr>
+
+
+                                                        <td style = "text-align: end; color: #565959 !important; font-size: 14px !important; line-height: 20px !important;">
+                                                             You Save:
+                                            </td>
+                                            <td style = "padding-left: 5px; color: #B12704 !important; font-size: 14px" >
+                                                 @Saved.ToString("F2") (@discount%) 
+                                             </td>
+
+                                         </tr>
+                            }
+
                         </tbody>
                     </table>
                 </div>
