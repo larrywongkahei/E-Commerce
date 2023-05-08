@@ -17,9 +17,6 @@
         string dataToPass = "";
         foreach (var image in each.Images) { dataToPass += image + ","; }
         @(await Html.RenderComponentAsync<ImagesToShow>(RenderMode.ServerPrerendered,new { Values = dataToPass }))
-
-
-
     }
 
 
@@ -174,7 +171,7 @@ else
 
                         </tbody>
                     </table>
-                    <hr style="" />
+                    <hr />
 
                 </div>
                 <div>
