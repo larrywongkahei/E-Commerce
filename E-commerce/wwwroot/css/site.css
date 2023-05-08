@@ -86,8 +86,19 @@ nav a {
     color: #0F1111 !important;
 }
 
-span :hover{
-    text-
+.paymentText {
+    color: #565959 !important;
+    font-size: 12px;
+    line-height: 16px;
+    margin-bottom: 5px;
+    font-family: Arial, sans-serif;
+}
+
+.paymentValue {
+    font-size:12px;
+    line-height:16px;
+    margin-bottom:5px;
+    font-family:Arial, sans-serif;
 }
 
 /* Sticky footer styles
