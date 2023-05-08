@@ -1,5 +1,6 @@
 ﻿@page
 @model BestSellerModel
+@using E_commerce.DataAPI;
 @{ 
     int countSmartphone = 0;
     int countLaptops = 0;
@@ -15,45 +16,68 @@
                 <div id="Smartphones" class="carousel slide" style="text-align: center;" data-ride="carousel" data-interval=false>
                     <div class="carousel-inner" style="width:100%">
                         @for (var i = Model.SmartPhones.First().Id; i < Model.SmartPhones.Count(); i += 3)
-                                {
+                        {
                         <div class="@(countSmartphone == 0 ? "carousel-item active" : "carousel-item") " style="">
-                           <div class="d-flex" style="justify-content: space-evenly">
-                               <div class="">
-                                   <img clsas="d-block" style="height: 160px; width: 230px" src="@Model.SmartPhones.FirstOrDefault(product => product.Id == i + 1)?.Thumbnail" />
-                                   <p>@Model.SmartPhones.FirstOrDefault(product => product.Id == i + 1)?.Title</p>
-        <p class="card-text" style=" width: 230px">@Model.SmartPhones.FirstOrDefault(product => product.Id == i + 1)?.Description</p>
-                                   @for (var x = 0.5; x < 5; x++)
-                                {
-                                    <span class="@(x <= Model.SmartPhones.FirstOrDefault(product => product.Id == i + 1)?.Rating ? "fa fa-star checked rating bottom-0" : "far fa-star rating")"></span>
-                                }
-                                   <p>£@Model.SmartPhones.FirstOrDefault(product => product.Id == i + 1)?.Price</p>
-                               </div>
-                               <div>
-                                   <img clsas="d-block" style="height: 160px; width: 230px" src="@Model.SmartPhones.FirstOrDefault(product => product.Id == i + 2)?.Thumbnail" />
-                                   <p>@Model.SmartPhones.FirstOrDefault(product => product.Id == i + 2)?.Title</p>
+                            <div class="d-flex" style="justify-content: space-evenly">
+                                <div class="">
+                                    <img clsas="d-block" style="height: 160px; width: 230px" src="@Model.SmartPhones.FirstOrDefault(product => product.Id == i + 1)?.Thumbnail" />
+                                    <p>@Model.SmartPhones.FirstOrDefault(product => product.Id == i + 1)?.Title</p>
+                                    <p class="card-text" style=" width: 230px">@Model.SmartPhones.FirstOrDefault(product => product.Id == i + 1)?.Description</p>
+                                    @for (var x = 0.5; x < 5; x++)
+                                    {
+                                        <span class="@(x <= Model.SmartPhones.FirstOrDefault(product => product.Id == i + 1)?.Rating ? "fa fa-star checked rating bottom-0" : "far fa-star rating")"></span>
+                                    }
+                                    <p>£@Model.SmartPhones.FirstOrDefault(product => product.Id == i + 1)?.Price</p>
+                                </div>
+                                
+                                    @if (Model.SmartPhones.FirstOrDefault(product => product.Id == i + 2) != null)
+                                    {
+                                    <div>
+                                        <img clsas="d-block" style="height: 160px; width: 230px" src="@Model.SmartPhones.FirstOrDefault(product => product.Id == i + 2)?.Thumbnail" />
+                                        <p>@Model.SmartPhones.FirstOrDefault(product => product.Id == i + 2)?.Title</p>
 
-                                   <p class="card-text" style=" width: 230px">@Model.SmartPhones.FirstOrDefault(product => product.Id == i + 2)?.Description</p>
-                                   @for (var x = 0.5; x < 5; x++)
-                                   {
-                                       <span class="@(x <= Model.SmartPhones.FirstOrDefault(product => product.Id == i + 2)?.Rating ? "fa fa-star checked rating bottom-0" : "far fa-star rating")"></span>
-                                   }
-                                   <p>£@Model.SmartPhones.FirstOrDefault(product => product.Id == i + 2)?.Price</p>
-                               </div>
-                               <div>
-                                   <img clsas="d-block " style="height: 160px; width: 230px" src="@Model.SmartPhones.FirstOrDefault(product => product.Id == i + 3)?.Thumbnail" />
-                                   <p>@Model.SmartPhones.FirstOrDefault(product => product.Id == i + 3)?.Title</p>
+                                        <p class="card-text" style=" width: 230px">@Model.SmartPhones.FirstOrDefault(product => product.Id == i + 2)?.Description</p>
+                                        @for (var x = 0.5; x < 5; x++)
+                                        {
+                                            <span class="@(x <= Model.SmartPhones.FirstOrDefault(product => product.Id == i + 2)?.Rating ? "fa fa-star checked rating bottom-0" : "far fa-star rating")"></span>
+                                        }
+                                        <p>£@Model.SmartPhones.FirstOrDefault(product => product.Id == i + 2)?.Price</p>
+                                    </div>
+                                    }
+                                    else
+                                    {
+                                        <h1></h1>
+                                    }
+                                    
 
-                                   <p class="card-text" style=" width: 230px">@Model.SmartPhones.FirstOrDefault(product => product.Id == i + 3)?.Description</p>
-                                   @for (var x = 0.5; x < 5; x++)
-                                   {
-                                       <span class="@(x <= Model.SmartPhones.FirstOrDefault(product => product.Id == i + 3)?.Rating ? "fa fa-star checked rating bottom-0" : "far fa-star rating")"></span>
-                                   }
-                                   <p>£@Model.SmartPhones.FirstOrDefault(product => product.Id == i + 3)?.Price</p>
-                               </div>
+                                @if (Model.SmartPhones.FirstOrDefault(product => product.Id == i + 3) != null)
+                                    {
+
+
+                                <div>
+                                    <img clsas="d-block " style="height: 160px; width: 230px" src="@Model.SmartPhones.FirstOrDefault(product => product.Id == i + 3)?.Thumbnail" />
+                                    <p>@Model.SmartPhones.FirstOrDefault(product => product.Id == i + 3)?.Title</p>
+
+                                    <p class="card-text" style=" width: 230px">@Model.SmartPhones.FirstOrDefault(product => product.Id == i + 3)?.Description</p>
+                                    @for (var x = 0.5; x < 5; x++)
+                                    {
+                                        <span class="@(x <= Model.SmartPhones.FirstOrDefault(product => product.Id == i + 3)?.Rating ? "fa fa-star checked rating bottom-0" : "far fa-star rating")"></span>
+                                    }
+                                    <p>£@Model.SmartPhones.FirstOrDefault(product => product.Id == i + 3)?.Price</p>
+                                </div>
+
+                                    }
+                                    else
+                                    {
+                                <h1></h1>
+                                        }
+                                    
+
                             </div>
                         </div>
                                 countSmartphone++;
-                                }
+                                
+                        }
                             </div>
                     <a class="carousel-control-prev" href="#Smartphones" role="button" data-slide="prev" style="justify-content: left !important;">
                         <span class="fa-solid fa-circle-arrow-left fa-2xl" aria-hidden="true" style="color: black;"></span>
@@ -85,27 +109,43 @@
                                         }
                                         <p>£@Model.LapTops.FirstOrDefault(product => product.Id == i + 1)?.Price</p>
                                     </div>
-                                    <div>
-                                        <img clsas="d-block" style="height: 160px; width: 230px" src="@Model.LapTops.FirstOrDefault(product => product.Id == i + 2)?.Thumbnail" />
-                                        <p>@Model.LapTops.FirstOrDefault(product => product.Id == i + 2)?.Title</p>
-                                        <p class="card-text" style=" width: 230px">@Model.LapTops.FirstOrDefault(product => product.Id == i + 2)?.Description</p>
-                                        @for (var x = 0.5; x < 5; x++)
-                                        {
-                                            <span class="@(x <= Model.LapTops.FirstOrDefault(product => product.Id == i + 2)?.Rating ? "fa fa-star checked rating bottom-0" : "far fa-star rating")"></span>
-                                        }
-                                        <p>£@Model.LapTops.FirstOrDefault(product => product.Id == i + 2)?.Price</p>
+
+                                    @if (Model.LapTops.FirstOrDefault(product => product.Id == i + 2) != null)
+                                    {
+
+
+                                        <div>
+                                            <img clsas="d-block" style="height: 160px; width: 230px" src="@Model.LapTops.FirstOrDefault(product => product.Id == i + 2)?.Thumbnail" />
+                                            <p>@Model.LapTops.FirstOrDefault(product => product.Id == i + 2)?.Title</p>
+                                            <p class="card-text" style=" width: 230px">@Model.LapTops.FirstOrDefault(product => product.Id == i + 2)?.Description</p>
+                                            @for (var x = 0.5; x < 5; x++)
+                                            {
+                                                <span class="@(x <= Model.LapTops.FirstOrDefault(product => product.Id == i + 2)?.Rating ? "fa fa-star checked rating bottom-0" : "far fa-star rating")"></span>
+                                            }
+                                            <p>£@Model.LapTops.FirstOrDefault(product => product.Id == i + 2)?.Price</p>
+                                        </div> }
+                                    else
+                                    {
+                                        <h1></h1>
+                                    }
+                                    @if (Model.LapTops.FirstOrDefault(product => product.Id == i + 3) != null)
+                                    {
+
+                                        <div>
+                                            <img clsas="d-block " style="height: 160px; width: 230px" src="@Model.LapTops.FirstOrDefault(product => product.Id == i + 3)?.Thumbnail" />
+                                            <p>@Model.LapTops.FirstOrDefault(product => product.Id == i + 3)?.Title</p>
+                                            <p class="card-text" style=" width: 230px">@Model.LapTops.FirstOrDefault(product => product.Id == i + 3)?.Description</p>
+                                            @for (var x = 0.5; x < 5; x++)
+                                            {
+                                                <span class="@(x <= Model.LapTops.FirstOrDefault(product => product.Id == i + 3)?.Rating ? "fa fa-star checked rating bottom-0" : "far fa-star rating")"></span>
+                                            }
+                                            <p>£@Model.LapTops.FirstOrDefault(product => product.Id == i + 3)?.Price</p>
+                                        </div>}
+                else
+                {
+                    <h1></h1>
+                }
                                     </div>
-                                    <div>
-                                        <img clsas="d-block " style="height: 160px; width: 230px" src="@Model.LapTops.FirstOrDefault(product => product.Id == i + 3)?.Thumbnail" />
-                                        <p>@Model.LapTops.FirstOrDefault(product => product.Id == i + 3)?.Title</p>
-                                        <p class="card-text" style=" width: 230px">@Model.LapTops.FirstOrDefault(product => product.Id == i + 3)?.Description</p>
-                                        @for (var x = 0.5; x < 5; x++)
-                                        {
-                                            <span class="@(x <= Model.LapTops.FirstOrDefault(product => product.Id == i + 3)?.Rating ? "fa fa-star checked rating bottom-0" : "far fa-star rating")"></span>
-                                        }
-                                        <p>£@Model.LapTops.FirstOrDefault(product => product.Id == i + 3)?.Price</p>
-                                    </div>
-                                </div>
                             </div>
                         countLaptops++;
                         }
@@ -139,26 +179,39 @@
                                     }
                                     <p>£@Model.Fragrances.FirstOrDefault(product => product.Id == i + 1)?.Price</p>
                                 </div>
-                                <div>
-                                    <img clsas="d-block" style="height: 160px; width: 230px" src="@Model.Fragrances.FirstOrDefault(product => product.Id == i + 2)?.Thumbnail" />
-                                    <p>@Model.Fragrances.FirstOrDefault(product => product.Id == i + 2)?.Title</p>
-                                    <p class="card-text" style=" width: 230px">@Model.Fragrances.FirstOrDefault(product => product.Id == i + 2)?.Description</p>
-                                    @for (var x = 0.5; x < 5; x++)
-                                    {
-                                        <span class="@(x <= Model.Fragrances.FirstOrDefault(product => product.Id == i + 2)?.Rating ? "fa fa-star checked rating bottom-0" : "far fa-star rating")"></span>
-                                    }
-                                    <p>£@Model.Fragrances.FirstOrDefault(product => product.Id == i + 2)?.Price</p>
-                                </div>
-                                <div>
-                                    <img clsas="d-block " style="height: 160px; width: 230px" src="@Model.Fragrances.FirstOrDefault(product => product.Id == i + 3)?.Thumbnail" />
-                                    <p>@Model.Fragrances.FirstOrDefault(product => product.Id == i + 3)?.Title</p>
-                                    <p class="card-text" style=" width: 230px">@Model.Fragrances.FirstOrDefault(product => product.Id == i + 3)?.Description</p>
-                                    @for (var x = 0.5; x < 5; x++)
-                                    {
-                                        <span class="@(x <= Model.Fragrances.FirstOrDefault(product => product.Id == i + 3)?.Rating ? "fa fa-star checked rating bottom-0" : "far fa-star rating")"></span>
-                                    }
-                                    <p>£@Model.Fragrances.FirstOrDefault(product => product.Id == i + 3)?.Price</p>
-                                </div>
+                                @if (Model.Fragrances.FirstOrDefault(product => product.Id == i + 2) != null)
+                                {
+
+                                    <div>
+                                        <img clsas="d-block" style="height: 160px; width: 230px" src="@Model.Fragrances.FirstOrDefault(product => product.Id == i + 2)?.Thumbnail" />
+                                        <p>@Model.Fragrances.FirstOrDefault(product => product.Id == i + 2)?.Title</p>
+                                        <p class="card-text" style=" width: 230px">@Model.Fragrances.FirstOrDefault(product => product.Id == i + 2)?.Description</p>
+                                        @for (var x = 0.5; x < 5; x++)
+                                        {
+                                            <span class="@(x <= Model.Fragrances.FirstOrDefault(product => product.Id == i + 2)?.Rating ? "fa fa-star checked rating bottom-0" : "far fa-star rating")"></span>
+                                        }
+                                        <p>£@Model.Fragrances.FirstOrDefault(product => product.Id == i + 2)?.Price</p>
+                                    </div>}
+                                else
+                                {
+                                    <h1></h1>
+                                }
+                                @if (Model.Fragrances.FirstOrDefault(product => product.Id == i + 3) != null)
+                                {
+                                    <div>
+                                        <img clsas="d-block " style="height: 160px; width: 230px" src="@Model.Fragrances.FirstOrDefault(product => product.Id == i + 3)?.Thumbnail" />
+                                        <p>@Model.Fragrances.FirstOrDefault(product => product.Id == i + 3)?.Title</p>
+                                        <p class="card-text" style=" width: 230px">@Model.Fragrances.FirstOrDefault(product => product.Id == i + 3)?.Description</p>
+                                        @for (var x = 0.5; x < 5; x++)
+                                        {
+                                            <span class="@(x <= Model.Fragrances.FirstOrDefault(product => product.Id == i + 3)?.Rating ? "fa fa-star checked rating bottom-0" : "far fa-star rating")"></span>
+                                        }
+                                        <p>£@Model.Fragrances.FirstOrDefault(product => product.Id == i + 3)?.Price</p>
+                                    </div>}
+                else
+                {
+                    <h1></h1>
+                }
                             </div>
                         </div>
                         countFragrances++;
@@ -194,26 +247,38 @@
                                     }
                                     <p>£@Model.Skincare.FirstOrDefault(product => product.Id == i + 1)?.Price</p>
                                 </div>
-                                <div>
-                                    <img clsas="d-block" style="height: 160px; width: 230px" src="@Model.Skincare.FirstOrDefault(product => product.Id == i + 2)?.Thumbnail" />
-                                    <p>@Model.Skincare.FirstOrDefault(product => product.Id == i + 2)?.Title</p>
-                                    <p class="card-text" style=" width: 230px">@Model.Skincare.FirstOrDefault(product => product.Id == i + 2)?.Description</p>
-                                    @for (var x = 0.5; x < 5; x++)
-                                    {
-                                        <span class="@(x <= Model.Skincare.FirstOrDefault(product => product.Id == i + 2)?.Rating ? "fa fa-star checked rating bottom-0" : "far fa-star rating")"></span>
-                                    }
-                                    <p>£@Model.Skincare.FirstOrDefault(product => product.Id == i + 2)?.Price</p>
-                                </div>
-                                <div>
-                                    <img clsas="d-block " style="height: 160px; width: 230px" src="@Model.Skincare.FirstOrDefault(product => product.Id == i + 3)?.Thumbnail" />
-                                    <p>@Model.Skincare.FirstOrDefault(product => product.Id == i + 3)?.Title</p>
-                                    <p class="card-text" style=" width: 230px">@Model.Skincare.FirstOrDefault(product => product.Id == i + 3)?.Description</p>
-                                    @for (var x = 0.5; x < 5; x++)
-                                    {
-                                        <span class="@(x <= Model.Skincare.FirstOrDefault(product => product.Id == i + 3)?.Rating ? "fa fa-star checked rating bottom-0" : "far fa-star rating")"></span>
-                                    }
-                                    <p>£@Model.Skincare.FirstOrDefault(product => product.Id == i + 3)?.Price</p>
-                                </div>
+                                @if (Model.Skincare.FirstOrDefault(product => product.Id == i + 2) != null)
+                                {
+                                    <div>
+                                        <img clsas="d-block" style="height: 160px; width: 230px" src="@Model.Skincare.FirstOrDefault(product => product.Id == i + 2)?.Thumbnail" />
+                                        <p>@Model.Skincare.FirstOrDefault(product => product.Id == i + 2)?.Title</p>
+                                        <p class="card-text" style=" width: 230px">@Model.Skincare.FirstOrDefault(product => product.Id == i + 2)?.Description</p>
+                                        @for (var x = 0.5; x < 5; x++)
+                                        {
+                                            <span class="@(x <= Model.Skincare.FirstOrDefault(product => product.Id == i + 2)?.Rating ? "fa fa-star checked rating bottom-0" : "far fa-star rating")"></span>
+                                        }
+                                        <p>£@Model.Skincare.FirstOrDefault(product => product.Id == i + 2)?.Price</p>
+                                    </div>}
+                                else
+                                {
+                                    <h1></h1>
+                                }
+                                @if (Model.Skincare.FirstOrDefault(product => product.Id == i + 3) != null)
+                                {
+                                    <div>
+                                        <img clsas="d-block " style="height: 160px; width: 230px" src="@Model.Skincare.FirstOrDefault(product => product.Id == i + 3)?.Thumbnail" />
+                                        <p>@Model.Skincare.FirstOrDefault(product => product.Id == i + 3)?.Title</p>
+                                        <p class="card-text" style=" width: 230px">@Model.Skincare.FirstOrDefault(product => product.Id == i + 3)?.Description</p>
+                                        @for (var x = 0.5; x < 5; x++)
+                                        {
+                                            <span class="@(x <= Model.Skincare.FirstOrDefault(product => product.Id == i + 3)?.Rating ? "fa fa-star checked rating bottom-0" : "far fa-star rating")"></span>
+                                        }
+                                        <p>£@Model.Skincare.FirstOrDefault(product => product.Id == i + 3)?.Price</p>
+                                    </div>}
+                                else
+                {
+                    <h1></h1>
+                }
                             </div>
                         </div>
                     countSkincare++;
@@ -248,26 +313,38 @@
                                     }
                                     <p>£@Model.Groceries.FirstOrDefault(product => product.Id == i + 1)?.Price</p>
                                 </div>
-                                <div>
-                                    <img clsas="d-block" style="height: 160px; width: 230px" src="@Model.Groceries.FirstOrDefault(product => product.Id == i + 2)?.Thumbnail" />
-                                    <p>@Model.Groceries.FirstOrDefault(product => product.Id == i + 2)?.Title</p>
-                                    <p class="card-text" style=" width: 230px">@Model.Groceries.FirstOrDefault(product => product.Id == i + 2)?.Description</p>
-                                    @for (var x = 0.5; x < 5; x++)
-                                    {
-                                        <span class="@(x <= Model.Groceries.FirstOrDefault(product => product.Id == i + 2)?.Rating ? "fa fa-star checked rating bottom-0" : "far fa-star rating")"></span>
-                                    }
-                                    <p>£@Model.Groceries.FirstOrDefault(product => product.Id == i + 2)?.Price</p>
-                                </div>
-                                <div>
-                                    <img clsas="d-block " style="height: 160px; width: 230px" src="@Model.Groceries.FirstOrDefault(product => product.Id == i + 3)?.Thumbnail" />
-                                    <p>@Model.Groceries.FirstOrDefault(product => product.Id == i + 3)?.Title</p>
-                                    <p class="card-text" style=" width: 230px">@Model.Groceries.FirstOrDefault(product => product.Id == i + 3)?.Description</p>
-                                    @for (var x = 0.5; x < 5; x++)
-                                    {
-                                        <span class="@(x <= Model.Groceries.FirstOrDefault(product => product.Id == i + 3)?.Rating ? "fa fa-star checked rating bottom-0" : "far fa-star rating")"></span>
-                                    }
-                                    <p>£@Model.Groceries.FirstOrDefault(product => product.Id == i + 3)?.Price</p>
-                                </div>
+                                @if (Model.Groceries.FirstOrDefault(product => product.Id == i + 2) != null)
+                                {
+                                    <div>
+                                        <img clsas="d-block" style="height: 160px; width: 230px" src="@Model.Groceries.FirstOrDefault(product => product.Id == i + 2)?.Thumbnail" />
+                                        <p>@Model.Groceries.FirstOrDefault(product => product.Id == i + 2)?.Title</p>
+                                        <p class="card-text" style=" width: 230px">@Model.Groceries.FirstOrDefault(product => product.Id == i + 2)?.Description</p>
+                                        @for (var x = 0.5; x < 5; x++)
+                                        {
+                                            <span class="@(x <= Model.Groceries.FirstOrDefault(product => product.Id == i + 2)?.Rating ? "fa fa-star checked rating bottom-0" : "far fa-star rating")"></span>
+                                        }
+                                        <p>£@Model.Groceries.FirstOrDefault(product => product.Id == i + 2)?.Price</p>
+                                    </div>}
+                                else
+                                {
+                                    <h1></h1>
+                                }
+                                @if (Model.Groceries.FirstOrDefault(product => product.Id == i + 3) != null)
+                                {
+                                    <div>
+                                        <img clsas="d-block " style="height: 160px; width: 230px" src="@Model.Groceries.FirstOrDefault(product => product.Id == i + 3)?.Thumbnail" />
+                                        <p>@Model.Groceries.FirstOrDefault(product => product.Id == i + 3)?.Title</p>
+                                        <p class="card-text" style=" width: 230px">@Model.Groceries.FirstOrDefault(product => product.Id == i + 3)?.Description</p>
+                                        @for (var x = 0.5; x < 5; x++)
+                                        {
+                                            <span class="@(x <= Model.Groceries.FirstOrDefault(product => product.Id == i + 3)?.Rating ? "fa fa-star checked rating bottom-0" : "far fa-star rating")"></span>
+                                        }
+                                        <p>£@Model.Groceries.FirstOrDefault(product => product.Id == i + 3)?.Price</p>
+                                    </div>}
+                else
+                {
+                    <h1></h1>
+                }
                             </div>
                         </div>
                     countGroceries++;
@@ -301,26 +378,38 @@
                                     }
                                     <p>£@Model.HomeDecoration.FirstOrDefault(product => product.Id == i + 1)?.Price</p>
                                 </div>
-                                <div>
-                                    <img clsas="d-block" style="height: 160px; width: 230px" src="@Model.HomeDecoration.FirstOrDefault(product => product.Id == i + 2)?.Thumbnail" />
-                                    <p>@Model.HomeDecoration.FirstOrDefault(product => product.Id == i + 2)?.Title</p>
-                                    <p class="card-text" style=" width: 230px">@Model.HomeDecoration.FirstOrDefault(product => product.Id == i + 2)?.Description</p>
-                                    @for (var x = 0.5; x < 5; x++)
-                                    {
-                                        <span class="@(x <= Model.HomeDecoration.FirstOrDefault(product => product.Id == i + 2)?.Rating ? "fa fa-star checked rating bottom-0" : "far fa-star rating")"></span>
-                                    }
-                                    <p>£@Model.HomeDecoration.FirstOrDefault(product => product.Id == i + 2)?.Price</p>
-                                </div>
-                                <div>
-                                    <img clsas="d-block " style="height: 160px; width: 230px" src="@Model.HomeDecoration.FirstOrDefault(product => product.Id == i + 3)?.Thumbnail" />
-                                    <p>@Model.HomeDecoration.FirstOrDefault(product => product.Id == i + 3)?.Title</p>
-                                    <p class="card-text" style=" width: 230px">@Model.HomeDecoration.FirstOrDefault(product => product.Id == i + 3)?.Description</p>
-                                    @for (var x = 0.5; x < 5; x++)
-                                    {
-                                        <span class="@(x <= Model.HomeDecoration.FirstOrDefault(product => product.Id == i + 3)?.Rating ? "fa fa-star checked rating bottom-0" : "far fa-star rating")"></span>
-                                    }
-                                    <p>£@Model.HomeDecoration.FirstOrDefault(product => product.Id == i + 3)?.Price</p>
-                                </div>
+                                @if (Model.HomeDecoration.FirstOrDefault(product => product.Id == i + 2) != null)
+                                {
+                                    <div>
+                                        <img clsas="d-block" style="height: 160px; width: 230px" src="@Model.HomeDecoration.FirstOrDefault(product => product.Id == i + 2)?.Thumbnail" />
+                                        <p>@Model.HomeDecoration.FirstOrDefault(product => product.Id == i + 2)?.Title</p>
+                                        <p class="card-text" style=" width: 230px">@Model.HomeDecoration.FirstOrDefault(product => product.Id == i + 2)?.Description</p>
+                                        @for (var x = 0.5; x < 5; x++)
+                                        {
+                                            <span class="@(x <= Model.HomeDecoration.FirstOrDefault(product => product.Id == i + 2)?.Rating ? "fa fa-star checked rating bottom-0" : "far fa-star rating")"></span>
+                                        }
+                                        <p>£@Model.HomeDecoration.FirstOrDefault(product => product.Id == i + 2)?.Price</p>
+                                    </div>}
+                                else
+                                {
+                                    <h1></h1>
+                                }
+                                @if (Model.HomeDecoration.FirstOrDefault(product => product.Id == i + 3) != null)
+                                {
+                                    <div>
+                                        <img clsas="d-block " style="height: 160px; width: 230px" src="@Model.HomeDecoration.FirstOrDefault(product => product.Id == i + 3)?.Thumbnail" />
+                                        <p>@Model.HomeDecoration.FirstOrDefault(product => product.Id == i + 3)?.Title</p>
+                                        <p class="card-text" style=" width: 230px">@Model.HomeDecoration.FirstOrDefault(product => product.Id == i + 3)?.Description</p>
+                                        @for (var x = 0.5; x < 5; x++)
+                                        {
+                                            <span class="@(x <= Model.HomeDecoration.FirstOrDefault(product => product.Id == i + 3)?.Rating ? "fa fa-star checked rating bottom-0" : "far fa-star rating")"></span>
+                                        }
+                                        <p>£@Model.HomeDecoration.FirstOrDefault(product => product.Id == i + 3)?.Price</p>
+                                    </div>}
+                else
+                {
+                    <h1></h1>
+                }
                             </div>
                         </div>
                     countHomeDecoration++;
