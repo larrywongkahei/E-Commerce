@@ -11,7 +11,11 @@
     <div class="d-flex flex-row flex-wrap justify-content-evenly" style="width: 80%;">
         @foreach (var product in Model.Products)
         {
-            <div class="card">
+            var param = new Dictionary<string, string>
+                {
+                {"Title", product.Title}
+                };
+            <a class="card" style="text-decoration:none; color:black;" asp-page="/ShowProduct" asp-all-route-data="param">
                 <img class="card-img-top" src="@product.Img" />
                 <div class="card-body">
                     <p class="card-text"> @product.Title</p>
@@ -32,7 +36,7 @@
                         }
                     </div>
                 </div>
-            </div>
+            </a>
         }
 
     </div>
