@@ -5,22 +5,28 @@
 
     List<string> Images { get; set; }
 
-    public string selectedImg = "";
+    public string selectedImg;
 
     protected override void OnInitialized()
     {
         Images = Values.Split(',').ToList();
     }
 
+    void SwitchImage(string url)
+    {
+        selectedImg = url;
+        Console.WriteLine("1");
+    }
 }
 
 <div style="width:6%;">
     @foreach (var image in Images)
     {
-        Console.WriteLine("123");
-        <img src="@image" style="width:3rem; height:3rem; border-radius:15%; border-style: solid; border-color: blue; margin-bottom:10px;" onclick=@(selectedImg = image) />
+    <button style="width:3rem; height:3rem; border-radius:15%; border-style: solid; border-color: blue; margin-bottom:10px; cursor:pointer;" @onclick="(e => SwitchImage(image)">
+        <img src="@image" />
+    </button>
     }
 </div>
 <div style="width:30%; display:flex; justify-content:center; margin-top:6rem;">
-    <img style="height: 314px; width: 314px " src="@(selectedImg == ""? Images.Last() : selectedImg)" />
+    <img style="height: 314px; width: 314px " src="@selectedImg" />
 </div>
