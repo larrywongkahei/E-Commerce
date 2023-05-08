@@ -26,7 +26,6 @@
         string dataToPass = "";
         foreach (var image in each.Images) { dataToPass += image + ","; }
         @(await Html.RenderComponentAsync<ImagesToShow>(RenderMode.ServerPrerendered,new { Values = dataToPass }))
-        @*<component>@(await Html.RenderComponentAsync<ImagesToShow>(RenderMode.Server))</component>*@
 
 
 
