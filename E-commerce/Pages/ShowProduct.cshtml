@@ -13,15 +13,6 @@
     foreach (var each in Model.ProductsFromAPI)
     {
 <div style="display:flex; flex-direction:row; margin-left:20px; margin-right: 24px !important;">
-    @*<div style="width:6%;">
-            @foreach (var image in each.Images)
-            {
-                    <img src="@image" style="width:3rem; height:3rem; border-radius:15%; border-style: solid; border-color: blue; margin-bottom:10px;" onclick=@(selectedImg = image)/>
-            }
-        </div>
-        <div style="width:30%; display:flex; justify-content:center; margin-top:6rem;">
-            <img style="height: 314px; width: 314px " src="@(selectedImg == ""? each.Thumbnail : selectedImg)" />
-        </div>*@
     @{
         string dataToPass = "";
         foreach (var image in each.Images) { dataToPass += image + ","; }
