@@ -1,0 +1,26 @@
+﻿@using Microsoft.AspNetCore.Components
+@code {
+    [Parameter]
+    public string Values { get; set; }
+
+    List<string> Images { get; set; }
+
+    public string selectedImg = "";
+
+    protected override void OnInitialized()
+    {
+        Images = Values.Split(',').ToList();
+    }
+
+}
+
+<div style="width:6%;">
+    @foreach (var image in Images)
+    {
+        Console.WriteLine("123");
+        <img src="@image" style="width:3rem; height:3rem; border-radius:15%; border-style: solid; border-color: blue; margin-bottom:10px;" onclick=@(selectedImg = image) />
+    }
+</div>
+<div style="width:30%; display:flex; justify-content:center; margin-top:6rem;">
+    <img style="height: 314px; width: 314px " src="@(selectedImg == ""? Images.Last() : selectedImg)" />
+</div>

@@ -17,6 +17,7 @@
     <None Remove="DataAPI\" />
     <None Remove="Pages\Electronics\" />
     <None Remove="Pages\Clothes\" />
+    <None Remove="Components\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="wwwroot\Images\kindpng_287182.png" />
@@ -45,6 +46,7 @@
     <Folder Include="wwwroot\Images\" />
     <Folder Include="Pages\Electronics\" />
     <Folder Include="Pages\Clothing\" />
+    <Folder Include="Components\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\data\" />

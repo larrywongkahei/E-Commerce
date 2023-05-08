@@ -34,6 +34,7 @@ namespace E_commerce
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddRazorPages();
+            services.AddServerSideBlazor();
             services.AddTransient<JsonFileService>();
             services.AddTransient<ProductsAPIService>();
 
@@ -65,6 +66,7 @@ namespace E_commerce
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();
+                endpoints.MapBlazorHub();
             });
         }
     }
