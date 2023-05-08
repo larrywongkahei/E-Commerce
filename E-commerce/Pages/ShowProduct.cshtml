@@ -74,7 +74,7 @@
     </div>
 
 
-    <div style="width: 20%; border-width: 1px; border-style: solid; border-color: #dbcece; height: auto; margin-left: 16px">
+    <div style="width: 280px; border-width: 1px; border-style: solid; border-color: #dbcece; height: auto; margin-left: 16px">
         <div style="margin: 14px; display: flex; flex-direction: column; ">
             @{double newPrice2 = (double)each.Price * (double)(100 - discount) / 100;
 
@@ -108,8 +108,8 @@
                 <div style="width:55%">
                     <p class="paymentText">Payment</p>
                     <p class="paymentText">Dispatches from</p>
-                    <p class="paymentText" ">Sold by</p>
-                    <p class="paymentText" ">Returns</p>
+                    <p class="paymentText">Sold by</p>
+                    <p class="paymentText">Returns</p>
                 </div>
                 <div>
                     <p style="color: #007185 !important;" class="paymentValue">Secure transaction</p>
@@ -128,117 +128,117 @@ else
     foreach (var each in Model.ProductsFromJson)
     {
 
-        <div style="display:flex; flex-direction:row; margin-left:20px; margin-right: 24px !important;">
-            <div style="width:6%;">
-                <img src="@each.Img" style="width:3rem; height:3rem; border-radius:15%; border-style: solid; border-color: blue;" />
-            </div>
-            <div style="width:30%; display:flex; justify-content:center; margin-top:6rem;">
-                <img style="height: 314px; width: 314px " src="@each.Img" />
-            </div>
+<div style="display:flex; flex-direction:row; margin-left:20px; margin-right: 24px !important;">
+    <div style="width:6%;">
+        <img src="@each.Img" style="width:3rem; height:3rem; border-radius:15%; border-style: solid; border-color: blue;" />
+    </div>
+    <div style="width:30%; display:flex; justify-content:center; margin-top:6rem;">
+        <img style="height: 314px; width: 314px " src="@each.Img" />
+    </div>
 
 
-            <div style="margin-top: 0.5rem; word-break: break-word; width:44%;">
-                <h1 style=" font-size: 24px !important; line-height: 32px !important; font-weight: 400;">@each.Title</h1>
-                <div style="margin-bottom:0 !important">
-                    @for (var i = 0; i < 5; i++)
-                    {
-                        <span style="height:10px;" class="@(i <= each.Rating.rate ? "fa fa-star checked rating " : "far fa-star rating")"></span>
+    <div style="margin-top: 0.5rem; word-break: break-word; width:44%;">
+        <h1 style=" font-size: 24px !important; line-height: 32px !important; font-weight: 400;">@each.Title</h1>
+        <div style="margin-bottom:0 !important">
+            @for (var i = 0; i < 5; i++)
+            {
+                <span style="height:10px;" class="@(i <= each.Rating.rate ? "fa fa-star checked rating " : "far fa-star rating")"></span>
+            }
+            <span class="ml-4 count" style="font-size:14px; line-height:20px;">@each.Rating.count ratings</span>
+        </div>
+        <hr style="margin-top:0 !important" />
+        <div style="margin-bottom:2rem;">
+            <table>
+                <tbody>
+                    @{
+                        double Saved = (double)each.Price * ((double)discount / 100);
+                        double newPrice = (double)each.Price - (double)Saved;
+                        <tr>
+                            <td style="color: #565959 !important; font-size: 14px !important; line-height: 20px !important;">
+                                Bundle List Price:
+                            </td>
+                            <td style="padding-left: 5px; text-decoration-line: line-through; color: #565959 !important; font-size:14px">
+                                £@each.Price
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td style="text-align:end; color: #565959 !important; font-size: 14px !important; line-height: 20px !important;">
+                                Deal Price:
+                            </td>
+                            <td style="padding-left: 5px; color: #B12704 !important; font-size: 18px">
+                                £@newPrice.ToString("F2")
+                            </td>
+
+                        </tr>
+
+                        <tr>
+                            <td style="text-align: end; color: #565959 !important; font-size: 14px !important; line-height: 20px !important;">
+                                You Save:
+                            </td>
+                            <td style="padding-left: 5px; color: #B12704 !important; font-size: 14px">
+                                @Saved.ToString("F2") (@discount%)
+                            </td>
+                        </tr>
                     }
-                    <span class="ml-4 count" style="font-size:14px; line-height:20px;">@each.Rating.count ratings</span>
-                </div>
-                <hr style="margin-top:0 !important" />
-                <div style="margin-bottom:2rem;">
-                    <table>
-                        <tbody>
-                            @{
-                                double Saved = (double)each.Price * ((double)discount / 100);
-                                double newPrice = (double)each.Price - (double)Saved;
-                                <tr>
-                                    <td style="color: #565959 !important; font-size: 14px !important; line-height: 20px !important;">
-                                        Bundle List Price:
-                                    </td>
-                                    <td style="padding-left: 5px; text-decoration-line: line-through; color: #565959 !important; font-size:14px">
-                                        £@each.Price
-                                    </td>
-                                </tr>
 
-                                <tr>
-                                    <td style="text-align:end; color: #565959 !important; font-size: 14px !important; line-height: 20px !important;">
-                                        Deal Price:
-                                    </td>
-                                    <td style="padding-left: 5px; color: #B12704 !important; font-size: 18px">
-                                        £@newPrice.ToString("F2")
-                                    </td>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <p>
+                @each.Description
+            </p>
+        </div>
+    </div>
 
-                                </tr>
 
-                                <tr>
-                                    <td style="text-align: end; color: #565959 !important; font-size: 14px !important; line-height: 20px !important;">
-                                        You Save:
-                                    </td>
-                                    <td style="padding-left: 5px; color: #B12704 !important; font-size: 14px">
-                                        @Saved.ToString("F2") (@discount%)
-                                    </td>
-                                </tr>
-                            }
+    <div style="width: 280px; border-width: 1px; border-style: solid; border-color: #dbcece; height: auto; margin-left: 16px">
+        <div style="margin: 14px; display: flex; flex-direction: column; ">
+            @{double newPrice2 = (double)each.Price * (double)(100 - discount) / 100;
 
-                        </tbody>
-                    </table>
+                <p style="color: #B12704; font-size: 18px; line-height: 24px; font-family: Arial,sans-serif">
+
+                    £@newPrice2.ToString("F2")
+                </p>
+            }
+            <p style="font-size:14px;">
+                <span style="color: #007185">Delivery<span style="font-weight: 700 !important; color:black"> Wednesday, May 10. </span><span style=" color: black">Order within</span> <span style="color: #007600 !important;">3 hrs 41 mins.</span> Details</span>
+            </p>
+            <div style="display: flex; flex-direction: row; align-items: center;gap:8px">
+                <span class="fa fa-light fa-location-dot"></span>
+                <span style=" font-size: 12px !important; line-height: 1.5; color: #007185">Select delivery location</span>
+            </div>
+            <p style="color: #007600 !important; font-size: 18px !important; line-height: 24px !important; margin-top:1rem; margin-bottom:1rem;">
+                In stock.
+            </p>
+            <p style="font-size:14px">
+                Quantity
+            </p>
+            <div style="margin-bottom:6px">
+                <button style="background-color: #ffd242; width: 100%; border-style: none; border-radius: 15px; height: 2rem; margin-bottom: 10px; font-size:14px" class="box-shadow">
+                    Add to Basket
+                </button>
+                <button style="background-color: orange; width: 100%; border-style: none; border-radius: 15px; height: 2rem; margin-bottom: 10px; font-size:14px" class="box-shadow">
+                    Buy Now
+                </button>
+            </div>
+            <div style="display:flex">
+                <div style="width:55%">
+                    <p class="paymentText">Payment</p>
+                    <p class="paymentText">Dispatches from</p>
+                    <p class="paymentText">Sold by</p>
+                    <p class="paymentText">Returns</p>
                 </div>
                 <div>
-                    <p>
-                        @each.Description
-                    </p>
-                </div>
-            </div>
-
-
-            <div style="width: 20%; border-width: 1px; border-style: solid; border-color: #dbcece; height: auto; margin-left: 16px">
-                <div style="margin: 14px; display: flex; flex-direction: column; ">
-                    @{double newPrice2 = (double)each.Price * (double)(100 - discount) / 100;
-
-                        <p style="color: #B12704; font-size: 18px; line-height: 24px; font-family: Arial,sans-serif">
-
-                            £@newPrice2.ToString("F2")
-                        </p>
-                    }
-                    <p style="font-size:14px;">
-                        <span style="color: #007185">Delivery<span style="font-weight: 700 !important; color:black"> Wednesday, May 10. </span><span style=" color: black">Order within</span> <span style="color: #007600 !important;">3 hrs 41 mins.</span> Details</span>
-                    </p>
-                    <div style="display: flex; flex-direction: row; align-items: center;gap:8px">
-                        <span class="fa fa-light fa-location-dot"></span>
-                        <span style=" font-size: 12px !important; line-height: 1.5; color: #007185">Select delivery location</span>
-                    </div>
-                    <p style="color: #007600 !important; font-size: 18px !important; line-height: 24px !important; margin-top:1rem; margin-bottom:1rem;">
-                        In stock.
-                    </p>
-                    <p style="font-size:14px">
-                        Quantity
-                    </p>
-                    <div style="margin-bottom:6px">
-                        <button style="background-color: #ffd242; width: 100%; border-style: none; border-radius: 15px; height: 2rem; margin-bottom: 10px; font-size:14px" class="box-shadow">
-                            Add to Basket
-                        </button>
-                        <button style="background-color: orange; width: 100%; border-style: none; border-radius: 15px; height: 2rem; margin-bottom: 10px; font-size:14px" class="box-shadow">
-                            Buy Now
-                        </button>
-                    </div>
-                    <div style="display:flex">
-                        <div style="width:55%">
-                            <p class="paymentText">Payment</p>
-                            <p class="paymentText">Dispatches from</p>
-                            <p class="paymentText" ">Sold by</p>
-                            <p class="paymentText" ">Returns</p>
-                        </div>
-                        <div>
-                            <p style="color: #007185 !important;" class="paymentValue">Secure transaction</p>
-                            <p class="paymentValue">HayStore</p>
-                            <p class="paymentValue">HayStore</p>
-                            <p style="color: #007185 !important;" class="paymentValue">Returnable within 30 days of receipt</p>
-                        </div>
-                    </div>
+                    <p style="color: #007185 !important;" class="paymentValue">Secure transaction</p>
+                    <p class="paymentValue">HayStore</p>
+                    <p class="paymentValue">HayStore</p>
+                    <p style="color: #007185 !important;" class="paymentValue">Returnable within 30 days of receipt</p>
                 </div>
             </div>
         </div>
+    </div>
+</div>
     }
 }
