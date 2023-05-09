@@ -146,6 +146,13 @@ button.accept-policy {
   line-height: inherit;
 }
 
+.navChoice {
+    color: black !important;
+}
+.navChoice:hover{
+    color:orange !important;
+}
+
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
