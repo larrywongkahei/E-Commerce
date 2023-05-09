@@ -76,6 +76,24 @@ nav a {
     color: white !important;
 }
 
+.selectedImg {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 15%;
+    border-style: solid;
+    border-color: blue;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.notSelectedImg {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 15%;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
 .product-title {
     font-weight: 400 !important;
     font-style: normal !important;

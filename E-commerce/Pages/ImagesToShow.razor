@@ -22,7 +22,7 @@
 <div style="width:6%;">
     @foreach (var image in Images)
     {
-        <img src="@image" style="width:3rem; height:3rem; border-radius:15%; border-style: solid; border-color: blue; margin-bottom:10px; cursor:pointer;" @onclick="(e => SwitchImage(image))"/>
+        <img src="@image" class="@(image == selectedImg? "selectedImg" : "notSelectedImg")" @onclick="(e => SwitchImage(image))"/>
     }
 </div>
 <div style="width:30%; display:flex; justify-content:center; margin-top:6rem;">
