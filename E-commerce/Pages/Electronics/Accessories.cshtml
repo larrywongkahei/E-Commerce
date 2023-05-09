@@ -19,7 +19,7 @@
                 <div class="card-body" style="height:50%">
                     <p class="card-text-2" style="font-size:large;">@product.Title</p>
                     <div>
-                        @for (var i = 0.5; i < 5; i++)
+                        @for (var i = 0; i < 5; i++)
                         {
                             <span class="@(i <= product.Rating.rate ? "fa fa-star checked rating " : "far fa-star rating")"></span>
                         }
