@@ -19,16 +19,10 @@ namespace E_commerce.Pages
             {
                 {"input", input }
             };
-            if (Request.Path == "/SearchResult")
-            {;
-                Console.WriteLine("Redirect to index");
+
+            
                 return RedirectToPage("/SearchResult", param);
-            }
-            else
-            {
-                Console.WriteLine("Redirect to SearchResult page with param");
-                return RedirectToPage("/SearchResult", param);
-            }
+            
         }
 
     }
