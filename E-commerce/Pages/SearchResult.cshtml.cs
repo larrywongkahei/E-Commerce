@@ -33,7 +33,6 @@ namespace E_commerce.Pages
         {
             data = param;
             SearchValue = data.First().Value;
-            Console.WriteLine(SearchValue);
             var allDataFromAPI = await productapiservice.GetProductsFromAPI();
             ProductsFromAPI = from each in allDataFromAPI.Product where each.Title.ToLower().Contains(SearchValue) select each;
             var allDataFromJson = jsonfileservice.GetAll();
