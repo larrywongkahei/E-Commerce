@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace E_commerce.Pages
 {
-    public class FragranceModel : PageModel
+    public class FragranceModel : BaseModel
     {
         
         public IEnumerable<Product> FragranceFromAPI { get; set; }

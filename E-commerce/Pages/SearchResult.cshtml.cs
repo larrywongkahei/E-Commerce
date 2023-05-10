@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace E_commerce.Pages
 {
-    public class SearchResultModel : PageModel
+    public class SearchResultModel : BaseModel
     {
         public JsonFileService jsonfileservice;
 

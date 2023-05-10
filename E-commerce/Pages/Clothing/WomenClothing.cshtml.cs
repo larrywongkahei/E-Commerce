@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace E_commerce.Pages
 {
-    public class WomenClothingModel : PageModel
+    public class WomenClothingModel : BaseModel
     {
 
         public JsonFileService jsonfileservice;

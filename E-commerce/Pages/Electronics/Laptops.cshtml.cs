@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace E_commerce.Pages
 {
-    public class LaptopsModel : PageModel
+    public class LaptopsModel : BaseModel
     {
         public ProductsAPIService productAPIService;
 

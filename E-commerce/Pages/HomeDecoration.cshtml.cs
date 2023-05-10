@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace E_commerce.Pages
 {
-    public class HomeDecorationModel : PageModel
+    public class HomeDecorationModel : BaseModel
     {
         public void OnGet()
         {

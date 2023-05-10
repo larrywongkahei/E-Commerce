@@ -8,7 +8,7 @@ using Microsoft.Extensions.Logging;
 
 namespace E_commerce.Pages
 {
-    public class PrivacyModel : PageModel
+    public class PrivacyModel : BaseModel
     {
         private readonly ILogger<PrivacyModel> _logger;
 

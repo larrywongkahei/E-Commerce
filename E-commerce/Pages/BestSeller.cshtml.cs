@@ -10,7 +10,7 @@ using Microsoft.Extensions.Logging;
 
 namespace E_commerce.Pages
 {
-    public class BestSellerModel : PageModel
+    public class BestSellerModel : BaseModel
     {
         public IEnumerable<Product> products { get; private set; }
 

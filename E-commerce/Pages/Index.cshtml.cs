@@ -7,20 +7,28 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace E_commerce.Pages
 {
-    public class IndexModel : PageModel
+    public class BaseModel : BaseModel
     {
         [BindProperty]
         public string input { get; set; }
 
 
-        public void OnPost()
+        public IActionResult OnPost()
         {
-            Console.WriteLine(input);
+            var param = new Dictionary<string, string>
+            {
+                {"input", input }
+            };
+            return RedirectToPage("SearchResult", param);
         }
+
+    }
+    public class IndexModel : BaseModel
+    {
 
         public void OnGet()
         {
-            Console.WriteLine("This is index page");
+            Console.WriteLine("this is index page");
         }
     }
 }

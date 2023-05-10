@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace E_commerce.Pages
 {
-    public class GroceriesModel : PageModel
+    public class GroceriesModel : BaseModel
     {
 
         public IEnumerable<Product> GroceriesFromAPI { get; set; }
@@ -21,7 +21,7 @@ namespace E_commerce.Pages
             APIService = apiservice;
         }
 
-        public async Task OnGet()
+        public async Task OnGetAsync()
         {
             var allData = await APIService.GetProductsFromAPI();
             GroceriesFromAPI = from data in allData.Product where data.Category == "groceries" select data;

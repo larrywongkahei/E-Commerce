@@ -10,7 +10,7 @@ using Microsoft.Extensions.Logging;
 
 namespace E_commerce.Pages
 {
-    public class TodaysDealModel : PageModel
+    public class TodaysDealModel : BaseModel
     {
         private readonly ILogger<IndexModel> _logger;
 

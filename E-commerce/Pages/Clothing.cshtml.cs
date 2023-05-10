@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace E_commerce.Pages
 {
-    public class ColthingModel : PageModel
+    public class ColthingModel : BaseModel
     {
         public void OnGet()
         {
