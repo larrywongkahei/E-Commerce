@@ -2,3 +2,33 @@
 @model E_commerce.Pages.SearchResultModel
 @{
 }
+
+<body style="background-color:#EAEDED !important;">
+
+    @foreach (var each in Model.ProductsFromAPI)
+    {
+        <div style="display:flex; flex-direction:row;">
+            <img src="@each.Thumbnail" />
+            <div>
+                <h1>
+                    @each.Title
+                </h1>
+                <p>
+                    @each.Description
+                </p>
+                <p>
+                    @each.Price
+                </p>
+                <p>
+                    @each.Rating
+                </p>
+            </div>
+        </div>
+    }
+
+    @foreach (var each in Model.ProductsFromJson)
+    {
+        <h1>@each?.Title</h1>
+
+    }
+</body>

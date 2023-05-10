@@ -29,19 +29,15 @@ namespace E_commerce.Pages
             productapiservice = apiservice;
         }
 
-        //public async Task OnGet(Dictionary<string, string> param)
-        //{
-        //    data = param;
-        //    SearchValue = data.First().Value;
-        //    var allDataFromAPI = await productapiservice.GetProductsFromAPI();
-        //    ProductsFromAPI = from each in allDataFromAPI.Product where each.Title.Contains(SearchValue) select each;
-        //    var allDataFromJson = jsonfileservice.GetAll();
-        //    ProductsFromJson = from each in allDataFromJson where each.Title.Contains(SearchValue) select each;
-
-        //}
-        public void OnGet(Dictionary<string, string> param)
+        public async Task OnGet(Dictionary<string, string> param)
         {
-            Console.WriteLine(param.Count());
+            data = param;
+            SearchValue = data.First().Value;
+            Console.WriteLine(SearchValue);
+            var allDataFromAPI = await productapiservice.GetProductsFromAPI();
+            ProductsFromAPI = from each in allDataFromAPI.Product where each.Title.Contains(SearchValue) select each;
+            var allDataFromJson = jsonfileservice.GetAll();
+            ProductsFromJson = from each in allDataFromJson where each.Title.Contains(SearchValue) select each;
         }
     }
 }

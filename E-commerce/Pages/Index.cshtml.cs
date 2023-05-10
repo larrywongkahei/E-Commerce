@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace E_commerce.Pages
 {
-    public class BaseModel : BaseModel
+    public class BaseModel : PageModel
     {
         [BindProperty]
         public string input { get; set; }
@@ -19,7 +19,16 @@ namespace E_commerce.Pages
             {
                 {"input", input }
             };
-            return RedirectToPage("SearchResult", param);
+            if (Request.Path == "/SearchResult")
+            {;
+                Console.WriteLine("Redirect to index");
+                return RedirectToPage("/SearchResult", param);
+            }
+            else
+            {
+                Console.WriteLine("Redirect to SearchResult page with param");
+                return RedirectToPage("/SearchResult", param);
+            }
         }
 
     }
@@ -28,6 +37,8 @@ namespace E_commerce.Pages
 
         public void OnGet()
         {
+            Console.WriteLine(Request.Path);
+
             Console.WriteLine("this is index page");
         }
     }
