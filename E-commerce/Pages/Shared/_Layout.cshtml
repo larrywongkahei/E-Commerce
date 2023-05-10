@@ -12,20 +12,21 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3 flex-column p-0">
             <div class="container-fluid category w-100">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">Hay Shop</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".container2" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-center category">
-                    <div style="height:40px; background: #fff; line-height: 1em; font-family: inherit; margin-top: 5px; margin-bottom: 5px; border-radius:6px; width:40%; display:flex; flex-direction:row; align-items:center;">
-                        <input type="text" value="" placeholder="Search Hay.co.uk" style="height:40px; width: 100%;font-family: inherit; font-size:15px; padding-top: 7px; padding-right: 10px; padding-bottom: 10px; line-height:15px; text-indent:8px; " />
-                        <div style="background-color:orange;height:40px;">
-                            <span class="fas fa-search" style="color: #25395b; width:2.5rem; text-align:center; margin-top:12px"></span>
-                        </div>
-                    </div>
-                </div>
+            <a class="navbar-brand" asp-area="" asp-page="/Index">Hay Shop</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".container2" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-center category">
+                    <form method="post" style="height:40px; background: #fff; line-height: 1em; font-family: inherit; margin-top: 5px; margin-bottom: 5px; border-radius:6px; width:40%; display:flex; flex-direction:row; align-items:center;">
+                            <input type="text" value="" name="input" placeholder="Search Hay.co.uk" style="height:40px; width: 100%;font-family: inherit; font-size:15px; padding-top: 7px; padding-right: 10px; padding-bottom: 10px; line-height:15px; text-indent:8px;" />
+                            <button type="submit" style="background-color:orange;height:40px;">
+                                <span class="fas fa-search" style="color: #25395b; width:2.5rem; text-align:center; margin-top:12px"></span>
+                            </button>
+                        </form>
+
             </div>
+        </div>
             <div class="navbar-collapse collapse w-100">
                 <ul class="navbar-nav d-flex justify-content-around w-100">
                     <li class="nav-item">
