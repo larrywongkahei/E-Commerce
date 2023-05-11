@@ -51,9 +51,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\data\" />
-    <Content Remove="wwwroot\Images\kindpng_287182.png" />
-    <Content Remove="wwwroot\Images\kindpng_688665.png" />
-    <Content Remove="wwwroot\Images\kindpng_85107.png" />
     <Content Remove="wwwroot\Images\" />
   </ItemGroup>
 </Project>
