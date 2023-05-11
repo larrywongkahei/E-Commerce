@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <PublishWithAspNetCoreTargetManifest>false</PublishWithAspNetCoreTargetManifest>
     <UserSecretsId>aspnet-E_commerce-AA7EB128-BB62-4E93-802A-C3D2C5290130</UserSecretsId>
     <RootNamespace>E_commerce</RootNamespace>
     <CopyRefAssembliesToPublishDirectory>false</CopyRefAssembliesToPublishDirectory>
