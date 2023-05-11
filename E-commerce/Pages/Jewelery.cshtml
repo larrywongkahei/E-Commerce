@@ -11,11 +11,7 @@
     <div class="d-flex flex-wrap" style="width: 80%">
         @foreach (var product in Model.JeweleryFromJson)
         {
-            var param = new Dictionary<string, string>
-        {
-                    {"Title", product.Title}
-                };
-            <a class="card" style="height:374px; margin-bottom:8px;margin-right:8px;width:24%;text-decoration:none; color:black" asp-page="/ShowProduct" asp-all-route-data="param">
+            <a class="card" style="height:374px; margin-bottom:8px;margin-right:8px;width:24%;text-decoration:none; color:black" asp-page="/ShowProduct" asp-route-name="@product.Title">
                 <div style="height:50%; display:flex; justify-content:center">
                     <img style="height:80%; width:80%; margin-top:10px" src="@product.Img" />
                 </div>

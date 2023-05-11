@@ -4,15 +4,25 @@
 }
 
 <body style="background-color:#EAEDED !important;">
-    <h1 style="text-align: center; background-color: white; margin-bottom: 0; margin-left: 3rem; margin-right: 3rem; padding-top:1.5rem; padding-bottom:1.5rem;">Search Result</h1>
+    @if (Model.ProductsFromAPI.Count() == 0 && Model.ProductsFromJson.Count() == 0)
+    {
+    <h1 style="text-align: center; background-color: white; margin-bottom: 0; margin-left: 3rem; margin-right: 3rem; padding-top:1.5rem; padding-bottom:1.5rem;">
+        No result for @Model.SearchValue
+    </h1>
+        }
+    else
+    {
+        <h1 style="text-align: center; background-color: white; margin-bottom: 0; margin-left: 3rem; margin-right: 3rem; padding-top:1.5rem; padding-bottom:1.5rem;">Search Result</h1>
+
+    }
 
     @foreach (var each in Model.ProductsFromAPI)
     {
         <div style="background-color: white; margin-left: 3rem; margin-right: 3rem;">
             <div style=" display: flex; flex-direction: row; margin:1rem;">
-                <div style="width:25%; display:flex; justify-content:center">
+                <a style="width:25%; display:flex; justify-content:center">
                     <img src="@each.Thumbnail" style="width:100%; height:240px; align-self:center; " />
-                </div>
+                </a>
                 <div style="width:75%; margin:1rem;">
                     <h1>
                         @each.Title
@@ -69,4 +79,5 @@
         </div>
 
     }
+
 </body>
