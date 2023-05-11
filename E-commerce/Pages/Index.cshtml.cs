@@ -31,9 +31,6 @@ namespace E_commerce.Pages
 
         public void OnGet()
         {
-            Console.WriteLine(Request.Path);
-
-            Console.WriteLine("this is index page");
         }
     }
 }
