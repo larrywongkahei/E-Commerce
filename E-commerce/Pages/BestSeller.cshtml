@@ -20,7 +20,9 @@
                         <div class="@(countSmartphone == 0 ? "carousel-item active" : "carousel-item") " style="">
                             <div class="d-flex" style="justify-content: space-evenly">
                                 <div class="">
-                                    <img clsas="d-block" style="height: 160px; width: 230px" src="@Model.SmartPhones.FirstOrDefault(product => product.Id == i + 1)?.Thumbnail" />
+                                    <a asp-page="/ShowProduct" asp-route-name="@Model.SmartPhones.FirstOrDefault(product => product.Id == i + 1)?.Title">
+                                        <img class="d-block" style="height: 160px; width: 230px" src="@Model.SmartPhones.FirstOrDefault(product => product.Id == i + 1)?.Thumbnail" />
+                                    </a>
                                     <p>@Model.SmartPhones.FirstOrDefault(product => product.Id == i + 1)?.Title</p>
                                     <p class="card-text" style=" width: 230px">@Model.SmartPhones.FirstOrDefault(product => product.Id == i + 1)?.Description</p>
                                     @for (var x = 0.5; x < 5; x++)
@@ -32,17 +34,19 @@
                                 
                                     @if (Model.SmartPhones.FirstOrDefault(product => product.Id == i + 2) != null)
                                     {
-                                    <div>
-                                        <img clsas="d-block" style="height: 160px; width: 230px" src="@Model.SmartPhones.FirstOrDefault(product => product.Id == i + 2)?.Thumbnail" />
-                                        <p>@Model.SmartPhones.FirstOrDefault(product => product.Id == i + 2)?.Title</p>
+                            <div>
+                                <a asp-page="/ShowProduct" asp-route-name="@Model.SmartPhones.FirstOrDefault(product => product.Id == i + 2)?.Title">
+                                    <img class="d-block" style="height: 160px; width: 230px" src="@Model.SmartPhones.FirstOrDefault(product => product.Id == i + 2)?.Thumbnail" />
+                                </a>
+                                <p>@Model.SmartPhones.FirstOrDefault(product => product.Id == i + 2)?.Title</p>
 
-                                        <p class="card-text" style=" width: 230px">@Model.SmartPhones.FirstOrDefault(product => product.Id == i + 2)?.Description</p>
-                                        @for (var x = 0.5; x < 5; x++)
-                                        {
-                                            <span class="@(x <= Model.SmartPhones.FirstOrDefault(product => product.Id == i + 2)?.Rating ? "fa fa-star checked rating bottom-0" : "far fa-star rating")"></span>
-                                        }
-                                        <p>£@Model.SmartPhones.FirstOrDefault(product => product.Id == i + 2)?.Price</p>
-                                    </div>
+                                <p class="card-text" style=" width: 230px">@Model.SmartPhones.FirstOrDefault(product => product.Id == i + 2)?.Description</p>
+                                @for (var x = 0.5; x < 5; x++)
+                                {
+                                    <span class="@(x <= Model.SmartPhones.FirstOrDefault(product => product.Id == i + 2)?.Rating ? "fa fa-star checked rating bottom-0" : "far fa-star rating")"></span>
+                                }
+                                <p>£@Model.SmartPhones.FirstOrDefault(product => product.Id == i + 2)?.Price</p>
+                            </div>
                                     }
                                     else
                                     {
@@ -54,17 +58,19 @@
                                     {
 
 
-                                <div>
+                            <div>
+                                <a asp-page="/ShowProduct" asp-route-name="@Model.SmartPhones.FirstOrDefault(product => product.Id == i + 3)?.Title">
                                     <img clsas="d-block " style="height: 160px; width: 230px" src="@Model.SmartPhones.FirstOrDefault(product => product.Id == i + 3)?.Thumbnail" />
-                                    <p>@Model.SmartPhones.FirstOrDefault(product => product.Id == i + 3)?.Title</p>
+                                </a>
+                                <p>@Model.SmartPhones.FirstOrDefault(product => product.Id == i + 3)?.Title</p>
 
-                                    <p class="card-text" style=" width: 230px">@Model.SmartPhones.FirstOrDefault(product => product.Id == i + 3)?.Description</p>
-                                    @for (var x = 0.5; x < 5; x++)
-                                    {
-                                        <span class="@(x <= Model.SmartPhones.FirstOrDefault(product => product.Id == i + 3)?.Rating ? "fa fa-star checked rating bottom-0" : "far fa-star rating")"></span>
-                                    }
-                                    <p>£@Model.SmartPhones.FirstOrDefault(product => product.Id == i + 3)?.Price</p>
-                                </div>
+                                <p class="card-text" style=" width: 230px">@Model.SmartPhones.FirstOrDefault(product => product.Id == i + 3)?.Description</p>
+                                @for (var x = 0.5; x < 5; x++)
+                                {
+                                    <span class="@(x <= Model.SmartPhones.FirstOrDefault(product => product.Id == i + 3)?.Rating ? "fa fa-star checked rating bottom-0" : "far fa-star rating")"></span>
+                                }
+                                <p>£@Model.SmartPhones.FirstOrDefault(product => product.Id == i + 3)?.Price</p>
+                            </div>
 
                                     }
                                     else
@@ -100,7 +106,10 @@
 
                                 <div class="d-flex" style="justify-content: space-evenly">
                                     <div class="">
-                                        <img clsas="d-block" style="height: 160px; width: 230px" src="@Model.LapTops.FirstOrDefault(product => product.Id == i + 1)?.Thumbnail" />
+                                        <a asp-page="/ShowProduct" asp-route-name="@Model.LapTops.FirstOrDefault(product => product.Id == i + 1)?.Title">
+                                            <img clsas="d-block" style="height: 160px; width: 230px" src="@Model.LapTops.FirstOrDefault(product => product.Id == i + 1)?.Thumbnail" />
+
+                                        </a>
                                         <p>@Model.LapTops.FirstOrDefault(product => product.Id == i + 1)?.Title</p>
                                         <p class="card-text" style=" width: 230px">@Model.LapTops.FirstOrDefault(product => product.Id == i + 1)?.Description</p>
                                         @for (var x = 0.5; x < 5; x++)
@@ -114,16 +123,19 @@
                                     {
 
 
-                                        <div>
-                                            <img clsas="d-block" style="height: 160px; width: 230px" src="@Model.LapTops.FirstOrDefault(product => product.Id == i + 2)?.Thumbnail" />
-                                            <p>@Model.LapTops.FirstOrDefault(product => product.Id == i + 2)?.Title</p>
-                                            <p class="card-text" style=" width: 230px">@Model.LapTops.FirstOrDefault(product => product.Id == i + 2)?.Description</p>
-                                            @for (var x = 0.5; x < 5; x++)
-                                            {
-                                                <span class="@(x <= Model.LapTops.FirstOrDefault(product => product.Id == i + 2)?.Rating ? "fa fa-star checked rating bottom-0" : "far fa-star rating")"></span>
-                                            }
-                                            <p>£@Model.LapTops.FirstOrDefault(product => product.Id == i + 2)?.Price</p>
-                                        </div> }
+                                <div>
+                                    <a asp-page="/ShowProduct" asp-route-name="@Model.LapTops.FirstOrDefault(product => product.Id == i + 2)?.Title">
+                                        <img clsas="d-block" style="height: 160px; width: 230px" src="@Model.LapTops.FirstOrDefault(product => product.Id == i + 2)?.Thumbnail" />
+
+                                    </a>
+                                    <p>@Model.LapTops.FirstOrDefault(product => product.Id == i + 2)?.Title</p>
+                                    <p class="card-text" style=" width: 230px">@Model.LapTops.FirstOrDefault(product => product.Id == i + 2)?.Description</p>
+                                    @for (var x = 0.5; x < 5; x++)
+                                    {
+                                        <span class="@(x <= Model.LapTops.FirstOrDefault(product => product.Id == i + 2)?.Rating ? "fa fa-star checked rating bottom-0" : "far fa-star rating")"></span>
+                                    }
+                                    <p>£@Model.LapTops.FirstOrDefault(product => product.Id == i + 2)?.Price</p>
+                                </div> }
                                     else
                                     {
                                         <h1></h1>
@@ -131,16 +143,19 @@
                                     @if (Model.LapTops.FirstOrDefault(product => product.Id == i + 3) != null)
                                     {
 
-                                        <div>
-                                            <img clsas="d-block " style="height: 160px; width: 230px" src="@Model.LapTops.FirstOrDefault(product => product.Id == i + 3)?.Thumbnail" />
-                                            <p>@Model.LapTops.FirstOrDefault(product => product.Id == i + 3)?.Title</p>
-                                            <p class="card-text" style=" width: 230px">@Model.LapTops.FirstOrDefault(product => product.Id == i + 3)?.Description</p>
-                                            @for (var x = 0.5; x < 5; x++)
-                                            {
-                                                <span class="@(x <= Model.LapTops.FirstOrDefault(product => product.Id == i + 3)?.Rating ? "fa fa-star checked rating bottom-0" : "far fa-star rating")"></span>
-                                            }
-                                            <p>£@Model.LapTops.FirstOrDefault(product => product.Id == i + 3)?.Price</p>
-                                        </div>}
+                                <div>
+                                    <a asp-page="/ShowProduct" asp-route-name="@Model.LapTops.FirstOrDefault(product => product.Id == i + 3)?.Title">
+                                        <img clsas="d-block " style="height: 160px; width: 230px" src="@Model.LapTops.FirstOrDefault(product => product.Id == i + 3)?.Thumbnail" />
+
+                                    </a>
+                                    <p>@Model.LapTops.FirstOrDefault(product => product.Id == i + 3)?.Title</p>
+                                    <p class="card-text" style=" width: 230px">@Model.LapTops.FirstOrDefault(product => product.Id == i + 3)?.Description</p>
+                                    @for (var x = 0.5; x < 5; x++)
+                                    {
+                                        <span class="@(x <= Model.LapTops.FirstOrDefault(product => product.Id == i + 3)?.Rating ? "fa fa-star checked rating bottom-0" : "far fa-star rating")"></span>
+                                    }
+                                    <p>£@Model.LapTops.FirstOrDefault(product => product.Id == i + 3)?.Price</p>
+                                </div>}
                 else
                 {
                     <h1></h1>
@@ -170,7 +185,10 @@
 
                             <div class="d-flex" style="justify-content: space-evenly">
                                 <div class="">
-                                    <img clsas="d-block" style="height: 160px; width: 230px" src="@Model.Fragrances.FirstOrDefault(product => product.Id == i + 1)?.Thumbnail" />
+                                    <a asp-page="/ShowProduct" asp-route-name="@Model.Fragrances.FirstOrDefault(product => product.Id == i + 1)?.Title">
+                                        <img clsas="d-block" style="height: 160px; width: 230px" src="@Model.Fragrances.FirstOrDefault(product => product.Id == i + 1)?.Thumbnail" />
+
+                                    </a>
                                     <p>@Model.Fragrances.FirstOrDefault(product => product.Id == i + 1)?.Title</p>
                                     <p class="card-text" style=" width: 230px">@Model.Fragrances.FirstOrDefault(product => product.Id == i + 1)?.Description</p>
                                     @for (var x = 0.5; x < 5; x++)
@@ -182,32 +200,38 @@
                                 @if (Model.Fragrances.FirstOrDefault(product => product.Id == i + 2) != null)
                                 {
 
-                                    <div>
-                                        <img clsas="d-block" style="height: 160px; width: 230px" src="@Model.Fragrances.FirstOrDefault(product => product.Id == i + 2)?.Thumbnail" />
-                                        <p>@Model.Fragrances.FirstOrDefault(product => product.Id == i + 2)?.Title</p>
-                                        <p class="card-text" style=" width: 230px">@Model.Fragrances.FirstOrDefault(product => product.Id == i + 2)?.Description</p>
-                                        @for (var x = 0.5; x < 5; x++)
-                                        {
-                                            <span class="@(x <= Model.Fragrances.FirstOrDefault(product => product.Id == i + 2)?.Rating ? "fa fa-star checked rating bottom-0" : "far fa-star rating")"></span>
-                                        }
-                                        <p>£@Model.Fragrances.FirstOrDefault(product => product.Id == i + 2)?.Price</p>
-                                    </div>}
+                            <div>
+                                <a asp-page="/ShowProduct" asp-route-name="@Model.Fragrances.FirstOrDefault(product => product.Id == i + 2)?.Title">
+                                    <img clsas="d-block" style="height: 160px; width: 230px" src="@Model.Fragrances.FirstOrDefault(product => product.Id == i + 2)?.Thumbnail" />
+
+                                </a>
+                                <p>@Model.Fragrances.FirstOrDefault(product => product.Id == i + 2)?.Title</p>
+                                <p class="card-text" style=" width: 230px">@Model.Fragrances.FirstOrDefault(product => product.Id == i + 2)?.Description</p>
+                                @for (var x = 0.5; x < 5; x++)
+                                {
+                                    <span class="@(x <= Model.Fragrances.FirstOrDefault(product => product.Id == i + 2)?.Rating ? "fa fa-star checked rating bottom-0" : "far fa-star rating")"></span>
+                                }
+                                <p>£@Model.Fragrances.FirstOrDefault(product => product.Id == i + 2)?.Price</p>
+                            </div>}
                                 else
                                 {
                                     <h1></h1>
                                 }
                                 @if (Model.Fragrances.FirstOrDefault(product => product.Id == i + 3) != null)
                                 {
-                                    <div>
-                                        <img clsas="d-block " style="height: 160px; width: 230px" src="@Model.Fragrances.FirstOrDefault(product => product.Id == i + 3)?.Thumbnail" />
-                                        <p>@Model.Fragrances.FirstOrDefault(product => product.Id == i + 3)?.Title</p>
-                                        <p class="card-text" style=" width: 230px">@Model.Fragrances.FirstOrDefault(product => product.Id == i + 3)?.Description</p>
-                                        @for (var x = 0.5; x < 5; x++)
-                                        {
-                                            <span class="@(x <= Model.Fragrances.FirstOrDefault(product => product.Id == i + 3)?.Rating ? "fa fa-star checked rating bottom-0" : "far fa-star rating")"></span>
-                                        }
-                                        <p>£@Model.Fragrances.FirstOrDefault(product => product.Id == i + 3)?.Price</p>
-                                    </div>}
+                            <div>
+                                <a asp-page="/ShowProduct" asp-route-name="@Model.Fragrances.FirstOrDefault(product => product.Id == i + 3)?.Title">
+                                    <img clsas="d-block " style="height: 160px; width: 230px" src="@Model.Fragrances.FirstOrDefault(product => product.Id == i + 3)?.Thumbnail" />
+
+                                </a>
+                                <p>@Model.Fragrances.FirstOrDefault(product => product.Id == i + 3)?.Title</p>
+                                <p class="card-text" style=" width: 230px">@Model.Fragrances.FirstOrDefault(product => product.Id == i + 3)?.Description</p>
+                                @for (var x = 0.5; x < 5; x++)
+                                {
+                                    <span class="@(x <= Model.Fragrances.FirstOrDefault(product => product.Id == i + 3)?.Rating ? "fa fa-star checked rating bottom-0" : "far fa-star rating")"></span>
+                                }
+                                <p>£@Model.Fragrances.FirstOrDefault(product => product.Id == i + 3)?.Price</p>
+                            </div>}
                 else
                 {
                     <h1></h1>
@@ -238,7 +262,10 @@
 
                             <div class="d-flex" style="justify-content: space-evenly">
                                 <div class="">
-                                    <img clsas="d-block" style="height: 160px; width: 230px" src="@Model.Skincare.FirstOrDefault(product => product.Id == i + 1)?.Thumbnail" />
+                                    <a asp-page="/ShowProduct" asp-route-name="@Model.Skincare.FirstOrDefault(product => product.Id == i + 1)?.Title">
+                                        <img clsas="d-block" style="height: 160px; width: 230px" src="@Model.Skincare.FirstOrDefault(product => product.Id == i + 1)?.Thumbnail" />
+
+                                    </a>
                                     <p>@Model.Skincare.FirstOrDefault(product => product.Id == i + 1)?.Title</p>
                                     <p class="card-text" style=" width: 230px">@Model.Skincare.FirstOrDefault(product => product.Id == i + 1)?.Description</p>
                                     @for (var x = 0.5; x < 5; x++)
@@ -249,32 +276,38 @@
                                 </div>
                                 @if (Model.Skincare.FirstOrDefault(product => product.Id == i + 2) != null)
                                 {
-                                    <div>
-                                        <img clsas="d-block" style="height: 160px; width: 230px" src="@Model.Skincare.FirstOrDefault(product => product.Id == i + 2)?.Thumbnail" />
-                                        <p>@Model.Skincare.FirstOrDefault(product => product.Id == i + 2)?.Title</p>
-                                        <p class="card-text" style=" width: 230px">@Model.Skincare.FirstOrDefault(product => product.Id == i + 2)?.Description</p>
-                                        @for (var x = 0.5; x < 5; x++)
-                                        {
-                                            <span class="@(x <= Model.Skincare.FirstOrDefault(product => product.Id == i + 2)?.Rating ? "fa fa-star checked rating bottom-0" : "far fa-star rating")"></span>
-                                        }
-                                        <p>£@Model.Skincare.FirstOrDefault(product => product.Id == i + 2)?.Price</p>
-                                    </div>}
+                            <div>
+                                <a asp-page="/ShowProduct" asp-route-name="@Model.Skincare.FirstOrDefault(product => product.Id == i + 2)?.Title">
+                                    <img clsas="d-block" style="height: 160px; width: 230px" src="@Model.Skincare.FirstOrDefault(product => product.Id == i + 2)?.Thumbnail" />
+
+                                </a>
+                                <p>@Model.Skincare.FirstOrDefault(product => product.Id == i + 2)?.Title</p>
+                                <p class="card-text" style=" width: 230px">@Model.Skincare.FirstOrDefault(product => product.Id == i + 2)?.Description</p>
+                                @for (var x = 0.5; x < 5; x++)
+                                {
+                                    <span class="@(x <= Model.Skincare.FirstOrDefault(product => product.Id == i + 2)?.Rating ? "fa fa-star checked rating bottom-0" : "far fa-star rating")"></span>
+                                }
+                                <p>£@Model.Skincare.FirstOrDefault(product => product.Id == i + 2)?.Price</p>
+                            </div>}
                                 else
                                 {
                                     <h1></h1>
                                 }
                                 @if (Model.Skincare.FirstOrDefault(product => product.Id == i + 3) != null)
                                 {
-                                    <div>
-                                        <img clsas="d-block " style="height: 160px; width: 230px" src="@Model.Skincare.FirstOrDefault(product => product.Id == i + 3)?.Thumbnail" />
-                                        <p>@Model.Skincare.FirstOrDefault(product => product.Id == i + 3)?.Title</p>
-                                        <p class="card-text" style=" width: 230px">@Model.Skincare.FirstOrDefault(product => product.Id == i + 3)?.Description</p>
-                                        @for (var x = 0.5; x < 5; x++)
-                                        {
-                                            <span class="@(x <= Model.Skincare.FirstOrDefault(product => product.Id == i + 3)?.Rating ? "fa fa-star checked rating bottom-0" : "far fa-star rating")"></span>
-                                        }
-                                        <p>£@Model.Skincare.FirstOrDefault(product => product.Id == i + 3)?.Price</p>
-                                    </div>}
+                            <div>
+                                <a asp-page="/ShowProduct" asp-route-name="@Model.Skincare.FirstOrDefault(product => product.Id == i + 3)?.Title">
+                                    <img clsas="d-block " style="height: 160px; width: 230px" src="@Model.Skincare.FirstOrDefault(product => product.Id == i + 3)?.Thumbnail" />
+
+                                </a>
+                                <p>@Model.Skincare.FirstOrDefault(product => product.Id == i + 3)?.Title</p>
+                                <p class="card-text" style=" width: 230px">@Model.Skincare.FirstOrDefault(product => product.Id == i + 3)?.Description</p>
+                                @for (var x = 0.5; x < 5; x++)
+                                {
+                                    <span class="@(x <= Model.Skincare.FirstOrDefault(product => product.Id == i + 3)?.Rating ? "fa fa-star checked rating bottom-0" : "far fa-star rating")"></span>
+                                }
+                                <p>£@Model.Skincare.FirstOrDefault(product => product.Id == i + 3)?.Price</p>
+                            </div>}
                                 else
                 {
                     <h1></h1>
@@ -304,7 +337,10 @@
 
                             <div class="d-flex" style="justify-content: space-evenly">
                                 <div class="">
-                                    <img clsas="d-block" style="height: 160px; width: 230px" src="@Model.Groceries.FirstOrDefault(product => product.Id == i + 1)?.Thumbnail" />
+                                    <a asp-page="/ShowProduct" asp-route-name="@Model.Groceries.FirstOrDefault(product => product.Id == i + 1)?.Title">
+                                        <img clsas="d-block" style="height: 160px; width: 230px" src="@Model.Groceries.FirstOrDefault(product => product.Id == i + 1)?.Thumbnail" />
+
+                                    </a>
                                     <p>@Model.Groceries.FirstOrDefault(product => product.Id == i + 1)?.Title</p>
                                     <p class="card-text" style=" width: 230px">@Model.Groceries.FirstOrDefault(product => product.Id == i + 1)?.Description</p>
                                     @for (var x = 0.5; x < 5; x++)
@@ -315,32 +351,38 @@
                                 </div>
                                 @if (Model.Groceries.FirstOrDefault(product => product.Id == i + 2) != null)
                                 {
-                                    <div>
-                                        <img clsas="d-block" style="height: 160px; width: 230px" src="@Model.Groceries.FirstOrDefault(product => product.Id == i + 2)?.Thumbnail" />
-                                        <p>@Model.Groceries.FirstOrDefault(product => product.Id == i + 2)?.Title</p>
-                                        <p class="card-text" style=" width: 230px">@Model.Groceries.FirstOrDefault(product => product.Id == i + 2)?.Description</p>
-                                        @for (var x = 0.5; x < 5; x++)
-                                        {
-                                            <span class="@(x <= Model.Groceries.FirstOrDefault(product => product.Id == i + 2)?.Rating ? "fa fa-star checked rating bottom-0" : "far fa-star rating")"></span>
-                                        }
-                                        <p>£@Model.Groceries.FirstOrDefault(product => product.Id == i + 2)?.Price</p>
-                                    </div>}
+                            <div>
+                                <a asp-page="/ShowProduct" asp-route-name="@Model.Groceries.FirstOrDefault(product => product.Id == i + 2)?.Title">
+                                    <img clsas="d-block" style="height: 160px; width: 230px" src="@Model.Groceries.FirstOrDefault(product => product.Id == i + 2)?.Thumbnail" />
+
+                                </a>
+                                <p>@Model.Groceries.FirstOrDefault(product => product.Id == i + 2)?.Title</p>
+                                <p class="card-text" style=" width: 230px">@Model.Groceries.FirstOrDefault(product => product.Id == i + 2)?.Description</p>
+                                @for (var x = 0.5; x < 5; x++)
+                                {
+                                    <span class="@(x <= Model.Groceries.FirstOrDefault(product => product.Id == i + 2)?.Rating ? "fa fa-star checked rating bottom-0" : "far fa-star rating")"></span>
+                                }
+                                <p>£@Model.Groceries.FirstOrDefault(product => product.Id == i + 2)?.Price</p>
+                            </div>}
                                 else
                                 {
                                     <h1></h1>
                                 }
                                 @if (Model.Groceries.FirstOrDefault(product => product.Id == i + 3) != null)
                                 {
-                                    <div>
-                                        <img clsas="d-block " style="height: 160px; width: 230px" src="@Model.Groceries.FirstOrDefault(product => product.Id == i + 3)?.Thumbnail" />
-                                        <p>@Model.Groceries.FirstOrDefault(product => product.Id == i + 3)?.Title</p>
-                                        <p class="card-text" style=" width: 230px">@Model.Groceries.FirstOrDefault(product => product.Id == i + 3)?.Description</p>
-                                        @for (var x = 0.5; x < 5; x++)
-                                        {
-                                            <span class="@(x <= Model.Groceries.FirstOrDefault(product => product.Id == i + 3)?.Rating ? "fa fa-star checked rating bottom-0" : "far fa-star rating")"></span>
-                                        }
-                                        <p>£@Model.Groceries.FirstOrDefault(product => product.Id == i + 3)?.Price</p>
-                                    </div>}
+                            <div>
+                                <a asp-page="/ShowProduct" asp-route-name="@Model.Groceries.FirstOrDefault(product => product.Id == i + 3)?.Title">
+                                    <img clsas="d-block " style="height: 160px; width: 230px" src="@Model.Groceries.FirstOrDefault(product => product.Id == i + 3)?.Thumbnail" />
+
+                                </a>
+                                <p>@Model.Groceries.FirstOrDefault(product => product.Id == i + 3)?.Title</p>
+                                <p class="card-text" style=" width: 230px">@Model.Groceries.FirstOrDefault(product => product.Id == i + 3)?.Description</p>
+                                @for (var x = 0.5; x < 5; x++)
+                                {
+                                    <span class="@(x <= Model.Groceries.FirstOrDefault(product => product.Id == i + 3)?.Rating ? "fa fa-star checked rating bottom-0" : "far fa-star rating")"></span>
+                                }
+                                <p>£@Model.Groceries.FirstOrDefault(product => product.Id == i + 3)?.Price</p>
+                            </div>}
                 else
                 {
                     <h1></h1>
@@ -369,7 +411,10 @@
                         <div class="@(countHomeDecoration == 0 ? "carousel-item active" : "carousel-item") " style="">
                             <div class="d-flex" style="justify-content: space-evenly">
                                 <div class="">
-                                    <img clsas="d-block" style="height: 160px; width: 230px" src="@Model.HomeDecoration.FirstOrDefault(product => product.Id == i + 1)?.Thumbnail" />
+                                    <a asp-page="/ShowProduct" asp-route-name="@Model.HomeDecoration.FirstOrDefault(product => product.Id == i + 1)?.Title">
+                                        <img clsas="d-block" style="height: 160px; width: 230px" src="@Model.HomeDecoration.FirstOrDefault(product => product.Id == i + 1)?.Thumbnail" />
+
+                                    </a>
                                     <p>@Model.HomeDecoration.FirstOrDefault(product => product.Id == i + 1)?.Title</p>
                                     <p class="card-text" style=" width: 230px">@Model.HomeDecoration.FirstOrDefault(product => product.Id == i + 1)?.Description</p>
                                     @for (var x = 0.5; x < 5; x++)
@@ -380,32 +425,38 @@
                                 </div>
                                 @if (Model.HomeDecoration.FirstOrDefault(product => product.Id == i + 2) != null)
                                 {
-                                    <div>
-                                        <img clsas="d-block" style="height: 160px; width: 230px" src="@Model.HomeDecoration.FirstOrDefault(product => product.Id == i + 2)?.Thumbnail" />
-                                        <p>@Model.HomeDecoration.FirstOrDefault(product => product.Id == i + 2)?.Title</p>
-                                        <p class="card-text" style=" width: 230px">@Model.HomeDecoration.FirstOrDefault(product => product.Id == i + 2)?.Description</p>
-                                        @for (var x = 0.5; x < 5; x++)
-                                        {
-                                            <span class="@(x <= Model.HomeDecoration.FirstOrDefault(product => product.Id == i + 2)?.Rating ? "fa fa-star checked rating bottom-0" : "far fa-star rating")"></span>
-                                        }
-                                        <p>£@Model.HomeDecoration.FirstOrDefault(product => product.Id == i + 2)?.Price</p>
-                                    </div>}
+                            <div>
+                                <a asp-page="/ShowProduct" asp-route-name="@Model.HomeDecoration.FirstOrDefault(product => product.Id == i + 2)?.Title">
+                                    <img clsas="d-block" style="height: 160px; width: 230px" src="@Model.HomeDecoration.FirstOrDefault(product => product.Id == i + 2)?.Thumbnail" />
+
+                                </a>
+                                <p>@Model.HomeDecoration.FirstOrDefault(product => product.Id == i + 2)?.Title</p>
+                                <p class="card-text" style=" width: 230px">@Model.HomeDecoration.FirstOrDefault(product => product.Id == i + 2)?.Description</p>
+                                @for (var x = 0.5; x < 5; x++)
+                                {
+                                    <span class="@(x <= Model.HomeDecoration.FirstOrDefault(product => product.Id == i + 2)?.Rating ? "fa fa-star checked rating bottom-0" : "far fa-star rating")"></span>
+                                }
+                                <p>£@Model.HomeDecoration.FirstOrDefault(product => product.Id == i + 2)?.Price</p>
+                            </div>}
                                 else
                                 {
                                     <h1></h1>
                                 }
                                 @if (Model.HomeDecoration.FirstOrDefault(product => product.Id == i + 3) != null)
                                 {
-                                    <div>
-                                        <img clsas="d-block " style="height: 160px; width: 230px" src="@Model.HomeDecoration.FirstOrDefault(product => product.Id == i + 3)?.Thumbnail" />
-                                        <p>@Model.HomeDecoration.FirstOrDefault(product => product.Id == i + 3)?.Title</p>
-                                        <p class="card-text" style=" width: 230px">@Model.HomeDecoration.FirstOrDefault(product => product.Id == i + 3)?.Description</p>
-                                        @for (var x = 0.5; x < 5; x++)
-                                        {
-                                            <span class="@(x <= Model.HomeDecoration.FirstOrDefault(product => product.Id == i + 3)?.Rating ? "fa fa-star checked rating bottom-0" : "far fa-star rating")"></span>
-                                        }
-                                        <p>£@Model.HomeDecoration.FirstOrDefault(product => product.Id == i + 3)?.Price</p>
-                                    </div>}
+                            <div>
+                                <a asp-page="/ShowProduct" asp-route-name="@Model.HomeDecoration.FirstOrDefault(product => product.Id == i + 3)?.Title">
+                                    <img clsas="d-block " style="height: 160px; width: 230px" src="@Model.HomeDecoration.FirstOrDefault(product => product.Id == i + 3)?.Thumbnail" />
+
+                                </a>
+                                <p>@Model.HomeDecoration.FirstOrDefault(product => product.Id == i + 3)?.Title</p>
+                                <p class="card-text" style=" width: 230px">@Model.HomeDecoration.FirstOrDefault(product => product.Id == i + 3)?.Description</p>
+                                @for (var x = 0.5; x < 5; x++)
+                                {
+                                    <span class="@(x <= Model.HomeDecoration.FirstOrDefault(product => product.Id == i + 3)?.Rating ? "fa fa-star checked rating bottom-0" : "far fa-star rating")"></span>
+                                }
+                                <p>£@Model.HomeDecoration.FirstOrDefault(product => product.Id == i + 3)?.Price</p>
+                            </div>}
                 else
                 {
                     <h1></h1>
