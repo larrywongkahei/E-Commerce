@@ -32,10 +32,9 @@ namespace E_commerce.Pages
             productapiservice = apiservice;
         }
 
-        public async Task OnGet(Dictionary<string, string> param)
+        public async Task OnGet(string name)
         {
-            data = param;
-            TitleValue = data.First().Value;
+            TitleValue = name;
             var allDataFromAPI = await productapiservice.GetProductsFromAPI();
             ProductsFromAPI = from each in allDataFromAPI.Product where each.Title == TitleValue select each;
             var allDataFromJson = jsonfileservice.GetAll();
