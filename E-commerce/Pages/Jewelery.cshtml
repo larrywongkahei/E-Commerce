@@ -5,24 +5,48 @@
 
 
 <div class="d-flex">
-    <div style="width: 20%; display:flex; justify-content:center; height:100vh;">
-        <div style="text-align: center; background: #86c5da; width:90%;">
-            <div>
-                <p>Welcome</p>
-            </div>
-            <div>
-                <p>To</p>
-            </div>
-            <div>
-                <p style="font-weight: bolder; font-size: 120px; margin-left: 0;">
-                    H
-                    <span style="font-weight:bolder; font-size:38px">
-                        aystore
-                    </span>
-                </p>
-                
-            </div>
-            
+    <div style="width: 20%; display:flex;height:100vh; flex-direction:column">
+        <div style="padding-left:20px">
+            <h1 style="font-size:32px;margin-bottom:2rem;">
+                Fake Selector
+            </h1>
+            <p style="font-weight:bold">
+                Avg.Customer Review
+            </p>
+            @{
+                for (var i = 4; i > 0; i--)
+                {
+                        <div style="display: flex; flex-direction: row; height:32px">
+                            @for (var x = 0; x < 5; x++)
+                            {
+                            <div style="align-items:center;">
+                                <p class="@(x < i ? "fa fa-star checked rating " : "far fa-star rating")"></p>
+                            </div>
+
+
+                            }
+                            <p style="margin-left:3px">& up</p>
+                        </div>
+                }
+
+            }
+        </div>
+        <div style="padding-left:20px">
+            <p style="font-weight:bold">New Arrivals</p>
+            <p style="margin-bottom:5px">Last 30 days</p>
+            <p>Last 90 days</p>
+        </div>
+        <div style="padding-left:20px">
+            <p style="font-weight:bold">Price</p>
+            <ul style="padding-left:0px">
+                <li style="list-style:none">Up to £15</li>
+                <li style="list-style:none">£15 to £50</li>
+                <li style="list-style:none">£50 to £100</li>
+                <li style="list-style:none">£100 to £200</li>
+                <li style="list-style:none">£200 to £500</li>
+                <li style="list-style:none">£500 &Aacute; above</li>
+            </ul>
+
         </div>
     </div>
     <div class="d-flex flex-wrap" style="width: 80%">

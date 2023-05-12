@@ -153,6 +153,11 @@ button.accept-policy {
     color:orange !important;
 }
 
+.selectorText {
+    margin-top:0px;
+    margin-bottom:0px;
+}
+
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
