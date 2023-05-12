@@ -23,6 +23,8 @@ namespace E_commerce.Pages
 
         public Dictionary<string, string> data { get; set; }
 
+        public int PageNumber { get; set; }
+
         public SearchResultModel(JsonFileService fileservice, ProductsAPIService apiservice)
         {
             jsonfileservice = fileservice;
@@ -33,11 +35,36 @@ namespace E_commerce.Pages
         {
             data = param;
             SearchValue = data.First().Value;
-            var allDataFromAPI = await productapiservice.GetProductsFromAPI();
-            ProductsFromAPI = from each in allDataFromAPI.Product where each.Title.ToLower().Contains(SearchValue.ToLower()) select each;
+            var allDataFromAPI = await productapiservice.GetProductsFromAPI();            
+            ProductsFromAPI = from each in allDataFromAPI.Product where each.Title.ToLower().Contains(SearchValue.ToLower()) select each;            
             var allDataFromJson = jsonfileservice.GetAll();
             ProductsFromJson = from each in allDataFromJson where each.Title.ToLower().Contains(SearchValue.ToLower()) select each;
+            PageNumber = (ProductsFromAPI.Count() + ProductsFromJson.Count()) / 10;
+            if (ProductsFromAPI.Count() > 10)
+            {
+                ProductsFromJson = null;
+                ProductsFromAPI = ProductsFromAPI.Take(10);
+            }
+            else
+            {
+                ProductsFromJson.Take(10 - ProductsFromAPI.Count());
+            }
 
         }
+
+        //public IActionResult OnSwitchPage(int pageNum)
+        //{
+        //    //int allProductsCount = ProductsFromAPI.Count() + ProductsFromJson.Count();
+        //    int numberOfAPI = ProductsFromAPI.Count() - ((pageNum - 1) * 10);
+        //    if (numberOfAPI > (pageNum - 1) * 10)
+        //    {
+        //        for (var index = 0; index < 10; index++)
+        //        {
+        //            dataToPass[index] = ProductsFromAPI.ElementAt(10 + index);
+        //        }
+        //        return Page();
+        //    }
+
+        //}
     }
 }
