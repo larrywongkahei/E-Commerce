@@ -1,10 +1,11 @@
 ﻿@page
 @model E_commerce.Pages.SearchResultModel
 @{
+    int TotalCount = Model.ProductsFromAPI.Count() + Model.ProductsFromJson.Count();
 }
 
 <body style="background-color:#EAEDED !important;">
-    @if (Model.ProductsFromAPI.Count() == 0 && Model.ProductsFromJson.Count() == 0)
+    @if (TotalCount == 0)
     {
     <h1 style="text-align: center; background-color: white; margin-bottom: 0; margin-left: 3rem; margin-right: 3rem; padding-top:1.5rem; padding-bottom:1.5rem;">
         No result for @Model.SearchValue
@@ -79,5 +80,11 @@
         </div>
 
     }
+<div style="display:flex; flex-direction:row; justify-content:center">
+    @for (var i = 0; i <= TotalCount / 10; i++)
+    {
+        <p style="margin-right:12px">@(i + 1)</p>
+    }
+</div>
 
 </body>

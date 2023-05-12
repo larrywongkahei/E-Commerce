@@ -37,6 +37,7 @@ namespace E_commerce.Pages
             ProductsFromAPI = from each in allDataFromAPI.Product where each.Title.ToLower().Contains(SearchValue.ToLower()) select each;
             var allDataFromJson = jsonfileservice.GetAll();
             ProductsFromJson = from each in allDataFromJson where each.Title.ToLower().Contains(SearchValue.ToLower()) select each;
+
         }
     }
 }
