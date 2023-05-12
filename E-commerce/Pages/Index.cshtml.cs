@@ -31,6 +31,7 @@ namespace E_commerce.Pages
 
         public void OnGet()
         {
+            ViewData["Title"] = "HayStore";
         }
     }
 }
