@@ -25,13 +25,8 @@ namespace E_commerce.Pages
             }
             else
             {
-                Console.WriteLine("printing input");
-                Console.WriteLine(input);
-
                 return RedirectToPage("/SearchResult", param);
-
             }
-
 
         }
 

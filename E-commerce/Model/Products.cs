@@ -25,6 +25,8 @@ namespace E_commerce.Model
         [JsonPropertyName("rating")]
         public rating Rating { get; set; }
 
+        public string Thumbnail { get; } = null;
+
         public override string ToString() => JsonSerializer.Serialize<Products>(this);
 
     }
