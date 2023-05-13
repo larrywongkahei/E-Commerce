@@ -79,26 +79,12 @@ namespace E_commerce.Pages
             if (param.ContainsKey("pageNum"))
             {
                 string page = data.Last().Value;
-                Console.WriteLine(page);
-                Console.WriteLine((Int32.Parse(page) - 1) * 10);
                 dataToShow = dataToShow.Skip((Int32.Parse(page) - 1) * 10).Take(10);
-                Console.WriteLine("contain");
             }
             else
             {
                 dataToShow = dataToShow.Take(10);
-                Console.WriteLine("no");
             }
-            //if (AllProductsFromAPI.Count() > 10)
-            //{
-            //    ProductsFromJson = null;
-            //    ProductsFromAPI = AllProductsFromAPI.Take(10);
-            //}
-            //else if (AllProductsFromAPI.Count() < 10) 
-            //{
-            //    ProductsFromJson = AllProductsFromJson.Take(10 - AllProductsFromAPI.Count());
-            //}
-
         }
 
         public IActionResult OnPostSwitchPage(int pageNum, string input)
@@ -111,31 +97,6 @@ namespace E_commerce.Pages
 
             return RedirectToPage("SearchResult", paramToPass);
 
-            
-            //if (AllProductsFromAPI.Count() > (pageNum - 1) * 10 && AllProductsFromAPI.Count() < pageNum * 10)
-            //{
-            //    ProductsFromAPI = AllProductsFromAPI.Skip(10);
-            //    ProductsFromJson = AllProductsFromJson.Take(10 - ProductsFromAPI.Count());
-            //    return Page();
-            //}
-            //else if (AllProductsFromAPI.Count() > pageNum * 10)
-            //{
-            //    ProductsFromAPI.Skip(10).Take(10);
-            //    ProductsFromJson = null;
-            //    return Page();
-            //}
-            //else if (AllProductsFromJson.Count() > (pageNum - 1) * 10 && AllProductsFromJson.Count() < pageNum * 10)
-            //{
-            //    ProductsFromAPI = null;
-            //    ProductsFromJson.Skip(10);
-            //    return Page();
-            //}
-            //else if (AllProductsFromJson.Count() > pageNum * 10)
-            //{
-            //    ProductsFromAPI = null;
-            //    ProductsFromJson.Skip(10).Take(10);
-            //    return Page();
-            //}
         }
     }
 }
