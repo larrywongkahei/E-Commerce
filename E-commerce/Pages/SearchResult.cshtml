@@ -1,10 +1,22 @@
 ﻿@page
 @model E_commerce.Pages.SearchResultModel
 @{
-    bool empty = Model.ProductsFromAPI == null && Model.ProductsFromJson == null;
+    bool empty = Model.dataToShow.Count() == null;
 }
 
 <body style="background-color:#EAEDED !important;">
+
+    @if (empty)
+    {
+        <h1 style="text-align: center; background-color: white; margin-bottom: 0; margin-left: 3rem; margin-right: 3rem; padding-top:1.5rem; padding-bottom:1.5rem;">
+            No result for @Model.SearchValue
+        </h1>
+    }
+    else
+    {
+        <h1 style="text-align: center; background-color: white; margin-bottom: 0; margin-left: 3rem; margin-right: 3rem; padding-top:1.5rem; padding-bottom:1.5rem;">Search Result</h1>
+
+    }
 
     @foreach (var obj in Model.dataToShow)
     {
@@ -12,157 +24,74 @@
         {
             var each = obj.apiData;
 
-    <div style="background-color: white; margin-left: 3rem; margin-right: 3rem;">
-        <div style=" display: flex; flex-direction: row; margin:1rem;">
-            <a style="width:25%; display:flex; justify-content:center" asp-page="/ShowProduct" asp-route-name="@each.Title">
-                <img src="@each.Thumbnail" style="width:100%; height:240px; align-self:center; " />
-            </a>
-            <div style="width:75%; margin:1rem;">
-                <a style="font-size: 2.5rem ;font-weight: bold; color:black; text-decoration:none" asp-page="/ShowProduct" asp-route-name="@each.Title">
-                    @each.Title
-                </a>
-                <p>
-                    @for (var i = 0.5; i < 5; i++)
-                    {
-                        <span class="@(i <= each.Rating ? "fa fa-star checked rating " : "far fa-star rating")"></span>
-                    }
-                </p>
-                <p>
-                    @each.Description
-                </p>
-                <a style="font-size:28px; color:black; text-decoration:none" asp-page="/ShowProduct" asp-route-name="@each.Title">
-                    £@each.Price
-                </a>
-                <p style="font-size:14px">
-                    Available instantly
-                </p>
+            <div style="background-color: white; margin-left: 3rem; margin-right: 3rem;">
+                <div style=" display: flex; flex-direction: row; margin:1rem;">
+                    <a style="width:25%; display:flex; justify-content:center" asp-page="/ShowProduct" asp-route-name="@each.Title">
+                        <img src="@each.Thumbnail" style="width:100%; height:240px; align-self:center; " />
+                    </a>
+                    <div style="width:75%; margin:1rem;">
+                        <a style="font-size: 2.5rem ;font-weight: bold; color:black; text-decoration:none" asp-page="/ShowProduct" asp-route-name="@each.Title">
+                            @each.Title
+                        </a>
+                        <p>
+                            @for (var i = 0.5; i < 5; i++)
+                            {
+                                <span class="@(i <= each.Rating ? "fa fa-star checked rating " : "far fa-star rating")"></span>
+                            }
+                        </p>
+                        <p>
+                            @each.Description
+                        </p>
+                        <a style="font-size:28px; color:black; text-decoration:none" asp-page="/ShowProduct" asp-route-name="@each.Title">
+                            £@each.Price
+                        </a>
+                        <p style="font-size:14px">
+                            Available instantly
+                        </p>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
         }
         else
         {
             var each = obj.jsonData;
-<div style="background-color: white; margin-left: 3rem; margin-right: 3rem;">
-    <div style=" display: flex; flex-direction: row; margin:1rem;">
+            <div style="background-color: white; margin-left: 3rem; margin-right: 3rem;">
+                <div style=" display: flex; flex-direction: row; margin:1rem;">
 
-        <a style="width:25%; display:flex; justify-content:center" asp-page="/ShowProduct" asp-route-name="@each.Title">
-            <img src="@each.Img" style="width:100%; height:240px; align-self:center; " />
-        </a>
-        <div style="width:75%; margin:1rem;">
-            <a style="font-size: 2.5rem ;font-weight: bold; color:black; text-decoration:none" asp-page="/ShowProduct" asp-route-name="@each.Title">
-                @each.Title
-            </a>
-            <p>
-                @for (var i = 0; i < 5; i++)
-                {
-                    <span class="@(i <= each.Rating.rate ? "fa fa-star checked rating " : "far fa-star rating")"></span>
-                }
-            </p>
-            <p>
-                @each.Description
-            </p>
-            <a style="font-size:28px; color:black; text-decoration:none" asp-page="/ShowProduct" asp-route-name="@each.Title">
-                £@each.Price
-            </a>
-            <p style="font-size:14px">
-                Available instantly
-            </p>
-        </div>
-    </div>
-</div>
+                    <a style="width:25%; display:flex; justify-content:center" asp-page="/ShowProduct" asp-route-name="@each.Title">
+                        <img src="@each.Img" style="width:100%; height:240px; align-self:center; " />
+                    </a>
+                    <div style="width:75%; margin:1rem;">
+                        <a style="font-size: 2.5rem ;font-weight: bold; color:black; text-decoration:none" asp-page="/ShowProduct" asp-route-name="@each.Title">
+                            @each.Title
+                        </a>
+                        <p>
+                            @for (var i = 0; i < 5; i++)
+                            {
+                                <span class="@(i <= each.Rating.rate ? "fa fa-star checked rating " : "far fa-star rating")"></span>
+                            }
+                        </p>
+                        <p>
+                            @each.Description
+                        </p>
+                        <a style="font-size:28px; color:black; text-decoration:none" asp-page="/ShowProduct" asp-route-name="@each.Title">
+                            £@each.Price
+                        </a>
+                        <p style="font-size:14px">
+                            Available instantly
+                        </p>
+                    </div>
+                </div>
+            </div>
         }
     }
-    @*@if (empty)
-        {
-            <h1 style="text-align: center; background-color: white; margin-bottom: 0; margin-left: 3rem; margin-right: 3rem; padding-top:1.5rem; padding-bottom:1.5rem;">
-                No result for @Model.SearchValue
-            </h1>
-        }
-        else
-        {
-            <h1 style="text-align: center; background-color: white; margin-bottom: 0; margin-left: 3rem; margin-right: 3rem; padding-top:1.5rem; padding-bottom:1.5rem;">Search Result</h1>
 
-        }*@
-
-    @*@if (Model.ProductsFromAPI != null)
-        {
-
-
-            @foreach (var each in Model.ProductsFromAPI)
-            {
-                <div style="background-color: white; margin-left: 3rem; margin-right: 3rem;">
-                    <div style=" display: flex; flex-direction: row; margin:1rem;">
-                        <a style="width:25%; display:flex; justify-content:center" asp-page="/ShowProduct" asp-route-name="@each.Title">
-                            <img src="@each.Thumbnail" style="width:100%; height:240px; align-self:center; " />
-                        </a>
-                        <div style="width:75%; margin:1rem;">
-                            <a style="font-size: 2.5rem ;font-weight: bold; color:black; text-decoration:none" asp-page="/ShowProduct" asp-route-name="@each.Title">
-                                @each.Title
-                            </a>
-                            <p>
-                                @for (var i = 0.5; i < 5; i++)
-                                {
-                                    <span class="@(i <= each.Rating ? "fa fa-star checked rating " : "far fa-star rating")"></span>
-                                }
-                            </p>
-                            <p>
-                                @each.Description
-                            </p>
-                            <a style="font-size:28px; color:black; text-decoration:none" asp-page="/ShowProduct" asp-route-name="@each.Title">
-                                £@each.Price
-                            </a>
-                            <p style="font-size:14px">
-                                Available instantly
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            }
-        }*@
-
-    @*@if (Model.ProductsFromJson != null)
-        {
-
-            @foreach (var each in Model.ProductsFromJson)
-            {
-                <div style="background-color: white; margin-left: 3rem; margin-right: 3rem;">
-                    <div style=" display: flex; flex-direction: row; margin:1rem;">
-
-                        <a style="width:25%; display:flex; justify-content:center" asp-page="/ShowProduct" asp-route-name="@each.Title">
-                            <img src="@each.Img" style="width:100%; height:240px; align-self:center; " />
-                        </a>
-                        <div style="width:75%; margin:1rem;">
-                            <a style="font-size: 2.5rem ;font-weight: bold; color:black; text-decoration:none" asp-page="/ShowProduct" asp-route-name="@each.Title">
-                                @each.Title
-                            </a>
-                            <p>
-                                @for (var i = 0; i < 5; i++)
-                                {
-                                    <span class="@(i <= each.Rating.rate ? "fa fa-star checked rating " : "far fa-star rating")"></span>
-                                }
-                            </p>
-                            <p>
-                                @each.Description
-                            </p>
-                            <a style="font-size:28px; color:black; text-decoration:none" asp-page="/ShowProduct" asp-route-name="@each.Title">
-                                £@each.Price
-                            </a>
-                            <p style="font-size:14px">
-                                Available instantly
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-            }
-        }*@
 
     <div style="display:flex; flex-direction:row; justify-content:center">
         @for (var i = 0; i <= Model.PageNumber; i++)
         {
             <form asp-page-handler="SwitchPage" asp-route-pageNum="@(i+1)" asp-route-input="@Model.SearchValue">
-                <button style="margin-right:12px">@(i + 1)</button>
+                <button style="margin-right:12px; border-style:none;">@(i + 1)</button>
             </form>
         }
     </div>
