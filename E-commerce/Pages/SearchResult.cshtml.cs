@@ -9,6 +9,15 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace E_commerce.Pages
 {
+
+    public class newClass
+    {
+        public Product apiData { get; set; }
+
+        public Model.Products jsonData { get; set; }
+
+    }
+
     public class SearchResultModel : BaseModel
     {
         public JsonFileService jsonfileservice;
@@ -30,13 +39,17 @@ namespace E_commerce.Pages
 
         public int PageNumber { get; set; }
 
+        public int currentPage { get; set; }
+
+        public newClass[] theArray { get; set; }
+
         public SearchResultModel(JsonFileService fileservice, ProductsAPIService apiservice)
         {
             jsonfileservice = fileservice;
             productapiservice = apiservice;
         }
 
-        public async Task OnGet(Dictionary<string, string> param)
+        public async Task OnGet(Dictionary<string, string> param, params int[] args)
         {
             data = param;
             SearchValue = data.First().Value;
@@ -45,15 +58,28 @@ namespace E_commerce.Pages
             var allDataFromJson = jsonfileservice.GetAll();
             AllProductsFromJson = from each in allDataFromJson where each.Title.ToLower().Contains(SearchValue.ToLower()) select each;
             PageNumber = (AllProductsFromAPI.Count() + AllProductsFromJson.Count()) / 10;
-            if (AllProductsFromAPI.Count() > 10)
+            theArray = new newClass[AllProductsFromAPI.Count() + AllProductsFromJson.Count()];
+            for (var i = 0; i < AllProductsFromAPI.Count(); i++)
             {
-                ProductsFromJson = null;
-                ProductsFromAPI = AllProductsFromAPI.Take(10);
+                var newObj = new newClass();
+                newObj.apiData = AllProductsFromAPI.ElementAt(i);
+                theArray[i] = newObj;
             }
-            else if (AllProductsFromAPI.Count() < 10) 
+            for (var i = 0; i < AllProductsFromJson.Count(); i++)
             {
-                ProductsFromJson = AllProductsFromJson.Take(10 - AllProductsFromAPI.Count());
+                var newObj = new newClass();
+                newObj.jsonData = AllProductsFromJson.ElementAt(i);
+                theArray[i + AllProductsFromAPI.Count()] = newObj;
             }
+            //if (AllProductsFromAPI.Count() > 10)
+            //{
+            //    ProductsFromJson = null;
+            //    ProductsFromAPI = AllProductsFromAPI.Take(10);
+            //}
+            //else if (AllProductsFromAPI.Count() < 10) 
+            //{
+            //    ProductsFromJson = AllProductsFromJson.Take(10 - AllProductsFromAPI.Count());
+            //}
 
         }
 
@@ -61,7 +87,7 @@ namespace E_commerce.Pages
         {
             Console.WriteLine("123");
 
-            Console.WriteLine(AllProductsFromAPI.GetType());
+            
             //if (AllProductsFromAPI.Count() > (pageNum - 1) * 10 && AllProductsFromAPI.Count() < pageNum * 10)
             //{
             //    ProductsFromAPI = AllProductsFromAPI.Skip(10);
