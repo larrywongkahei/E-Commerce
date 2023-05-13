@@ -43,13 +43,15 @@ namespace E_commerce.Pages
 
         public newClass[] theArray { get; set; }
 
+        public IEnumerable<newClass> dataToShow { get; set; }
+
         public SearchResultModel(JsonFileService fileservice, ProductsAPIService apiservice)
         {
             jsonfileservice = fileservice;
             productapiservice = apiservice;
         }
 
-        public async Task OnGet(Dictionary<string, string> param, params int[] args)
+        public async Task OnGet(Dictionary<string, string> param)
         {
             data = param;
             SearchValue = data.First().Value;
@@ -71,6 +73,22 @@ namespace E_commerce.Pages
                 newObj.jsonData = AllProductsFromJson.ElementAt(i);
                 theArray[i + AllProductsFromAPI.Count()] = newObj;
             }
+
+            dataToShow = from each in theArray select each;
+
+            if (param.ContainsKey("pageNum"))
+            {
+                string page = data.Last().Value;
+                Console.WriteLine(page);
+                Console.WriteLine((Int32.Parse(page) - 1) * 10);
+                dataToShow = dataToShow.Skip((Int32.Parse(page) - 1) * 10).Take(10);
+                Console.WriteLine("contain");
+            }
+            else
+            {
+                dataToShow = dataToShow.Take(10);
+                Console.WriteLine("no");
+            }
             //if (AllProductsFromAPI.Count() > 10)
             //{
             //    ProductsFromJson = null;
@@ -83,9 +101,15 @@ namespace E_commerce.Pages
 
         }
 
-        public IActionResult OnPostSwitchPage(int pageNum)
+        public IActionResult OnPostSwitchPage(int pageNum, string input)
         {
-            Console.WriteLine("123");
+            var paramToPass = new Dictionary<string, string>
+            {
+                { "input", input},
+                { "pageNum", pageNum.ToString() }
+            };
+
+            return RedirectToPage("SearchResult", paramToPass);
 
             
             //if (AllProductsFromAPI.Count() > (pageNum - 1) * 10 && AllProductsFromAPI.Count() < pageNum * 10)
@@ -112,7 +136,6 @@ namespace E_commerce.Pages
             //    ProductsFromJson.Skip(10).Take(10);
             //    return Page();
             //}
-            return Page();
         }
     }
 }
