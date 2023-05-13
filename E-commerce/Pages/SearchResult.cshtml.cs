@@ -17,7 +17,12 @@ namespace E_commerce.Pages
 
         public IEnumerable<Product> ProductsFromAPI { get; set; }
 
+
         public IEnumerable<Model.Products> ProductsFromJson { get; set; }
+
+        public IEnumerable<Product> AllProductsFromAPI { get; set; }
+
+        public IEnumerable<Model.Products> AllProductsFromJson { get; set; }
 
         public string SearchValue { get; set; }
 
@@ -36,35 +41,52 @@ namespace E_commerce.Pages
             data = param;
             SearchValue = data.First().Value;
             var allDataFromAPI = await productapiservice.GetProductsFromAPI();            
-            ProductsFromAPI = from each in allDataFromAPI.Product where each.Title.ToLower().Contains(SearchValue.ToLower()) select each;            
+            AllProductsFromAPI = from each in allDataFromAPI.Product where each.Title.ToLower().Contains(SearchValue.ToLower()) select each;            
             var allDataFromJson = jsonfileservice.GetAll();
-            ProductsFromJson = from each in allDataFromJson where each.Title.ToLower().Contains(SearchValue.ToLower()) select each;
-            PageNumber = (ProductsFromAPI.Count() + ProductsFromJson.Count()) / 10;
-            if (ProductsFromAPI.Count() > 10)
+            AllProductsFromJson = from each in allDataFromJson where each.Title.ToLower().Contains(SearchValue.ToLower()) select each;
+            PageNumber = (AllProductsFromAPI.Count() + AllProductsFromJson.Count()) / 10;
+            if (AllProductsFromAPI.Count() > 10)
             {
                 ProductsFromJson = null;
-                ProductsFromAPI = ProductsFromAPI.Take(10);
+                ProductsFromAPI = AllProductsFromAPI.Take(10);
             }
-            else
+            else if (AllProductsFromAPI.Count() < 10) 
             {
-                ProductsFromJson.Take(10 - ProductsFromAPI.Count());
+                ProductsFromJson = AllProductsFromJson.Take(10 - AllProductsFromAPI.Count());
             }
 
         }
 
-        //public IActionResult OnSwitchPage(int pageNum)
-        //{
-        //    //int allProductsCount = ProductsFromAPI.Count() + ProductsFromJson.Count();
-        //    int numberOfAPI = ProductsFromAPI.Count() - ((pageNum - 1) * 10);
-        //    if (numberOfAPI > (pageNum - 1) * 10)
-        //    {
-        //        for (var index = 0; index < 10; index++)
-        //        {
-        //            dataToPass[index] = ProductsFromAPI.ElementAt(10 + index);
-        //        }
-        //        return Page();
-        //    }
+        public IActionResult OnPostSwitchPage(int pageNum)
+        {
+            Console.WriteLine("123");
 
-        //}
+            Console.WriteLine(AllProductsFromAPI.GetType());
+            //if (AllProductsFromAPI.Count() > (pageNum - 1) * 10 && AllProductsFromAPI.Count() < pageNum * 10)
+            //{
+            //    ProductsFromAPI = AllProductsFromAPI.Skip(10);
+            //    ProductsFromJson = AllProductsFromJson.Take(10 - ProductsFromAPI.Count());
+            //    return Page();
+            //}
+            //else if (AllProductsFromAPI.Count() > pageNum * 10)
+            //{
+            //    ProductsFromAPI.Skip(10).Take(10);
+            //    ProductsFromJson = null;
+            //    return Page();
+            //}
+            //else if (AllProductsFromJson.Count() > (pageNum - 1) * 10 && AllProductsFromJson.Count() < pageNum * 10)
+            //{
+            //    ProductsFromAPI = null;
+            //    ProductsFromJson.Skip(10);
+            //    return Page();
+            //}
+            //else if (AllProductsFromJson.Count() > pageNum * 10)
+            //{
+            //    ProductsFromAPI = null;
+            //    ProductsFromJson.Skip(10).Take(10);
+            //    return Page();
+            //}
+            return Page();
+        }
     }
 }

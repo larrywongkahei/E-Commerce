@@ -93,7 +93,7 @@
     <div style="display:flex; flex-direction:row; justify-content:center">
         @for (var i = 0; i <= Model.PageNumber; i++)
         {
-            <p style="margin-right:12px">@(i + 1)</p>
+            <a style="margin-right:12px" asp-page-handler="SwitchPage" asp-route-pageNum="@(i + 1) ">@(i + 1)</a>
         }
     </div>
 

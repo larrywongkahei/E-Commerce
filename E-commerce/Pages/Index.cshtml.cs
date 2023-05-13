@@ -19,10 +19,20 @@ namespace E_commerce.Pages
             {
                 {"input", input }
             };
+            if(input == null)
+            {
+                return Page();
+            }
+            else
+            {
+                Console.WriteLine("printing input");
+                Console.WriteLine(input);
 
-            
                 return RedirectToPage("/SearchResult", param);
-            
+
+            }
+
+
         }
 
     }
