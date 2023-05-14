@@ -15,6 +15,10 @@ namespace E_commerce.Pages
 
         public ProductsAPIService apiService { get; set; }
 
+        public Product product { get; set; }
+
+        public Model.Products products { get; set; }
+
         public ConfirmAddedModel(JsonFileService jsonFileService, ProductsAPIService productsAPIService)
         {
             fileservice = jsonFileService;
@@ -27,11 +31,12 @@ namespace E_commerce.Pages
             var apiData = await apiService.GetProductsFromAPI();
             if(apiData.Product.First(each => each.Title == name) != null)
             {
-                Product productToAdd = apiData.Product.First(each => each.Title == name);
+                product = apiData.Product.First(each => each.Title == name);
+
             }
             else
             {
-                Model.Products productToAdd = jsonData.First(each => each.Title == name);
+                products = jsonData.First(each => each.Title == name);
             }
 
         }

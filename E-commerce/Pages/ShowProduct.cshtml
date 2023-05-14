@@ -102,13 +102,15 @@
             <p style="font-size:14px">
                 Quantity
             </p>
-            <div style="margin-bottom:6px">
-                <button style="background-color: #ffd242; width: 100%; border-style: none; border-radius: 15px; height: 2rem; margin-bottom: 10px; font-size:14px" class="box-shadow">
-                    Add to Basket
-                </button>
-                <button style="background-color: orange; width: 100%; border-style: none; border-radius: 15px; height: 2rem; margin-bottom: 10px; font-size: 14px" class="box-shadow">
-                    Buy Now
-                </button>
+            <div style="margin-bottom:6px; text-align:center;">
+                <a asp-page="/ConfirmAdded" asp-route-name="@each.Title" class="addToBasketBtn buttonLink">
+                    <p class="box-shadow addToBasketBtn";>
+                            Add to Basket
+                    </p>
+                </a>
+                    <button style="background-color: orange; width: 100%; border-style: none; border-radius: 15px; height: 2rem; margin-bottom: 10px; font-size:14px" class="box-shadow">
+                        Buy Now
+                    </button>
             </div>
             <div style="display:flex">
                 <div style="width:55%">
@@ -228,9 +230,11 @@ else
                 Quantity
             </p>
             <div style="margin-bottom:6px">
-                <button style="background-color: #ffd242; width: 100%; border-style: none; border-radius: 15px; height: 2rem; margin-bottom: 10px; font-size:14px" class="box-shadow">
-                    Add to Basket
-                </button>
+                <a asp-page="/ConfirmAdded" asp-route-name="@each.Title" class="addToBasketBtn buttonLink">
+                    <p class="box-shadow addToBasketBtn" ;>
+                        Add to Basket
+                    </p>
+                </a>
                 <button style="background-color: orange; width: 100%; border-style: none; border-radius: 15px; height: 2rem; margin-bottom: 10px; font-size:14px" class="box-shadow">
                     Buy Now
                 </button>

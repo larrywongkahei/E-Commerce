@@ -4,8 +4,14 @@
 }
 <body style="background-color:#EAEDED !important;">
     <div style="display:flex; flex-direction: row; justify-content:space-evenly;">
-        <div style="background-color:white;">
-            HI
+        <div style="background-color:white; display: flex; flex-direction:row; ">
+            <div>
+                <img src="@(Model.product == null ? Model.products.Img : Model.product.Thumbnail)"/>
+            </div>
+            <div>
+                <span class="fa-solid fa-circle-check" style="color: #49bd1f;"></span>
+                Added To Basket
+            </div>
         </div>
         <div style="background-color:white;">
             YOU

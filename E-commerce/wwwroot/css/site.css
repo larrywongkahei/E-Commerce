@@ -119,6 +119,41 @@ nav a {
     font-family:Arial, sans-serif;
 }
 
+.addToBasketBtn{
+    background-color: #ffd242;
+    width: 100%;
+    border-style: none;
+    border-radius: 15px;
+    padding-top: 0.35rem;
+    padding-bottom: 0.35rem;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: black;
+    text-decoration:none !important;
+}
+
+.addToBasketBtn :hover {
+    background-color: #ffba42;
+    text-decoration: none !important;
+}
+
+.buyNowBtn {
+    background-color: orange;
+    width: 100%;
+    border-style: none;
+    border-radius: 15px;
+    padding-top: 0.35rem;
+    padding-bottom: 0.35rem;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: black;
+    text-decoration: none !important;
+}
+
+.buyNowBtn :hover {
+    background-color:#ff6542;
+    text-decoration: none !important;
+}
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
