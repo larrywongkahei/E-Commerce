@@ -3,18 +3,51 @@
 @{
 }
 <body style="background-color:#EAEDED !important;">
-    <div style="display:flex; flex-direction: row; justify-content:space-evenly;">
-        <div style="background-color:white; display: flex; flex-direction:row; ">
-            <div>
-                <img src="@(Model.product == null ? Model.products.Img : Model.product.Thumbnail)"/>
+    <div style="display: flex; flex-direction: row; justify-content: space-evenly; width: 100%">
+        <div style="display: flex; flex-direction: row; width: 40%; justify-content: center ;background-color: white; align-items:center">
+            <div style="background-color: white; ">
+                <img src="@(Model.product == null ? Model.products.Img : Model.product.Thumbnail)" style="height:9rem; width:12rem;" />
             </div>
-            <div>
-                <span class="fa-solid fa-circle-check" style="color: #49bd1f;"></span>
+            <div style=" background-color: white; font-weight: bold; font-size: 20px">
+                <i class="fa-solid fa-circle-check" style="color: #49bd1f; padding-left:6px; padding-right:6px;" ></i>
                 Added To Basket
             </div>
         </div>
-        <div style="background-color:white;">
-            YOU
+        <div style="background-color: white; width: 40%; display:flex; flex-direction:row; justify-content:center">
+            <div style="width:50%">
+                <div style="align-content: center; margin-top: 3rem; font-size:14px" class="MarginAllTwo">
+                        <span style="color: #007185">Your order qualifies for<span style="font-weight: bold !important; color: #067D62;"> FREE Delivery</span><span style=""> in the UK.</span></span>
+                </div>
+            </div>
+            <div style="width: 50%; border-style: solid; border-top: none; border-right: none; border-bottom: none; border-left-width: 0.5px; margin-top:1rem; margin-bottom:1rem;">
+                <div style="display:flex; flex-direction:column; margin-top:0rem !important; margin-bottom:0rem !important; margin-left:1rem !important; margin-right:1rem !important; justify-content:center">
+                    <div  style="display:flex; flex-direction:row">
+                        <p style="font-size: 18px; line-height: 24px; font-weight:700 !important; margin-right:0.75rem;">
+                            Basket Subtotal:
+                        </p>
+                        <p style="font-weight: 400; font-size: 14px; line-height: 18px;">
+                            £
+                        </p>
+                        <p style="font-size: 23px; font-weight: 500 !important; line-height: 24px;">
+                            17
+                        </p>
+                        <p style="font-weight: 400; font-size: 14px; line-height: 18px;">
+                            88
+                        </p>
+
+                    </div>
+                    <button style="background-color:orange !important" class="box-shadow goToBasketBtn">
+                        Proceed to Checkout
+                    </button>
+                    <a asp-page="/ConfirmAdded" class="buttonLink" style="text-decoration:none !important">
+                        <p class="box-shadow addToBasketBtn" ;>
+                            Go to basket
+                        </p>
+                    </a>
+                </div>
+            </div>
+
+
         </div>
     </div>
 </body>

@@ -29,7 +29,7 @@ namespace E_commerce.Pages
         {
             var jsonData = fileservice.GetAll();
             var apiData = await apiService.GetProductsFromAPI();
-            if(apiData.Product.First(each => each.Title == name) != null)
+            if(apiData.Product.FirstOrDefault(each => each.Title == name) != null)
             {
                 product = apiData.Product.First(each => each.Title == name);
 
