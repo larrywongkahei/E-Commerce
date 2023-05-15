@@ -51,16 +51,22 @@
     <div class="d-flex flex-wrap" style="width: 80%">
         @foreach (var product in Model.GroceriesFromAPI)
         {
-            <a class="card" style="height:374px; margin-bottom:8px;margin-right:8px;width:24%;text-decoration:none; color:black" asp-page="/ShowProduct" asp-route-name="@product.Title">
-                <img style="height:50%" src="@product.Thumbnail" />
-                <div class="card-body" style="height:50%">
-                    <p class="card-text-2" style="font-size:large;">@product.Title</p>
-                    @for (var i = 0.5; i < 5; i++)
-                    {
-                        <span class="@(i <= product.Rating ? "fa fa-star checked rating " : "far fa-star rating")"></span>
-                    }
-                    <p class="">£@product.Price</p>
-                </div>
+        <a class="card" style="height:374px; margin-bottom:8px;margin-right:8px;width:24%;text-decoration:none; color:black" asp-page="/ShowProduct" asp-route-name="@product.Title">
+            <img style="height:50%" src="@product.Thumbnail" />
+            <div class="card-body" style="height:50%">
+                <p class="card-text-2" style="font-size:large;">@product.Title</p>
+                @for (var i = 0.5; i < 5; i++)
+                {
+                    <span class="@(i <= product.Rating ? "fa fa-star checked rating " : "far fa-star rating")"></span>
+                }
+                <p class="">£@product.Price</p>
+
+            </div>
+            <a asp-page="/ConfirmAdded" asp-route-name="@product.Title" class="addToBasketBtn buttonLink">
+                <p class="box-shadow addToBasketBtn" ;>
+                    Add to Basket
+                </p>
+            </a>
         </a>
         }
     </div>

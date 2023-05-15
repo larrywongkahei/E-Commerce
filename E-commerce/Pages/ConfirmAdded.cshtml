@@ -4,24 +4,24 @@
 }
 <body style="background-color:#EAEDED !important;">
     <div style="display: flex; flex-direction: row; justify-content: space-evenly; width: 100%">
-        <div style="display: flex; flex-direction: row; width: 40%; justify-content: center ;background-color: white; align-items:center">
+        <div style="display: flex; flex-direction: row; width: 45%; justify-content: center ;background-color: white; align-items:center">
             <div style="background-color: white; ">
                 <img src="@(Model.product == null ? Model.products.Img : Model.product.Thumbnail)" style="height:9rem; width:12rem;" />
             </div>
             <div style=" background-color: white; font-weight: bold; font-size: 20px">
-                <i class="fa-solid fa-circle-check" style="color: #49bd1f; padding-left:6px; padding-right:6px;" ></i>
+                <i class="fa-solid fa-circle-check" style="color: #49bd1f; padding-left:6px; padding-right:6px;"></i>
                 Added To Basket
             </div>
         </div>
-        <div style="background-color: white; width: 40%; display:flex; flex-direction:row; justify-content:center">
+        <div style="background-color: white; width: 45%; display:flex; flex-direction:row; justify-content:center">
             <div style="width:50%">
                 <div style="align-content: center; margin-top: 3rem; font-size:14px" class="MarginAllTwo">
-                        <span style="color: #007185">Your order qualifies for<span style="font-weight: bold !important; color: #067D62;"> FREE Delivery</span><span style=""> in the UK.</span></span>
+                    <span style="color: #007185">Your order qualifies for<span style="font-weight: bold !important; color: #067D62;"> FREE Delivery</span><span style=""> in the UK.</span></span>
                 </div>
             </div>
             <div style="width: 50%; border-style: solid; border-top: none; border-right: none; border-bottom: none; border-left-width: 0.5px; margin-top:1rem; margin-bottom:1rem;">
                 <div style="display:flex; flex-direction:column; margin-top:0rem !important; margin-bottom:0rem !important; margin-left:1rem !important; margin-right:1rem !important; justify-content:center">
-                    <div  style="display:flex; flex-direction:row">
+                    <div style="display:flex; flex-direction:row">
                         <p style="font-size: 18px; line-height: 24px; font-weight:700 !important; margin-right:0.75rem;">
                             Basket Subtotal:
                         </p>
@@ -46,8 +46,40 @@
                     </a>
                 </div>
             </div>
+        </div>
+    </div>
+    <div style="display: flex; flex-direction: row; justify-content: center; width: 100%">
+        <div style="width: 100%;background-color: white; margin-left:3rem; margin-right:3rem; margin-top:3rem;">
+            <p class="MarginAllTwo" style="font-size:21px; line-height:20px;">
+                You may also interested in...
+            </p>
+            <div style="display:flex; flex-direction:row; justify-content:space-around">
+                @foreach (var each in Model.productList)
+                {
+                    <div>
+                        <a class="card" style="height:300px; margin-bottom:8px;width:212px;text-decoration:none; color:black; border:none !important" asp-page="/ShowProduct" asp-route-name="@each.Title">
+                            <img style="height:60%" src="@each.Thumbnail" />
+                            <div class="card-body" style="height:40%">
+                                <p class="card-text-2" style="font-size:large;">@each.Title</p>
+                                @for (var i = 0.5; i < 5; i++)
+                                {
+                                    <span class="@(i <= each.Rating ? "fa fa-star checked rating " : "far fa-star rating")"></span>
+                                }
+                                <p class="">£@each.Price</p>
+                            </div>
 
+                        </a>
+                        <a asp-page="/ConfirmAdded" class="buttonLink card-link" style="text-decoration:none !important;">
+                            <p class="box-shadow addToBasketBtn" style=" width: 60% !important">
+                                Add to basket
+                            </p>
+                        </a>
+                    </div>
+
+                }
+            </div>
 
         </div>
+
     </div>
 </body>

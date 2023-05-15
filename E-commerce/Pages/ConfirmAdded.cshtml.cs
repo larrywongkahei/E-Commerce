@@ -17,6 +17,8 @@ namespace E_commerce.Pages
 
         public Product product { get; set; }
 
+        public IEnumerable<Product> productList { get; set; }
+
         public Model.Products products { get; set; }
 
         public ConfirmAddedModel(JsonFileService jsonFileService, ProductsAPIService productsAPIService)
@@ -38,7 +40,7 @@ namespace E_commerce.Pages
             {
                 products = jsonData.First(each => each.Title == name);
             }
-
+            productList = apiData.Product.Take(6);
         }
     }
 }
