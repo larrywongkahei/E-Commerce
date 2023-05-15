@@ -48,7 +48,7 @@ namespace E_commerce.Pages
             apiService = productsAPIService;
         }
 
-        public async Task OnGetAsync(string name)
+        public async Task OnGetAsync(string name, double price)
         {
             HttpContext.Session.SetString("Product" + HttpContext.Session.Keys.Count().ToString(), name);
             
@@ -59,12 +59,12 @@ namespace E_commerce.Pages
                 product = apiData.Product.First(each => each.Title == name);
                 if (HttpContext.Session.GetDouble("subtotal") == null)
                 {
-                    HttpContext.Session.SetDouble("subtotal", product.Price);
+                    HttpContext.Session.SetDouble("subtotal", price);
                 }
                 else
                 {
                     var currentPrice = HttpContext.Session.GetDouble("subtotal");
-                    HttpContext.Session.SetDouble("subtotal", (double)(currentPrice + product.Price));
+                    HttpContext.Session.SetDouble("subtotal", (double)(currentPrice + price));
                 }
 
 
@@ -74,12 +74,12 @@ namespace E_commerce.Pages
                 products = jsonData.First(each => each.Title == name);
                 if (HttpContext.Session.GetDouble("subtotal") == null)
                 {
-                    HttpContext.Session.SetDouble("subtotal", (double)products.Price);
+                    HttpContext.Session.SetDouble("subtotal", price);
                 }
                 else
                 {
                     var currentPrice = HttpContext.Session.GetDouble("subtotal");
-                    HttpContext.Session.SetDouble("subtotal", (double)(currentPrice + (double) products.Price));
+                    HttpContext.Session.SetDouble("subtotal", (double)(currentPrice + price));
                 }
 
             }

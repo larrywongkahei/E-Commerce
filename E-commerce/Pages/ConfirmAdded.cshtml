@@ -32,7 +32,7 @@
                             @Math.Floor(Model.subtotal)
                         </p>
                         <p style="font-weight: 400; font-size: 14px; line-height: 18px;">
-                            88
+                            @Model.subtotal.ToString("#.00").Substring(Model.subtotal.ToString().Length - 2)
                         </p>
 
                     </div>
