@@ -37,6 +37,7 @@ namespace E_commerce.Pages
         public void OnGet()
         {
             ViewData["Title"] = "HayStore";
+            Console.WriteLine(HttpContext.Session.Keys.Count()) ;
         }
     }
 }

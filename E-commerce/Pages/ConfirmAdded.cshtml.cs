@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using E_commerce.DataAPI;
 using E_commerce.Service;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -29,6 +30,8 @@ namespace E_commerce.Pages
 
         public async Task OnGetAsync(string name)
         {
+            HttpContext.Session.SetString("Product" + HttpContext.Session.Keys.Count().ToString(), name);
+            
             var jsonData = fileservice.GetAll();
             var apiData = await apiService.GetProductsFromAPI();
             if(apiData.Product.FirstOrDefault(each => each.Title == name) != null)
