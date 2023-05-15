@@ -10,6 +10,24 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace E_commerce.Pages
 {
+    public static class SessionExtensions
+    {
+        public static double? GetDouble(this ISession session, string key)
+        {
+            var data = session.Get(key);
+            if (data == null)
+            {
+                return null;
+            }
+            return BitConverter.ToDouble(data, 0);
+        }
+
+        public static void SetDouble(this ISession session, string key, double value)
+        {
+            session.Set(key, BitConverter.GetBytes(value));
+        }
+    }
+
     public class ConfirmAddedModel : BaseModel
     {
         public JsonFileService fileservice { get; set; }
@@ -37,12 +55,33 @@ namespace E_commerce.Pages
             if(apiData.Product.FirstOrDefault(each => each.Title == name) != null)
             {
                 product = apiData.Product.First(each => each.Title == name);
+                if (HttpContext.Session.GetDouble("subtotal") == null)
+                {
+                    HttpContext.Session.SetDouble("subtotal", product.Price);
+                }
+                else
+                {
+                    var currentPrice = HttpContext.Session.GetDouble("subtotal");
+                    HttpContext.Session.SetDouble("subtotal", (double)(currentPrice + product.Price));
+                }
+
 
             }
             else
             {
                 products = jsonData.First(each => each.Title == name);
+                if (HttpContext.Session.GetDouble("subtotal") == null)
+                {
+                    HttpContext.Session.SetDouble("subtotal", (double)products.Price);
+                }
+                else
+                {
+                    var currentPrice = HttpContext.Session.GetDouble("subtotal");
+                    HttpContext.Session.SetDouble("subtotal", (double)(currentPrice + (double) products.Price));
+                }
+
             }
+            Console.WriteLine(HttpContext.Session.GetDouble("subtotal"));
             productList = apiData.Product.Take(6);
         }
     }

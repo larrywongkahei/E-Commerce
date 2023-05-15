@@ -12,6 +12,8 @@ namespace E_commerce.Pages
         [BindProperty]
         public string input { get; set; }
 
+        public int Number { get; set; }
+
 
         public IActionResult OnPost()
         {
@@ -37,7 +39,6 @@ namespace E_commerce.Pages
         public void OnGet()
         {
             ViewData["Title"] = "HayStore";
-            Console.WriteLine(HttpContext.Session.Keys.Count()) ;
         }
     }
 }
