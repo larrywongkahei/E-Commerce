@@ -69,7 +69,7 @@
                             </div>
 
                         </a>
-                        <a asp-page="/ConfirmAdded" class="buttonLink card-link" style="text-decoration:none !important;">
+                        <a asp-page="/ConfirmAdded" class="buttonLink card-link" style="text-decoration:none !important;" asp-route-name="@each.Title">
                             <p class="box-shadow addToBasketBtn" style=" width: 60% !important">
                                 Add to basket
                             </p>
