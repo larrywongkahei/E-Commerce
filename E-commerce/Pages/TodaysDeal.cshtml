@@ -69,7 +69,7 @@
                             var theNum = randomNum.Next(20, 95);
                             <p class="text-white bg-danger px-1 ml-4 mr-1 my-auto" style="font-size: 12px; height:20px;">@theNum % off</p>
                             double wasPrice = (double)product.Price / (1 - ((double)theNum / 100));
-                            <p style="text-decoration-line: line-through; color:gray; font-size: 11px;" class="my-auto">Was £@wasPrice.ToString("F")</p>
+                            <p style="text-decoration-line: line-through; color:gray; font-size: 11px;" class="my-auto">Was £@wasPrice.ToString("F2")</p>
                         }
                     </div>
                 </div>
