@@ -40,6 +40,8 @@ namespace E_commerce.Pages
 
         public Model.Products products { get; set; }
 
+        public double subtotal { get; set; }
+
         public ConfirmAddedModel(JsonFileService jsonFileService, ProductsAPIService productsAPIService)
         {
             fileservice = jsonFileService;
@@ -81,7 +83,7 @@ namespace E_commerce.Pages
                 }
 
             }
-            Console.WriteLine(HttpContext.Session.GetDouble("subtotal"));
+            subtotal = (double)HttpContext.Session.GetDouble("subtotal");
             productList = apiData.Product.Take(6);
         }
     }
