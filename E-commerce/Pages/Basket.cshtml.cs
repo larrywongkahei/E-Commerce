@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using E_commerce.DataAPI;
+using E_commerce.Service;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -17,15 +18,43 @@ namespace E_commerce.Pages
 
     public class BasketModel : BaseModel
     {
-        public void OnGet()
+        public JsonFileService fileservice { get; set; }
+
+        public ProductsAPIService apiService { get; set; }
+
+        public List<AllProductClass> productsList { get; set; } = new List<AllProductClass>();
+
+        public BasketModel(JsonFileService jsonFileService, ProductsAPIService productsAPIService)
         {
+            fileservice = jsonFileService;
+            apiService = productsAPIService;
+        }
+
+        public async Task OnGetAsync()
+        {
+            var apidata = await apiService.GetProductsFromAPI();
+            var jsondata = fileservice.GetAll();
             var ListToLoop = from each in HttpContext.Session.Keys where each.StartsWith("Product") select each;
+
             foreach (var each in HttpContext.Session.Keys)
             {
-                
-                var newclass = new AllProductClass();
-                
+                if (apidata.Product.FirstOrDefault(product => product.Title == each) != null)
+                {
+                    var newclass = new AllProductClass();
+                    var product = apidata.Product.First(product => product.Title == each);
+                    newclass.productfromapi = product;
+                    productsList.Add(newclass);
+                }
+                else
+                {
+                    var newclass = new AllProductClass();
+                    var product = jsondata.First(product => product.Title == each);
+                    newclass.productfromjson = product;
+                    productsList.Add(newclass);
+
+                }
             }
+            Console.WriteLine(productsList.Count());
         }
     }
 }

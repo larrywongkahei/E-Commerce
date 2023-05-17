@@ -67,8 +67,6 @@ namespace E_commerce.Pages
             {
                 var productPrice = Convert.ToDouble(HttpContext.Session.GetString(each));
                 subtotal += productPrice;
-                Console.WriteLine(productPrice);
-                Console.WriteLine(HttpContext.Session.Keys.Count());
             }
 
             productList = apiData.Product.Take(6);
