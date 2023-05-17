@@ -49,41 +49,28 @@ namespace E_commerce.Pages
         }
 
         public async Task OnGetAsync(string name, double price)
-        {
-            HttpContext.Session.SetString("Product" + HttpContext.Session.Keys.Count().ToString(), name);
-            
+        {            
             var jsonData = fileservice.GetAll();
             var apiData = await apiService.GetProductsFromAPI();
             if(apiData.Product.FirstOrDefault(each => each.Title == name) != null)
             {
                 product = apiData.Product.First(each => each.Title == name);
-                if (HttpContext.Session.GetDouble("subtotal") == null)
-                {
-                    HttpContext.Session.SetDouble("subtotal", price);
-                }
-                else
-                {
-                    var currentPrice = HttpContext.Session.GetDouble("subtotal");
-                    HttpContext.Session.SetDouble("subtotal", (double)(currentPrice + price));
-                }
-
-
+                HttpContext.Session.SetString(product.Title, price.ToString());
             }
             else
             {
                 products = jsonData.First(each => each.Title == name);
-                if (HttpContext.Session.GetDouble("subtotal") == null)
-                {
-                    HttpContext.Session.SetDouble("subtotal", (double)price);
-                }
-                else
-                {
-                    var currentPrice = HttpContext.Session.GetDouble("subtotal");
-                    HttpContext.Session.SetDouble("subtotal", (double)(currentPrice + (double)price));
-                }
+                HttpContext.Session.SetString(products.Title, price.ToString());
 
             }
-            subtotal = (double)HttpContext.Session.GetDouble("subtotal");
+            foreach(var each in HttpContext.Session.Keys)
+            {
+                var productPrice = Convert.ToDouble(HttpContext.Session.GetString(each));
+                subtotal += productPrice;
+                Console.WriteLine(productPrice);
+                Console.WriteLine(HttpContext.Session.Keys.Count());
+            }
+
             productList = apiData.Product.Take(6);
         }
     }
