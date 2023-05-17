@@ -230,7 +230,7 @@ else
                 Quantity
             </p>
             <div style="margin-bottom:6px">
-                <a asp-page="/ConfirmAdded" asp-route-name="@each.Title" class="addToBasketBtn buttonLink">
+                <a asp-page="/ConfirmAdded" asp-route-name="@each.Title"  asp-route-price="@newPrice2" class="addToBasketBtn buttonLink">
                     <p class="box-shadow addToBasketBtn" ;>
                         Add to Basket
                     </p>
