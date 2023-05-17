@@ -40,6 +40,7 @@ namespace E_commerce.Pages
             var allDataFromJson = jsonfileservice.GetAll();
             ProductsFromJson = from each in allDataFromJson where each.Title == TitleValue select each;
 
+
         }
     }
 }
