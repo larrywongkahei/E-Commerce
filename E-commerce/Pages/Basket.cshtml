@@ -14,12 +14,12 @@
                     Continue shopping on the Haystore homepage, learn about today's deals.
                 </p>
             </div>-->
-            <div>
-            <div style="margin-left:1.5rem; margin-right:1.5rem; margin-top:1.5rem; font-size: 14px; line-height: 20px; display:flex; flex-direction:column; background-color:white;">
+            <div style="margin-left: 18px; margin-right: 18px; margin-top: 1.5rem; background-color: white;">
+            <div style="padding-left:20px; padding-right:20px; padding-top:20px; font-size: 14px; line-height: 20px; display:flex; flex-direction:column;">
                 <h1 style="font-weight: 400; font-size: 28px; line-height: 36px;">
                     Shopping Basket
                 </h1>
-                <p style="color:#007185;">
+                <p style="color:#007185; margin-bottom:0px;">
                     Deselect all items
                 </p>
                 <p style="align-self: end; color: #565959;margin-bottom:0;">
@@ -32,29 +32,51 @@
                                 {
                                     if (each.productfromapi == null)
                                     {
-                                        <div style="display:flex; flex-direction:row;">
-                                            <img src="@each.productfromjson.Img" />
-                                            <div>
-                                                <h1>
+                                        <div style="display:flex; flex-direction:row; padding-left:20px">
+                                            <img src="@each.productfromjson.Img" style="height:180px; width:180px"/>
+                                            <div style="margin-left:5px">
+                                                <h1 style="font-size:18px;">
                                                     @each.productfromjson.Title
                                                 </h1>
+                                                <ul style="font-size:12px; color:#565959; list-style:none; padding-inline-start:0px;">
+                                                    <li style="color:#007600;">
+                                                        in stock
+                                                    </li>
+                                                    <li>
+                                                        Dispatched from and sold by Haystore Eligible for FREE Shipping
+                                                    </li>
+                                                    <li>
+                                                        Eligible for FREE Shipping
+                                                    </li>
+                                                </ul>
+
                                             </div>
                                         </div>
                                     }
                                     else
                                     {
-                                        <div style="display:flex; flex-direction:row;">
-                                            <img src="@each.productfromapi.Thumbnail" />
-                                            <div>
-                                                <h1>
-                                                    @each.productfromapi.Title
-                                                </h1>
-                                            </div>
-                                        </div>
+                            <div style="display:flex; flex-direction:row;">
+                                <img src="@each.productfromapi.Thumbnail"  style="height:180px; width:180px"/>
+                                <div style="margin-left:5px">
+                                    <h1 style="font-size:18px;">
+                                        @each.productfromapi.Title
+                                    </h1>
+                                    <ul style="font-size:12px; color:#565959; list-style:none; padding-inline-start:0px;">
+                                        <li style="color:#007600;">
+                                            in stock
+                                        </li>
+                                        <li>
+                                            Dispatched from and sold by Haystore Eligible for FREE Shipping
+                                        </li>
+                                        <li>
+                                            Eligible for FREE Shipping
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
                                     }
                                 }
                             </div>
 
         </div>
-    </div>
 </body>
