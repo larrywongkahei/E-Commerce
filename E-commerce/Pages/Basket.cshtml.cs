@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using E_commerce.DataAPI;
 using E_commerce.Service;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -24,6 +25,8 @@ namespace E_commerce.Pages
 
         public List<AllProductClass> productsList { get; set; } = new List<AllProductClass>();
 
+        public Dictionary<string, double> SessionDic { get; set; } = new Dictionary<string, double>();
+
         public BasketModel(JsonFileService jsonFileService, ProductsAPIService productsAPIService)
         {
             fileservice = jsonFileService;
@@ -34,10 +37,11 @@ namespace E_commerce.Pages
         {
             var apidata = await apiService.GetProductsFromAPI();
             var jsondata = fileservice.GetAll();
-            var ListToLoop = from each in HttpContext.Session.Keys where each.StartsWith("Product") select each;
 
             foreach (var each in HttpContext.Session.Keys)
             {
+                var productPrice = Convert.ToDouble(HttpContext.Session.GetString(each));
+                SessionDic[each] = productPrice;
                 if (apidata.Product.FirstOrDefault(product => product.Title == each) != null)
                 {
                     var newclass = new AllProductClass();
@@ -54,7 +58,6 @@ namespace E_commerce.Pages
 
                 }
             }
-            Console.WriteLine(productsList.Count());
         }
     }
 }

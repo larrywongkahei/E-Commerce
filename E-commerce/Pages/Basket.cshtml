@@ -1,21 +1,23 @@
 ﻿@page
 @model E_commerce.Pages.BasketModel
+@using Microsoft.AspNetCore.Http;
 @{
 }
 <body style="background-color:#EAEDED !important;">
-        <!--<div style="background-color:white;margin-left:3rem; margin-right:3rem;">
-            <div style="padding:1.5rem;font-size: 14px; line-height: 20px;">-->
-                @*Show this instead if the basket is empty*@
-                <!--<h1 style="font-weight: 400; font-size: 28px; line-height: 36px;">
-                    Your Shopping Cart is empty.
-                </h1>
-                <p>
-                    Your shopping basket lives to serve. Give it purpose – fill it with groceries, clothing, household supplies, electronics and more.
-                    Continue shopping on the Haystore homepage, learn about today's deals.
-                </p>
-            </div>-->
-            <div style="margin-left: 18px; margin-right: 18px; margin-top: 1.5rem; background-color: white;">
-            <div style="padding-left:20px; padding-right:20px; padding-top:20px; font-size: 14px; line-height: 20px; display:flex; flex-direction:column;">
+    <!--<div style="background-color:white;margin-left:3rem; margin-right:3rem;">
+        <div style="padding:1.5rem;font-size: 14px; line-height: 20px;">-->
+    @*Show this instead if the basket is empty*@
+    <!--<h1 style="font-weight: 400; font-size: 28px; line-height: 36px;">
+            Your Shopping Cart is empty.
+        </h1>
+        <p>
+            Your shopping basket lives to serve. Give it purpose – fill it with groceries, clothing, household supplies, electronics and more.
+            Continue shopping on the Haystore homepage, learn about today's deals.
+        </p>
+    </div>-->
+    <div style="margin-left: 18px; margin-right: 18px; margin-top: 1.5rem; background-color: white;">
+        <div style="padding-left: 20px; padding-right: 20px;">
+            <div style="padding-top:20px; font-size: 14px; line-height: 20px; display:flex; flex-direction:column;">
                 <h1 style="font-weight: 400; font-size: 28px; line-height: 36px;">
                     Shopping Basket
                 </h1>
@@ -26,57 +28,67 @@
                     Price
                 </p>
             </div>
-                            <hr style="margin-top:0;margin-left:1.5rem; margin-right:1.5rem;" />
-                            <div>
-                                @foreach (var each in Model.productsList)
-                                {
-                                    if (each.productfromapi == null)
-                                    {
-                                        <div style="display:flex; flex-direction:row; padding-left:20px">
-                                            <img src="@each.productfromjson.Img" style="height:180px; width:180px"/>
-                                            <div style="margin-left:5px">
-                                                <h1 style="font-size:18px;">
-                                                    @each.productfromjson.Title
-                                                </h1>
-                                                <ul style="font-size:12px; color:#565959; list-style:none; padding-inline-start:0px;">
-                                                    <li style="color:#007600;">
-                                                        in stock
-                                                    </li>
-                                                    <li>
-                                                        Dispatched from and sold by Haystore Eligible for FREE Shipping
-                                                    </li>
-                                                    <li>
-                                                        Eligible for FREE Shipping
-                                                    </li>
-                                                </ul>
+            <hr style="margin-top:0;" />
+            <div>
+                @foreach (var each in Model.productsList)
+                {
+                    if (each.productfromapi == null)
+                    {
+                        <div style="display:flex; flex-direction:row;">
+                            <img src="@each.productfromjson.Img" style="height:180px; width:180px" />
+                            <div style="margin-left:5px">
+                                <h1 style="font-size:18px;">
+                                    @each.productfromjson.Title
+                                </h1>
+                                <ul style="font-size:12px; color:#565959; list-style:none; padding-inline-start:0px;">
+                                    <li style="color:#007600;">
+                                        in stock
+                                    </li>
+                                    <li>
+                                        Dispatched from and sold by Haystore
+                                    </li>
+                                    <li>
+                                        Eligible for FREE Shipping
+                                    </li>
+                                </ul>
 
-                                            </div>
-                                        </div>
-                                    }
-                                    else
-                                    {
-                            <div style="display:flex; flex-direction:row;">
-                                <img src="@each.productfromapi.Thumbnail"  style="height:180px; width:180px"/>
-                                <div style="margin-left:5px">
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <div style="display:flex; flex-direction:row;">
+                            <img src="@each.productfromapi.Thumbnail" style="height:180px; width:180px" />
+                            <div style="margin-left:5px; width:100%">
+                                <div style="display:flex; flex-direction:row; justify-content:space-between; width:100%">
                                     <h1 style="font-size:18px;">
                                         @each.productfromapi.Title
                                     </h1>
-                                    <ul style="font-size:12px; color:#565959; list-style:none; padding-inline-start:0px;">
-                                        <li style="color:#007600;">
-                                            in stock
-                                        </li>
-                                        <li>
-                                            Dispatched from and sold by Haystore Eligible for FREE Shipping
-                                        </li>
-                                        <li>
-                                            Eligible for FREE Shipping
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
+                                    @{
+                                        double priceFromSession = Convert.ToDouble(HttpContext.Session.GetString(each.productfromapi.Title));
                                     }
-                                }
-                            </div>
+                                    <h1 style="font-size:18px;">
+                                        £@priceFromSession
+                                    </h1>
+                                </div>
 
+                                <ul style="font-size:12px; color:#565959; list-style:none; padding-inline-start:0px;">
+                                    <li style="color:#007600;">
+                                        in stock
+                                    </li>
+                                    <li>
+                                        Dispatched from and sold by Haystore
+                                    </li>
+                                    <li>
+                                        Eligible for FREE Shipping
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
         </div>
+
+    </div>
 </body>
