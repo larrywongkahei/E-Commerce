@@ -42,8 +42,6 @@ namespace E_commerce.Pages
 
         public double subtotal { get; set; }
 
-        public Dictionary<string, double> SessionDic { get; set; } = new Dictionary<string, double>();
-
         public ConfirmAddedModel(JsonFileService jsonFileService, ProductsAPIService productsAPIService)
         {
             fileservice = jsonFileService;
@@ -69,7 +67,6 @@ namespace E_commerce.Pages
             {
                 var productPrice = Convert.ToDouble(HttpContext.Session.GetString(each));
                 subtotal += productPrice;
-                SessionDic[each] = productPrice;
             }
 
             productList = apiData.Product.Take(6);
