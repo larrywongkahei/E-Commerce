@@ -86,11 +86,8 @@
             <p style="font-size:14px;">
                 @{
                     DateTime date = DateTime.Today;
-                    string newdate = date.ToString("F");
-                    Console.WriteLine(newdate);
-                    string[] dateArray = newdate.Split(",");
                 }
-                <span style="color: #007185">Delivery<span style="font-weight: 700 !important; color:black"> @(dateArray[0] + "," + dateArray[1]) </span><span style=" color: black">Order within</span> <span style="color: #007600 !important;">@newNum.Next(1, 6) hrs @newNum.Next(1, 61) mins.</span> Details</span>
+                <span style="color: #007185">Delivery<span style="font-weight: 700 !important; color:black"> @(date.ToString("dddd, MMM dd")) </span><span style=" color: black">  Order within</span> <span style="color: #007600 !important;">@newNum.Next(1, 6) hrs @newNum.Next(1, 61) mins.</span> Details</span>
             </p>
             <div style="display: flex; flex-direction: row; align-items: center;gap:8px">
                 <span class="fa fa-light fa-location-dot"></span>
