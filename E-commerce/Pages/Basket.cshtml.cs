@@ -71,5 +71,11 @@ namespace E_commerce.Pages
             HttpContext.Session.Remove(title);
             return RedirectToPage("RedirectPage");
         }
+
+        public IActionResult OnPostDeselectAll()
+        {
+            HttpContext.Session.Clear();
+            return RedirectToPage("RedirectPage");
+        }
     }
 }

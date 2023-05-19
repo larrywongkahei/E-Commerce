@@ -32,9 +32,11 @@
                     <h1 style="font-weight: 400; font-size: 28px; line-height: 36px;">
                         Shopping Basket
                     </h1>
-                    <p style="color:#007185; margin-bottom:0px;">
-                        Deselect all items
-                    </p>
+                    <form asp-page-handler="DeselectAll">
+                        <button style="color: #007185; margin-bottom: 0px; background-color: white; border-style: none; font-size:14px">
+                            Remove all items
+                        </button>
+                    </form>
                     <p style="align-self: end; color: #565959;margin-bottom:0;">
                         Price
                     </p>
