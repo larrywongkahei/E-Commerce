@@ -55,9 +55,16 @@ namespace E_commerce.Pages
                     var product = jsondata.First(product => product.Title == each);
                     newclass.productfromjson = product;
                     productsList.Add(newclass);
-
                 }
             }
+        }
+
+        public IActionResult OnPostDeleteProduct(string title)
+        {
+            HttpContext.Session.Remove(title);
+            Console.WriteLine("called");
+            Console.WriteLine(HttpContext.Session.Keys.Count());
+            return RedirectToPage("Basket");
         }
     }
 }
