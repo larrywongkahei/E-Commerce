@@ -62,8 +62,6 @@ namespace E_commerce.Pages
         public IActionResult OnPostDeleteProduct(string title)
         {
             HttpContext.Session.Remove(title);
-            Console.WriteLine("called");
-            Console.WriteLine(HttpContext.Session.Keys.Count());
             return RedirectToPage("RedirectPage");
         }
     }

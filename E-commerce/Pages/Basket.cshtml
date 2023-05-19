@@ -45,71 +45,76 @@
                     {
                         if (each.productfromapi == null)
                         {
-                            <div style="display: flex; flex-direction: row; margin-top: 12px; margin-bottom: 12px">
-                                <img src="@each.productfromjson.Img" style="height:180px; width:180px" />
-                                <div style="margin-left:5px; width:100%">
-                                    <div style="display:flex; flex-direction:row; justify-content:space-between; width:100%">
+                    <div style="display: flex; flex-direction: row; margin-top: 12px; margin-bottom: 12px">
+                        <div style="height:180px !important; width:180px !important">
+                                                    <img src="@each.productfromjson.Img" style="height:100%; width:100%"/>
 
-                                        <h1 style="font-size:18px;">
-                                            @each.productfromjson.Title
-                                        </h1>
-                                        <h1 style="font-size:18px;">
-                                            £@Convert.ToDouble(HttpContext.Session.GetString(each.productfromjson.Title)).ToString("#.00")
-                                        </h1>
-                                    </div>
-                                    <ul style="font-size:12px; color:#565959; list-style:none; padding-inline-start:0px;">
-                                        <li style="color:#007600;">
-                                            in stock
-                                        </li>
-                                        <li>
-                                            Dispatched from and sold by Haystore
-                                        </li>
-                                        <li>
-                                            Eligible for FREE Shipping
-                                        </li>
-                                    </ul>
-                                    <form asp-page-handler="DeleteProduct" asp-route-title="@each.productfromjson.Title">
-                                        <button>
-                                            Delete
-                                        </button>
-                                    </form>
-                                </div>
+                        </div>
+                        <div style="margin-left:10px; width:100%; display:flex; flex-direction:column; justify-content:space-between">
+                            <div style="display:flex; flex-direction:row; justify-content:space-between; width:100%">
+
+                                <h1 style="font-size:18px;">
+                                    @each.productfromjson.Title
+                                </h1>
+                                <h1 style="font-size:18px;">
+                                    £@Convert.ToDouble(HttpContext.Session.GetString(each.productfromjson.Title)).ToString("#.00")
+                                </h1>
                             </div>
+                            <ul style="font-size:12px; color:#565959; list-style:none; padding-inline-start:0px;">
+                                <li style="color:#007600; padding-top:12px">
+                                    in stock
+                                </li>
+                                <li style=" padding-top:12px; ">
+                                    Dispatched from and sold by Haystore
+                                </li>
+                                <li style=" padding-top:12px; ">
+                                    Eligible for FREE Shipping
+                                </li>
+                            </ul>
+                            <form asp-page-handler="DeleteProduct" asp-route-title="@each.productfromjson.Title" style="margin-top:auto">
+                                <button>
+                                    Delete
+                                </button>
+                            </form>
+                        </div>
+                    </div>
                             <hr style="width:100%" />
 
                         }
                         else
                         {
-                            <div style="display:flex; flex-direction:row;margin-top:12px; margin-bottom:12px">
-                                <img src="@each.productfromapi.Thumbnail" style="height:180px; width:180px" />
-                                <div style="margin-left:5px; width:100%">
-                                    <div style="display:flex; flex-direction:row; justify-content:space-between; width:100%">
-                                        <h1 style="font-size:18px;">
-                                            @each.productfromapi.Title
-                                        </h1>
-                                        <h1 style="font-size:18px;">
-                                            £@Convert.ToDouble(HttpContext.Session.GetString(each.productfromapi.Title)).ToString("#.00")
-                                        </h1>
-                                    </div>
+                <div style="display:flex; flex-direction:row;margin-top:12px; margin-bottom:12px">
+                    <div style="height:180px !important; width:180px !important" >
+                        <img src="@each.productfromapi.Thumbnail"  style="height:100%; width:100%"/>
+                    </div>
+                    <div style="margin-left:10px; width:100%; display:flex; flex-direction:column; justify-content:space-between">
+                        <div style="display:flex; flex-direction:row; justify-content:space-between; width:100%">
+                            <h1 style="font-size:18px;">
+                                @each.productfromapi.Title
+                            </h1>
+                            <h1 style="font-size:18px;">
+                                £@Convert.ToDouble(HttpContext.Session.GetString(each.productfromapi.Title)).ToString("#.00")
+                            </h1>
+                        </div>
 
-                                    <ul style="font-size:12px; color:#565959; list-style:none; padding-inline-start:0px;">
-                                        <li style="color:#007600;">
-                                            in stock
-                                        </li>
-                                        <li>
-                                            Dispatched from and sold by Haystore
-                                        </li>
-                                        <li>
-                                            Eligible for FREE Shipping
-                                        </li>
-                                    </ul>
-                                    <form asp-page-handler="DeleteProduct" asp-route-title="@each.productfromapi.Title">
-                                        <button>
-                                            Delete
-                                        </button>
-                                    </form>
-                                </div>
-                            </div>
+                        <ul style="font-size:12px; color:#565959; list-style:none; padding-inline-start:0px;">
+                            <li style="color:#007600; padding-top:12px;">
+                                in stock
+                            </li>
+                            <li style=" padding-top:12px; ">
+                                Dispatched from and sold by Haystore
+                            </li>
+                            <li style=" padding-top:12px; ">
+                                Eligible for FREE Shipping
+                            </li>
+                        </ul>
+                        <form asp-page-handler="DeleteProduct" asp-route-title="@each.productfromapi.Title" style="margin-top:auto">
+                            <button>
+                                Delete
+                            </button>
+                        </form>
+                    </div>
+                </div>
                             <hr style="width:100%" />
                         }
                     }
