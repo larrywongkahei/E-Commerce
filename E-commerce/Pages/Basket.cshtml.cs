@@ -64,7 +64,7 @@ namespace E_commerce.Pages
             HttpContext.Session.Remove(title);
             Console.WriteLine("called");
             Console.WriteLine(HttpContext.Session.Keys.Count());
-            return RedirectToPage("Basket");
+            return RedirectToPage("RedirectPage");
         }
     }
 }
