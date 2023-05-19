@@ -27,6 +27,8 @@ namespace E_commerce.Pages
 
         public Dictionary<string, double> SessionDic { get; set; } = new Dictionary<string, double>();
 
+        public double subtotal { get; set; }
+
         public BasketModel(JsonFileService jsonFileService, ProductsAPIService productsAPIService)
         {
             fileservice = jsonFileService;
@@ -56,6 +58,11 @@ namespace E_commerce.Pages
                     newclass.productfromjson = product;
                     productsList.Add(newclass);
                 }
+            }
+            foreach (var each in HttpContext.Session.Keys)
+            {
+                var productPrice = Convert.ToDouble(HttpContext.Session.GetString(each));
+                subtotal += productPrice;
             }
         }
 
