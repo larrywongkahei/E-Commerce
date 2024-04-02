@@ -11,9 +11,6 @@ I got this idea when I was when I was browsing Linkedin post and people often sa
 * #### C#
 * #### .Net
 
-## Redirect
-<a href="https://haystore.herokuapp.com/">To the page</a>
-
 ## Other
 
 For more informations, please email makemak123@gmail.com
